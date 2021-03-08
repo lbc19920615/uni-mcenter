@@ -1,0 +1,9 @@
+{
+	"scripts": {
+		"postupdate": "node /scripts/upgrade.js" // 更新插件后执行该脚本，可从process.env.UNI_MODULES_ID获取当前被更新的插件ID，如果存在多个，以,隔开
+	},
+	"uni_modules": {
+		"uni-link": {},
+		"HM-dragSorts": {}
+	}
+}
