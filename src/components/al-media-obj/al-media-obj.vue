@@ -9,6 +9,9 @@
 </template>
 
 <script>
+	/**
+	 * @doc https://css-tricks.com/media-object-bunch-ways/
+	 */
 	export default {
 		props: {
 			src: String,
