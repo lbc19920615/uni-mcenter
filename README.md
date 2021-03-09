@@ -1,5 +1,7 @@
 # uni-mcenter
 
+![](./Screenshot.png)
+
 ## Project setup
 ```
 yarn install
