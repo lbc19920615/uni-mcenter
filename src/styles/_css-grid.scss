@@ -1,0 +1,36 @@
+@import "./family";
+
+@mixin init-css-grid-item($sel, $column, $gap) {
+	$itemGapWidth: ($gap * ($column - 1)) ;
+	// $itemWidth: percentage(1 / $column);
+	.#{$sel}--column-#{$column} {
+		.#{$sel}-item {
+			width: calc((100% - #{$itemGapWidth}) / #{$column});
+			margin-right: calc(#{$gap});
+
+			&:last-child {
+				margin-right: 0;
+			}
+			@include each($column) {
+					margin-right: 0;
+			}
+		}	
+	}
+}
+
+@mixin init-css-grid($sel, $maxColumn, $gap: 0) {
+	.#{$sel} {
+		text-align: justify;
+		font-size: 0.1px;
+			
+		.#{$sel}-item {
+		  display: inline-block;
+		}
+	}
+	
+	$i: 2;
+	@while $i < $maxColumn {
+		@include init-css-grid-item($sel, $i, $gap);
+		$i: $i + 1;
+	}
+}

@@ -4,6 +4,7 @@
 	},
 	"uni_modules": {
 		"uni-link": {},
+		"uni-grid": {},
 		"HM-dragSorts": {}
 	}
 }

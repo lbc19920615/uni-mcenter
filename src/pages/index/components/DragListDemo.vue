@@ -27,6 +27,11 @@
 						"icon": "/static/c1.png",
 						"url": "/pages/demos/form"
 					},
+					{
+						"name": "布局", 
+						"icon": "/static/c1.png",
+						"url": "/pages/demos/layout"
+					},
 				]
 			}
 		},

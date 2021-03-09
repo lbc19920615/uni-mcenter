@@ -27,6 +27,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/demos/layout",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
