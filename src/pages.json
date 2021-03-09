@@ -25,7 +25,6 @@
                 "navigationBarTitleText": "",
                 "enablePullDownRefresh": false
             }
-            
         }
     ],
 	"globalStyle": {
@@ -51,6 +50,6 @@
 		]
 	},
 	"easycom": {
-		"evan-(.*)": "@/components/evan-$1/evan-$1.vue"
+		
 	}
 }
