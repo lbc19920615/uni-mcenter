@@ -25,6 +25,7 @@
                 "navigationBarTitleText": "",
                 "enablePullDownRefresh": false
             }
+            
         }
     ],
 	"globalStyle": {

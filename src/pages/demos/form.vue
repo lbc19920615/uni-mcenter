@@ -1,7 +1,7 @@
 <template>
 	<view>
-		<!-- {{model.phone}} -->
-		<evan-form ref="form" v-model="model">
+		{{model.phone}}
+		<evan-form ref="form" :model="model">
 			<evan-form-item prop="phone">
 				<input type="text" v-model="model.phone">
 			</evan-form-item>
@@ -13,7 +13,6 @@
 <script>
 	import evanForm from '@/components/evan-form/evan-form.vue'
 	import evanFormItem from '@/components/evan-form-item/evan-form-item.vue'
-	
 	export default {
 		components: {
 			evanForm,
@@ -29,16 +28,17 @@
 						required: true,
 						message: '请输入手机号'
 					},
-					// {
-					// 	validator: (rule, value, callback) => {
-					// 		// 注意这里如果用的是methods里的isMobilePhone将不生效
-					// 		if (this.$utils.isMobilePhone(value)) {
-					// 			callback()
-					// 		} else {
-					// 			callback(new Error('手机号格式不正确'))
-					// 		}
-					// 	}
-					// },
+					{
+						validator: (rule, value, callback) => {
+							// console.log(this.$utils)
+							// 注意这里如果用的是methods里的isMobilePhone将不生效
+							if (this.$utils.isMobilePhone(value)) {
+								callback()
+							} else {
+								callback(new Error('手机号格式不正确'))
+							}
+						}
+					},
 				]	
 				},
 			};
@@ -47,19 +47,12 @@
 		    ﻿// 这里必须放在mounted中，不然h5，支付宝小程序等会找不到this.$refs.form
 		    this.$nextTick(() => {
 				// console.log(this.$refs.form)
-				if (this.$refs.form) {
+				if (this.$refs.form && this.$refs.form.setRules) {
 					this.$refs.form.setRules(this.rules)
 				}
 		    })
 		},
 		methods: {
-			isMobilePhone(rule,value,callback){
-				// if (this.$utils.isMobilePhone(value)) {
-				// 	callback()
-				// } else {
-				// 	callback(new Error('手机号格式不正确'))
-				// }
-			},
 			submit() {
 				this.$refs.form.validate((isError) => {
 					console.log(isError)
