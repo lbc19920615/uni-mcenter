@@ -23,9 +23,9 @@
 						"url": "/pages/demos/test"
 					},
 					{
-						"name": "drag grid 2", 
+						"name": "类似于element-form表单", 
 						"icon": "/static/c1.png",
-						"url": "/pages/demos/test"
+						"url": "/pages/demos/form"
 					},
 				]
 			}

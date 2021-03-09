@@ -18,7 +18,16 @@
 				"navigationBarTitleText": "uni-app"
 			}
 		}
-	],
+        ,{
+            "path" : "pages/demos/form",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
@@ -40,5 +49,8 @@
 			  "text": "我的"
 			}
 		]
+	},
+	"easycom": {
+		"evan-(.*)": "@/components/evan-$1/evan-$1.vue"
 	}
 }
