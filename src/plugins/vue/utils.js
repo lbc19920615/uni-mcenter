@@ -1,4 +1,6 @@
 import Vue from 'vue'
+import * as money from './utils/money.js'
+
 const utils = {
   // 手机号格式是否正确
   isMobilePhone(value) {
@@ -7,7 +9,8 @@ const utils = {
       return true
     }
     return false
-  }
+  },
+  money,
 }
 
 export default {
