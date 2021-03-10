@@ -1,6 +1,6 @@
 <template>
   <view class="container">
-    <view>
+    <view class="swiper-con">
       <swiper
         class="swiper"
         :indicator-dots="indicatorDots"
@@ -30,39 +30,23 @@
         </swiper-item>
       </swiper>
     </view>
-    <z-paging
-      ref="paging"
-      @query="queryList"
-      :list.sync="dataList"
-      :refresher-threshold="80"
-      :use-custom-refresher="false"
-      :refresher-status.sync="refresherStatus"
-    >
-      <!-- 自定义下拉刷新view，若不设置，则使用z-paging自带的下拉刷新view -->
-      <al-refresher slot="refresher" :status="refresherStatus"></al-refresher>
-      <!-- 设置自定义emptyView组件，非必须。空数据时会自动展示空数据组件，不需要自己处理 -->
-      <al-empty slot="empty"></al-empty>
-      <!-- list数据，建议像下方这样在item外层套一个view，而非直接for循环item，因为slot插入有数量限制 -->
-      <view class="index-demo-wrap">
-        <view
-          class="index-demo-item"
-          @click="onClickItem(item)"
-          v-for="(item, index) in dataList"
-		  :key="index"
-        >
-          <view class="item-title">{{ item.name }}</view>
-        </view>
-      </view>
-      <view slot="loadingMoreNoMore">这是完全自定义的没有更多数据view</view>
-    </z-paging>
+	<view class="main-con">
+		<liuyuno-tabs
+		 class="main-tabs"
+		 :tabData="tabs" :defaultIndex="defaultIndex" @tabClick='tabClick' />
+		<index-fragment-main 
+		v-show="defaultIndex === 0" ref="fagmain"></index-fragment-main>
+		<view v-show="defaultIndex !== 0">
+			<al-empty></al-empty>
+		</view>
+	</view>
   </view>
 </template>
 
 <script>
-import { getCourseProducts } from "@/api/common";
-import alEmpty from "@/components/al-empty/al-empty.vue";
-import alRefresher from "@/components/al-refresher/al-refresher.vue";
-
+import indexFragmentMain from './components/index-fragment-main.vue'	
+import liuyunoTabs from "@/components/liuyuno-tabs/liuyuno-tabs.vue";
+	
 let swiperMixin = {
   data() {
     return {
@@ -93,57 +77,104 @@ export default {
 	mixins: [
 		swiperMixin
 	],
-  components: {
-    alEmpty,
-    alRefresher,
-  },
+	components: {
+		liuyunoTabs,
+		indexFragmentMain
+	},
   data() {
     return {
-      dataList: [],
-      refresherStatus: null,
+		tabs: [
+			{
+				name: '首页'
+			},
+			{
+				name: '测试1'
+			},
+			{
+				name: '测试2'
+			},
+			{
+				name: '测试3'
+			},
+			{
+				name: '测试4'
+			},
+			{
+				name: '测试5'
+			},
+			{
+				name: '测试6'
+			},
+		],
+		defaultIndex: 0,
     };
   },
+  mounted() {
+	  this.$nextTick(() => {
+		  this.$refs.fagmain.reload()
+	  })
+  },
   methods: {
-    onClickItem(row) {
-      uni.navigateTo({
-        url: row.url,
-      });
-    },
-    queryList(pageNo, pageSize) {
-      //这里的pageNo和pageSize会自动计算好，直接传给服务器即可
-      //这里的请求只是演示，请替换成自己的项目的网络请求，请在网络请求回调中
-      //通过this.$refs.paging.addData(请求回来的数组);将请求结果传给z-paging
-      // this.$request.queryList(pageNo, pageSize, (data) => {
-      //     this.$refs.paging.addData(data);
-      // });
-
-      // getCourseProducts().then(res => {
-      // 	 // this.$refs.paging.addData(res.data);
-      // 	 this.$refs.paging.addData([]);
-      // })
-
-      this.$refs.paging.addData([
-        {
-          name: "图片拖动排序",
-          icon: "/static/c1.png",
-          url: "/pages/demos/test",
-        },
-        {
-          name: "类似于element-form表单",
-          icon: "/static/c1.png",
-          url: "/pages/demos/form",
-        },
-        {
-          name: "布局",
-          icon: "/static/c1.png",
-          url: "/pages/demos/layout",
-        },
-      ]);
-    },
+	  tabClick(e) {
+		  // console.log('tabClick', e)
+		this.defaultIndex = e  
+	  }
   },
 };
 </script>
 
+
 <style lang="scss">
-@import "./styles/index";
+@import "../../styles/alh";
+
+/* 注意，父元素需要固定高度，z-paging的height:100%才会生效 */
+page {
+  height: 100%;
+}
+
+.container {	
+  font-size: 14px;
+  line-height: 24px;
+  height: 100%;
+}
+
+$swiperHeight: 300upx;
+.swiper-con {
+	height: $swiperHeight;
+}
+
+.main-con {
+	height: calc(100% - #{$swiperHeight});
+}
+
+$tabsHeight: 90upx;
+.main-tabs {
+	height: $tabsHeight;
+}
+
+.page-content {
+height: calc(100% - #{$tabsHeight} - var(--safe-area-inset-bottom));
+// background-color: #EEEEEE;
+}
+
+/* #ifdef MP-WEIXIN */
+.page-content {
+height: calc(100% - #{$tabsHeight} - #{$tabbarHeight} - var(--safe-area-inset-bottom));
+}
+/* #endif */
+
+.swiper {
+  height: 300rpx;
+}
+.swiper-item {
+  display: block;
+  height: 300rpx;
+  line-height: 300rpx;
+  text-align: center;
+}
+
+.swiper-image {
+	width: 100%;
+	height: 100%;
+}
 </style>
