@@ -7,15 +7,26 @@
         :autoplay="autoplay"
         :interval="interval"
         :duration="duration"
+		:circular="true"
+		indicator-active-color="#333"
       >
         <swiper-item>
-          <view class="swiper-item uni-bg-red">A</view>
+          <view class="swiper-item uni-bg-red">
+			<image class="swiper-image"
+			mode="aspectFill" src="/static/pages/index/swipe1.png"></image>
+		  </view>
         </swiper-item>
         <swiper-item>
-          <view class="swiper-item uni-bg-green">B</view>
+          <view class="swiper-item uni-bg-green">
+			  <image class="swiper-image"
+			  mode="aspectFill" src="/static/pages/index/swipe2.png"></image>
+		  </view>
         </swiper-item>
         <swiper-item>
-          <view class="swiper-item uni-bg-blue">C</view>
+          <view class="swiper-item uni-bg-blue">
+			  <image class="swiper-image"
+			  mode="aspectFill" src="/static/pages/index/swipe3.png"></image>
+		  </view>
         </swiper-item>
       </swiper>
     </view>
