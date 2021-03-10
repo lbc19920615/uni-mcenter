@@ -60,6 +60,15 @@
 		]
 	},
 	"easycom": {
-		
+		"autoscan": true
+	},
+	"condition": {
+        "list": [
+			{
+				"name": "pages/demos/form",
+				"pathName": "pages/demos/form",
+				"scene": null
+			}
+		]
 	}
 }
