@@ -5,6 +5,9 @@
 
    https://ext.dcloud.net.cn/plugin?id=1675
 
+2. localstorage
+
+   https://ext.dcloud.net.cn/plugin?id=280
 
 ## components
 1. swipe
@@ -20,3 +23,7 @@
 3. tab
 
     https://ext.dcloud.net.cn/plugin?id=1102
+	
+4. painter
+
+	https://ext.dcloud.net.cn/plugin?id=1812
