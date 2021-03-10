@@ -1,5 +1,10 @@
+////
+/// This is nth-child simple use lib
+/// @group family
+////
+
 /// Select all children from the first to `$num`.
-/// @group with-arguments
+/// @group family.with-arguments
 /// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
 /// @param {number} $num - id of the child
 @mixin first($num) {
@@ -15,7 +20,7 @@
 }
 
 /// Select all children from the last to `$num`.
-/// @group with-arguments
+/// @group family.with-arguments
 /// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
 /// @param {number} $num - id of the child
 @mixin last($num) {
@@ -25,7 +30,7 @@
 }
 
 /// Select all children after the first to `$num`.
-/// @group with-arguments
+/// @group family.with-arguments
 /// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
 /// @param {number} $num - id of the child
 @mixin after-first($num) {
@@ -35,7 +40,7 @@
 }
 
 /// Select all children before `$num` from the last.
-/// @group with-arguments
+/// @group family.with-arguments
 /// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
 /// @param {number} $num - id of the child
 @mixin from-end($num) {
@@ -45,7 +50,7 @@
 }
 
 /// Select all children between `$first` and `$last`.
-/// @group with-arguments
+/// @group family.with-arguments
 /// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
 @mixin between($first, $last) {
   &:nth-child(n + #{$first}):nth-child(-n + #{$last}) {
@@ -54,7 +59,7 @@
 }
 
 /// Select all even children between `$first` and `$last`.
-/// @group with-arguments
+/// @group family.with-arguments
 /// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
 @mixin even-between($first, $last) {
   &:nth-child(even):nth-child(n + #{$first}):nth-child(-n + #{$last}) {
@@ -63,7 +68,7 @@
 }
 
 /// Select all odd children between `$first` and `$last`.
-/// @group with-arguments
+/// @group family.with-arguments
 /// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
 @mixin odd-between($first, $last) {
   &:nth-child(odd):nth-child(n + #{$first}):nth-child(-n + #{$last}) {
@@ -72,7 +77,7 @@
 }
 
 /// Select all `$num` children between `$first` and `$last`.
-/// @group with-arguments
+/// @group family.with-arguments
 /// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
 @mixin n-between($num, $first, $last) {
   &:nth-child(#{$num}n):nth-child(n + #{$first}):nth-child(-n + #{$last}) {
@@ -82,7 +87,7 @@
 
 
 /// Select all children but `$num`.
-/// @group with-arguments
+/// @group family.with-arguments
 /// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
 /// @param {number} $num - id of the child
 @mixin all-but($num) {
@@ -92,7 +97,7 @@
 }
 
 /// Select children each `$num`.
-/// @group with-arguments
+/// @group family.with-arguments
 /// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
 /// @param {number} $num - id of the child
 /// @alias every
@@ -103,7 +108,7 @@
 }
 
 /// Select children each `$num`.
-/// @group with-arguments
+/// @group family.with-arguments
 /// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
 /// @param {number} $num - id of the child
 @mixin every($num) {
@@ -113,7 +118,7 @@
 }
 
 /// Select the `$num` child from the start and the `$num` child from the last.
-/// @group with-arguments
+/// @group family.with-arguments
 /// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
 /// @param {number} $num - id of the child
 @mixin from-first-last($num) {
@@ -126,7 +131,7 @@
 
 /// Select the item in the middle of `$num` child. Only works with odd number
 /// chain.
-/// @group with-arguments
+/// @group family.with-arguments
 /// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
 /// @param {number} $num - id of the child
 @mixin middle($num) {
@@ -137,7 +142,7 @@
 
 
 /// Select all children between the `$num` first and the `$num` last.
-/// @group with-arguments
+/// @group family.with-arguments
 /// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
 /// @param {number} $num - id of the child
 @mixin all-but-first-last($num) {
@@ -149,7 +154,7 @@
 
 /// This quantity-query mixin will only select the first of `$limit` items. It will not
 /// work if there is not as much as item as you set in `$limit`.
-/// @group Quantity queries
+/// @group family.Quantity queries
 /// @param {number} $limit
 /// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
 @mixin first-of($limit) {
@@ -160,7 +165,7 @@
 
 /// This quantity-query mixin will only select the last of `$limit` items. It will not
 /// if there is not as much as item as you set in `$limit`.
-/// @group Quantity queries
+/// @group family.Quantity queries
 /// @param {number} $limit
 /// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
 @mixin last-of($limit) {
@@ -171,7 +176,7 @@
 
 /// This quantity-query mixin will select every items if there is at least `$num` items. It will not
 /// if there is not as much as item as you set in `$num`.
-/// @group Quantity queries
+/// @group family.Quantity queries
 /// @param {number} $limit
 /// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
 @mixin at-least($num) {
@@ -186,7 +191,7 @@
 
 /// This quantity-query mixin will select every items if there is at most `$num` items. It will not
 /// if there is not as much as item as you set in `$num`.
-/// @group Quantity queries
+/// @group family.Quantity queries
 /// @param {number} $limit
 /// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
 @mixin at-most($num) {
@@ -200,7 +205,7 @@
 }
 
 /// This quantity-query mixin will select every items only if there is between `$min` and `$max` items.
-/// @group Quantity queries
+/// @group family.Quantity queries
 /// @param {number} $limit
 /// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
 @mixin in-between($min, $max) {
@@ -214,7 +219,7 @@
 }
 
 /// Select the first exact child
-/// @group no-arguments
+/// @group family.no-arguments
 /// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
 @mixin first-child() {
   &:first-of-type {
@@ -223,7 +228,7 @@
 }
 
 /// Select the last exact child
-/// @group no-arguments
+/// @group family.no-arguments
 /// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
 @mixin last-child() {
   &:last-of-type {
@@ -232,7 +237,7 @@
 }
 
 /// Select all even children.
-/// @group no-arguments
+/// @group family.no-arguments
 /// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
 @mixin even() {
   &:nth-child(even) {
@@ -241,7 +246,7 @@
 }
 
 /// Select all odd children.
-/// @group no-arguments
+/// @group family.no-arguments
 /// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
 @mixin odd() {
   &:nth-child(odd) {
@@ -250,7 +255,7 @@
 }
 
 /// Select only the first and last child.
-/// @group no-arguments
+/// @group family.no-arguments
 /// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
 @mixin first-last() {
   &:first-child,
@@ -260,7 +265,7 @@
 }
 
 /// Will only select the child if it’s unique.
-/// @group no-arguments
+/// @group family.no-arguments
 /// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
 /// @alias only
 @mixin unique() {
@@ -270,7 +275,7 @@
 }
 
 /// Will only select the child if it’s unique.
-/// @group no-arguments
+/// @group family.no-arguments
 /// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
 @mixin only() {
   &:only-child {
@@ -280,7 +285,7 @@
 
 /// Will only select children if they are not unique. Meaning if there is at
 /// least 2 children, the style is applied.
-/// @group no-arguments
+/// @group family.no-arguments
 /// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
 @mixin not-unique() {
   &:not(:only-child) {
@@ -291,7 +296,7 @@
 
 /// This mixin is used to automatically sort z-index in numerical order. But it
 /// can also sort them in anti-numerical order, depending the parameters you use.
-/// @group using functions
+/// @group family.using functions
 /// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
 /// @param {number} $num - Number of children
 /// @param {string} $direction [forward] - Direction of the sort
