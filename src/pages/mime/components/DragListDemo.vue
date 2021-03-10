@@ -13,7 +13,7 @@
 
 <script>
 	export default {
-		// components: {'HM-dragSorts':dragSorts},// 组件符合easycom规范，默认这个可以不写
+		name: 'DragListDemo',
 		data() {
 			return {
 				list:[

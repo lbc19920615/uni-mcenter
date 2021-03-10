@@ -13,6 +13,7 @@
 	 * @doc https://css-tricks.com/media-object-bunch-ways/
 	 */
 	export default {
+		name: 'alMediaObj',
 		props: {
 			src: String,
 		}
