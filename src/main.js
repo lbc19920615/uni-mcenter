@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import App from './App'
 
+import store from './store/index'
+
 Vue.config.productionTip = false
 
 import utils from '@/plugins/vue/utils.js'
@@ -12,6 +14,7 @@ Vue.mixin(wxTabbarMixin)
 App.mpType = 'app'
 
 const app = new Vue({
-  ...App
+  ...App,
+	store
 })
 app.$mount()

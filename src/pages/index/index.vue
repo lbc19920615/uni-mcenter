@@ -44,6 +44,7 @@
 </template>
 
 <script>
+ import {mapGetters} from 'vuex'	
 import indexFragmentMain from './components/index-fragment-main.vue'	
 import liuyunoTabs from "@/components/liuyuno-tabs/liuyuno-tabs.vue";
 	
@@ -109,9 +110,17 @@ export default {
 		defaultIndex: 0,
     };
   },
+  computed: {
+	...mapGetters([
+		'device'
+	])  
+  },
   mounted() {
 	  this.$nextTick(() => {
+		  console.log('你好这是从vuex得到的device', this.device)
+		  this.$store.dispatch('SetAppDevice', uni.getSystemInfoSync().platform)
 			setTimeout(() => {
+					  console.log('你好这是从vuex得到的device', this.device)
 				 this.$refs.fagmain.reload()
 			}, 0)
 	  })
