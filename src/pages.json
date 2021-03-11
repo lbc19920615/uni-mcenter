@@ -36,6 +36,25 @@
             }
             
         }
+        ,{
+            "path" : "pages/demos/index_a",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false,
+				"navigationStyle":"custom"
+            }
+            
+        }
+        ,{
+            "path" : "pages/demos/scroll",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
@@ -67,6 +86,16 @@
 			{
 				"name": "pages/demos/form",
 				"pathName": "pages/demos/form",
+				"scene": null
+			},
+			{
+				"name": "pages/demos/index_a",
+				"pathName": "pages/demos/index_a",
+				"scene": null
+			},
+			{
+				"name": "pages/demos/scroll",
+				"pathName": "pages/demos/scroll",
 				"scene": null
 			}
 		]

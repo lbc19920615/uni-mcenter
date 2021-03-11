@@ -111,7 +111,9 @@ export default {
   },
   mounted() {
 	  this.$nextTick(() => {
-		  this.$refs.fagmain.reload()
+			setTimeout(() => {
+				 this.$refs.fagmain.reload()
+			}, 0)
 	  })
   },
   methods: {

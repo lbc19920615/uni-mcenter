@@ -27,3 +27,11 @@
 4. painter
 
 	https://ext.dcloud.net.cn/plugin?id=1812
+	
+5. area_scroll
+
+	https://ext.dcloud.net.cn/plugin?id=4121
+	
+6. link scroll
+
+	https://ext.dcloud.net.cn/plugin?id=1458

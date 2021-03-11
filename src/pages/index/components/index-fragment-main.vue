@@ -40,28 +40,14 @@
 </template>
 
 <script>
-	import { getCourseProducts } from "@/api/common";
+import { getCourseProducts } from "@/api/common";
 	
 import alEmpty from "@/components/al-empty/al-empty.vue";
 import alRefresher from "@/components/al-refresher/al-refresher.vue";	
 
-let mockData = [
-	{
-		name: "图片拖动排序",
-		icon: "/static/c1.png",
-		url: "/pages/demos/test",
-	},
-	{
-		name: "类似于element-form表单",
-		icon: "/static/c1.png",
-		url: "/pages/demos/form",
-	},
-	{
-		name: "布局",
-		icon: "/static/c1.png",
-		url: "/pages/demos/layout",
-	},
-]
+import { demoPages } from '@/var';
+
+let mockData = demoPages
 
 mockData = mockData.concat(mockData)
 mockData = mockData.concat(mockData)
@@ -81,12 +67,16 @@ export default {
 	},
 	methods: {
 		reload() {
-			this.$refs.paging.reload()
+			// console.log(this.$refs.paging.reload)
+			// this.$refs.paging.reload()
+			if (this.$refs.paging && this.$refs.paging.reload) {
+				this.$refs.paging.reload()
+			}
 		},
 		onClickItem(row) {
-		  // uni.navigateTo({
-		  //   url: row.url,
-		  // });
+		  uni.navigateTo({
+		    url: row.url,
+		  });
 		},
 		queryList(pageNo, pageSize) {
 		  //这里的pageNo和pageSize会自动计算好，直接传给服务器即可
