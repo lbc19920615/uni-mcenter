@@ -1,15 +1,16 @@
 const app = {
+	namespaced: true,
   state: {
 		device: 'mobile',
 	},
 	mutations: {
-	  SET_APP_DEVICE: (state, v) => {
+	  SET_DEVICE: (state, v) => {
 			state.device = v
 		},
 	},
 	actions: {
-		SetAppDevice({commit}, v) {
-			commit('SET_APP_DEVICE', v)
+		SetDevice({commit}, v) {
+			commit('SET_DEVICE', v)
 		}
   }
 }

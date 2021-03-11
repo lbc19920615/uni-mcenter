@@ -118,7 +118,7 @@ export default {
   mounted() {
 	  this.$nextTick(() => {
 		  console.log('你好这是从vuex得到的device', this.device)
-		  this.$store.dispatch('SetAppDevice', uni.getSystemInfoSync().platform)
+		  this.$store.dispatch('app/SetDevice', uni.getSystemInfoSync().platform)
 			setTimeout(() => {
 					  console.log('你好这是从vuex得到的device', this.device)
 				 this.$refs.fagmain.reload()
