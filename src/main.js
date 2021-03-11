@@ -18,3 +18,4 @@ const app = new Vue({
 	store
 })
 app.$mount()
+

@@ -1,0 +1,8 @@
+{
+	"source": {
+		"include": [ "src/", "src/utils/mixins/" ]
+	},
+	"opts": {
+	  "destination": "./jsdocs"          // same as -d ./out/
+	}
+}
