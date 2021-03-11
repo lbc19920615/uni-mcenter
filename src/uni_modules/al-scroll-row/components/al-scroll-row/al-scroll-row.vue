@@ -27,7 +27,7 @@
 <template>
 	<view>
 		<scroll-view
-		lass="al-scroll-row" 
+		class="al-scroll-row" 
 		scroll-x="true" 
 		scroll-with-animation="true" 
 		:scroll-left="scrollLeft"
@@ -56,6 +56,10 @@
 	        return winWidth * v / 750;
 	 }
 	
+	
+	const SCROLL_BAR_WIDTH = 86
+	let WINDOW_WIDTH = 0
+	
 	export default {
 		props: {
 			itemWidth: {
@@ -71,8 +75,8 @@
 		data() {
 			return {
 				scrollLeft: 0,
-				    percent: 0,       //滚动条距离左边的距离
-				      barW: 0,          //滚动条的宽度
+				percent: 0,       //滚动条距离左边的距离
+				barW: 0,          //滚动条的宽度
 			}
 		},
 		computed: {
@@ -82,6 +86,8 @@
 			},
 		},
 		mounted() {
+			
+			WINDOW_WIDTH = uni.getSystemInfoSync().windowWidth
 			this.countCatWidth()
 		},
 		methods: {
@@ -92,16 +98,16 @@
 				// let sw = (that.itemWidth+5)*that.items.length+5
 				let sw = getRpx(this.getConStyle)
 				// console.log(sw)
-				that.barW = (86/sw)*uni.getSystemInfoSync().windowWidth
+				that.barW = (SCROLL_BAR_WIDTH /sw) * WINDOW_WIDTH
 				// console.log(sw, that.barW)
 		  },
 		  //bindscroll事件
 		  spikeScroll(e) {
 			  // console.log(e.detail.scrollWidth)
-			  let barW = (86/e.detail.scrollWidth)*uni.getSystemInfoSync().windowWidth
+			  let barW = (SCROLL_BAR_WIDTH /e.detail.scrollWidth) * WINDOW_WIDTH
 			  this.barW = barW
-			  let percent = (86/e.detail.scrollWidth)*e.detail.scrollLeft
-			  if (percent > 95) {
+			  let percent = (SCROLL_BAR_WIDTH /e.detail.scrollWidth)*e.detail.scrollLeft
+			  if (percent > 90) {
 				  percent = 100
 			  }
 			  this.percent = percent
