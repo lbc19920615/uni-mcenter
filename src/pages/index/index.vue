@@ -37,6 +37,7 @@
 		 :tabData="tabs" :defaultIndex="defaultIndex" @tabClick='tabClick' />
 
     <index-swipe-page
+        class="page-content"
         :data-index="contentIndex"
                       :swiper-data="tabs"
               @change="onSwipeChange"

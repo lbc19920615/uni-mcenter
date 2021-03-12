@@ -12,7 +12,7 @@
       :easingFunction="easingFunction"
   >
     <swiper-item v-for="(item, index) in 3" :key="index">
-      <view class="swiper-item">
+<!--      <view class="swiper-item">-->
         <!-- 这里写你的组件或者内容 -->
         <!-- swiperData应是一个存着对象的数组 每一个对象代表对应页的内容 -->
         <!-- 你的组件应该对应swiperList索引 如 -->
@@ -21,10 +21,10 @@
         <!-- 或者传入页面数据 由你自己的组件内部来处理 如 -->
         <!-- <myComponents :pageData="swiperData[swiperList[index]]" ></myComponents> -->
         <!-- swiperData[swiperList[index]]是固定写法 -->
-        <index-swipe-com
-            :index="index"
-            :item="swiperData[swiperList[index]]"></index-swipe-com>
-      </view>
+<!--      </view>-->
+      <index-swipe-com
+          :index="index"
+          :item="swiperData[swiperList[index]]"></index-swipe-com>
     </swiper-item>
   </swiper>
 </template>

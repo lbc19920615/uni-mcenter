@@ -1,18 +1,18 @@
 <style lang="scss">
 	@import "../../../styles/alh";
-	
+
 	.index-demo-item {
 	  height: 150upx;
 	  padding: $commonPadding;
 	}
-	
+
 	.loading-more {
 		padding: $commonPadding;
 	}
 </style>
 
 <template>
-	<view class="page-content">
+	<view class="z-paging-wrap" style="height: 100%">
 		<z-paging
 		  ref="paging"
 		  :mounted-auto-call-reload="false"
@@ -32,7 +32,7 @@
 					<view class="item-title">{{ item.name }}</view>
 				</view>
 		  </view>
-		  <view 
+		  <view
 		  class="loading-more"
 		  slot="loadingMoreNoMore">这是完全自定义的没有更多数据view</view>
 		</z-paging>
@@ -41,9 +41,9 @@
 
 <script>
 import { getCourseProducts } from "@/api/common";
-	
+
 import alEmpty from "@/components/al-empty/al-empty.vue";
-import alRefresher from "@/components/al-refresher/al-refresher.vue";	
+import alRefresher from "@/components/al-refresher/al-refresher.vue";
 
 import { demoPages } from '@/var';
 
@@ -85,14 +85,14 @@ export default {
 		  // this.$request.queryList(pageNo, pageSize, (data) => {
 		  //     this.$refs.paging.addData(data);
 		  // });
-		
+
 		  // getCourseProducts().then(res => {
 		  // 	 // this.$refs.paging.addData(res.data);
 		  // 	 this.$refs.paging.addData([]);
 		  // })
-		
+
 			console.log(pageNo)
-		
+
 			setTimeout(() => {
 				let first = (pageNo - 1) * 15
 				let end = pageNo * 15
