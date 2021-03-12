@@ -33,87 +33,71 @@
 	<view class="main-con">
 		<liuyuno-tabs
 		 class="main-tabs"
+     ref="tab"
 		 :tabData="tabs" :defaultIndex="defaultIndex" @tabClick='tabClick' />
-		<index-fragment-main 
-		v-show="defaultIndex === 0" ref="fagmain"></index-fragment-main>
-		<view v-show="defaultIndex !== 0">
-			<al-empty></al-empty>
-		</view>
+
+    <index-swipe-page
+        :data-index="contentIndex"
+                      :swiper-data="tabs"
+              @change="onSwipeChange"
+    ></index-swipe-page>
+<!--		<index-fragment-main-->
+<!--		v-show="defaultIndex === 0" ref="fagmain"></index-fragment-main>-->
+<!--		<view v-show="defaultIndex !== 0">-->
+<!--			<al-empty></al-empty>-->
+<!--		</view>-->
 	</view>
   </view>
 </template>
 
 <script>
- import {mapGetters} from 'vuex'	
-import indexFragmentMain from './components/index-fragment-main.vue'	
+import {mapGetters} from 'vuex'
 import liuyunoTabs from "@/components/liuyuno-tabs/liuyuno-tabs.vue";
-	
-let swiperMixin = {
-  data() {
-    return {
-      background: ["color1", "color2", "color3"],
-      indicatorDots: true,
-      autoplay: true,
-      interval: 10000,
-      duration: 1000,
-    };
-  },
-  methods: {
-    changeIndicatorDots(e) {
-      this.indicatorDots = !this.indicatorDots;
-    },
-    changeAutoplay(e) {
-      this.autoplay = !this.autoplay;
-    },
-    intervalChange(e) {
-      this.interval = e.target.value;
-    },
-    durationChange(e) {
-      this.duration = e.target.value;
-    },
-  },
-};
+
+import { swiperMixin } from "@/pages/index/mixin";
+import IndexSwipePage from "@/pages/index/components/index-swipe-page";
 
 export default {
 	mixins: [
 		swiperMixin
 	],
 	components: {
+    IndexSwipePage,
 		liuyunoTabs,
-		indexFragmentMain
 	},
   data() {
     return {
-		tabs: [
-			{
-				name: '首页'
-			},
-			{
-				name: '测试1'
-			},
-			{
-				name: '测试2'
-			},
-			{
-				name: '测试3'
-			},
-			{
-				name: '测试4'
-			},
-			{
-				name: '测试5'
-			},
-			{
-				name: '测试6'
-			},
-		],
-		defaultIndex: 0,
+      tabs: [
+        {
+          name: '首页'
+        },
+        {
+          name: '测试1'
+        },
+        {
+          name: '测试2'
+        },
+        {
+          name: '测试3'
+        },
+        {
+          name: '测试4'
+        },
+        {
+          name: '测试5'
+        },
+        {
+          name: '测试6'
+        },
+      ],
+      defaultIndex: 0,
+      contentIndex: 0,
     };
   },
   computed: {
 	...mapGetters([
 		'device'
-	])  
+	])
   },
   mounted() {
 	  this.$nextTick(() => {
@@ -121,15 +105,19 @@ export default {
 		  this.$store.dispatch('app/SetDevice', uni.getSystemInfoSync().platform)
 			setTimeout(() => {
 					  console.log('你好这是从vuex得到的device', this.device)
-				 this.$refs.fagmain.reload()
 			}, 0)
 	  })
   },
   methods: {
 	  tabClick(e) {
-		  // console.log('tabClick', e)
-		this.defaultIndex = e  
-	  }
+		  console.log('tabClick', e)
+	  	// this.defaultIndex = e
+      this.contentIndex = e
+	  },
+    onSwipeChange(e) {
+	    console.log('onSwipeChange', e)
+      this.$refs.tab.setIndex(e.current)
+    }
   },
 };
 </script>
@@ -143,7 +131,7 @@ page {
   height: 100%;
 }
 
-.container {	
+.container {
   font-size: 14px;
   line-height: 24px;
   height: 100%;

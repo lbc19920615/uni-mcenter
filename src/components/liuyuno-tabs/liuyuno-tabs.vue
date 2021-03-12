@@ -4,7 +4,7 @@
 			<view class="_scroll-content">
 				<view class="_tab-item-box" :class="[defaultConfig.itemWidth ? '_clamp' : '_flex']">
 					<block v-for="(item, index) in tabList" :key="index" >
-						<view 
+						<view
 							class="_item"
 							:id="'_tab_'+index"
 							:class="{ '_active': tagIndex === index }"
@@ -107,16 +107,16 @@
 				} else {
 					data = JSON.parse(JSON.stringify(this.tabData));
 				}
-				
+
 				this.tabList = data;
 			},
 			updateConfig() {
 				this.defaultConfig = Object.assign(this.defaultConfig, this.config);
 			},
 			calcScrollPosition() {
-				
+
 				const query = uni.createSelectorQuery().in(this);
-				
+
 				query.select('#_scroll').boundingClientRect((res) => {
 					this.scorll = res;
 					this.updateTabWidth();
@@ -124,11 +124,11 @@
 			},
 			updateTabWidth(index = 0) {
 				let data = this.tabList;
-				
+
 				if (data.length == 0) return false;
-				
+
 				const query = uni.createSelectorQuery().in(this);
-				
+
 				query.select('#_tab_' + index).boundingClientRect((res) => {
 
 					data[index]._slider = {
@@ -136,7 +136,7 @@
 						left: res.left,
 						scrollLeft: res.left - (data[index - 1] ? data[index - 1]._slider.width : 0),
 					};
-					
+
 					if (this.tagIndex == index) {
 						this.tabToIndex(this.tagIndex);
 					}
@@ -147,13 +147,13 @@
 					}
 				}).exec();
 			},
-	
+
 			tabToIndex(index) {
 
 				let _slider = this.tabList[index]._slider;
-				
+
 				let width = uni.upx2px(this.defaultConfig.underLineWidth);
-				
+
 				if (!width) {
 					if (this.defaultConfig.itemWidth) {
 						width = uni.upx2px(this.defaultConfig.itemWidth);
@@ -162,21 +162,25 @@
 					}
 					width += uni.upx2px(this.defaultConfig.underLinePadding) * 2;
 				}
-				
+
 				let scorll_left = this.scorll.left || 0;
-				
+
 				this.slider = {
 					left: _slider.left - scorll_left + (_slider.width - width) / 2,
 					width: width,
 					scrollLeft: _slider.scrollLeft - scorll_left,
 				}
 			},
-			
+
 			tabClick(index) {
-				this.tagIndex = index;
-				this.tabToIndex(index);
+				this.setIndex(index)
 				this.$emit('tabClick', index);
-			}
+			},
+
+			setIndex(index) {
+        this.tagIndex = index;
+        this.tabToIndex(index);
+      }
 		}
 	}
 </script>
@@ -199,7 +203,7 @@
 				width: 100%;
 				height: 100%;
 				position:relative;
-				
+
 				._tab-item-box {
 					height: 100%;
 					&._flex {
@@ -215,16 +219,16 @@
 							white-space:nowrap;
 						}
 					}
-					
-					
-					._item { 
+
+
+					._item {
 						height: 100%;
 						display: inline-block;
 						text-align: center;
 						padding: 0 30rpx;
 						position: relative;
 						text-align: center;
-						
+
 						color: #333;
 						&._active {
 							color: #e54d42;
