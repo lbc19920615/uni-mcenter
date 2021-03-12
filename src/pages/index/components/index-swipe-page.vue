@@ -1,5 +1,14 @@
+
+<style >
+.index-swiper {
+  height: 100%;
+}
+</style>
+
+
 <template>
   <swiper
+      class="index-swiper"
       @change="touchmove"
       @transition="transition"
       @animationfinish="animationfinish"
@@ -17,14 +26,14 @@
         <!-- swiperData应是一个存着对象的数组 每一个对象代表对应页的内容 -->
         <!-- 你的组件应该对应swiperList索引 如 -->
 <!--        &lt;!&ndash; <view >{{ swiperData[swiperList[index]].firstname }}</view>-->
-<!--        <view >{{ swiperData[swiperList[index]] }}</view>-->
+        <view >{{ swiperData[swiperList[index]].name }}</view>
         <!-- 或者传入页面数据 由你自己的组件内部来处理 如 -->
         <!-- <myComponents :pageData="swiperData[swiperList[index]]" ></myComponents> -->
         <!-- swiperData[swiperList[index]]是固定写法 -->
 <!--      </view>-->
-      <index-swipe-com
-          :index="index"
-          :item="swiperData[swiperList[index]]"></index-swipe-com>
+<!--      <index-swipe-com-->
+<!--          :index="index"-->
+<!--          :item="swiperData[swiperList[index]]"></index-swipe-com>-->
     </swiper-item>
   </swiper>
 </template>
@@ -82,8 +91,12 @@ export default {
     this.handleList();
   },
   methods: {
+    setIndex(index) {
+      this.handleList(index)
+    },
     touchmove(e) {
       this.handleList(e.detail.current);
+      console.log(e.detail.current)
       this.current = this.swiperList[e.detail.current];
       this.$emit('change', {
         ...e.detail,
@@ -134,7 +147,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-
-</style>

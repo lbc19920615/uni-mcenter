@@ -37,10 +37,10 @@
 		 :tabData="tabs" :defaultIndex="defaultIndex" @tabClick='tabClick' />
 
     <index-swipe-page
+        ref="content"
         class="page-content"
-        :data-index="contentIndex"
-                      :swiper-data="tabs"
-              @change="onSwipeChange"
+        :swiper-data="tabs"
+        @change="onSwipeChange"
     ></index-swipe-page>
 <!--		<index-fragment-main-->
 <!--		v-show="defaultIndex === 0" ref="fagmain"></index-fragment-main>-->
@@ -111,13 +111,13 @@ export default {
   },
   methods: {
 	  tabClick(e) {
-		  console.log('tabClick', e)
 	  	// this.defaultIndex = e
       this.contentIndex = e
+      // this.$refs.content.setIndex(e)
 	  },
     onSwipeChange(e) {
 	    console.log('onSwipeChange', e)
-      this.$refs.tab.setIndex(e.current)
+      // this.$refs.tab.setIndex(e.current)
     }
   },
 };
@@ -153,6 +153,7 @@ $tabsHeight: 90upx;
 }
 
 .page-content {
+  display: block;
 height: calc(100% - #{$tabsHeight} - var(--safe-area-inset-bottom));
 // background-color: #EEEEEE;
 }
