@@ -39,3 +39,7 @@
 7. page swiper
 
 	https://ext.dcloud.net.cn/plugin?id=1534
+	
+8. dropdown
+
+    https://ext.dcloud.net.cn/plugin?id=1078		
