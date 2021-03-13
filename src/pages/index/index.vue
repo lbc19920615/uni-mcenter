@@ -15,9 +15,13 @@
 						:lower-threshold="80"
 						:refresher-triggered="refreStatus"
 						@refresherrefresh="handleRefre"
+						 :refresher-threshold="50" 
+						 :upper-threshold="30"
 						:refresher-enabled="true"
 						class="swiper-scroll"
 						scroll-y="true"
+						@scroll="swiperScroll"
+						@scrolltoupper="swiperScrolltoupper"
 						@scrolltolower="swiperScrollLower"
 					>
 						<view class="swiper-item-wrap">
@@ -49,7 +53,7 @@ import shortUUID  from 'short-uuid'
 import {demoPages} from "@/var";
 
 const mockData = [
-				{ title: '首页', content: ['首页-1', '首页-2', '首页-3', '首页-4'] },
+				{ title: '首页', content: ['首页-1', '首页-2', '首页-3', '首页-4',  '首页-5', '首页-6', '首页-7'] },
 				{ title: '测试', content: ['测试-1', '测试-2', '测试-3', '测试-4', '测试-5'] },
 				{ title: '我的', content: ['我的-1', '我的-2', '我的-3',] },
 				{ title: 'hello', content: ['hello-1', 'hello-2', 'hello-3', 'hello-4', 'hello-5'] },
@@ -83,6 +87,8 @@ export default {
 			navInfos: [], //所有navitem的节点信息
 			parentLeft: 0, //nav盒子的节点信息
 			componentWidth: 0, //nav盒子的宽度
+			// 防止在中途就刷新 确保到顶部下拉
+			IsSwiperScrolltoupper: true, 
 			list: mockData.map(v => {
 				v.uuid = shortUUID.generate()
 				return v
@@ -144,6 +150,19 @@ export default {
 		handleScroll(e) {
 			this.scrollDom();
 		},
+		swiperScroll(e) {
+			const {scrollLeft, scrollTop, scrollHeight, scrollWidth, deltaX, deltaY} = e.detail
+			console.log('scrollTop', scrollTop)
+			if (scrollTop > 80) {
+				this.IsSwiperScrolltoupper = false
+			} else {
+				this.IsSwiperScrolltoupper = true
+			}
+		},
+		swiperScrolltoupper() {
+			console.log('swiperScrolltoupper')
+			// this.IsSwiperScrolltoupper = true
+		},
 		// swiper-ScrollLower触底
 		swiperScrollLower() {
 			uni.showToast({
@@ -170,20 +189,26 @@ export default {
 		},
 		// 下拉事件
 		handleRefre() {
-			this.refreStatus = true;
-			uni.showLoading({
-				title: '下拉加载中'
-			});
-			setTimeout(() => {
-				this.list[this.swiperIndex].content = [];
-				for (var i = 0; i < 5; i++) {
-					this.list[this.swiperIndex].content.push([this.list[this.swiperIndex].title + '下拉-' + i]);
-				}
+			if (this.IsSwiperScrolltoupper) {
+				this.refreStatus = true;
+				uni.showLoading({
+					title: '下拉加载中'
+				});
+				setTimeout(() => {
+					this.list[this.swiperIndex].content = [];
+					for (var i = 0; i < 5; i++) {
+						this.list[this.swiperIndex].content.push([this.list[this.swiperIndex].title + '下拉-' + i]);
+					}
+					uni.hideLoading();
+				}, 1000);
+				setTimeout(() => {
+					this.refreStatus = false;
+				}, 1000);	
+			} else {
+				setTimeout(() => {
 				uni.hideLoading();
-			}, 1000);
-			setTimeout(() => {
-				this.refreStatus = false;
-			}, 1000);
+				}, 0)
+			}
 		}
 	}
 };
