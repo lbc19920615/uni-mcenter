@@ -55,6 +55,16 @@
             }
             
         }
+        ,{
+            "path" : "pages/demos/sliding",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false,
+				"navigationStyle":"custom"
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
@@ -96,6 +106,11 @@
 			{
 				"name": "pages/demos/scroll",
 				"pathName": "pages/demos/scroll",
+				"scene": null
+			},
+			{
+				"name": "pages/demos/sliding",
+				"pathName": "pages/demos/sliding",
 				"scene": null
 			}
 		]

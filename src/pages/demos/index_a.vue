@@ -6,7 +6,9 @@
 		</uni-sticky>
 	</view> -->
 	<view class="container" id="container">
-		<view class="placeholder" id="placeholder">{{triggered}}</view>
+		<view class="placeholder" id="placeholder">
+			<button @click="goToBack" style="width: 150upx; margin: 0;">返回</button>
+		</view>
 		<scroll-view id="scrollView" scroll-y="true" 
 		:refresher-triggered="triggered"
 		 :refresher-threshold="100" 
@@ -71,29 +73,36 @@
 	let tabsMixin = {
 		data() {
 			return {
-		tabs: [
-			{
-				name: '首页'
-			},
-			{
-				name: '测试1'
-			},
-			{
-				name: '测试2'
-			},
-			{
-				name: '测试3'
-			},
-			{
-				name: '测试4'
-			},
-			{
-				name: '测试5'
-			},
-			{
-				name: '测试6'
-			},
-		],
+				tabs: [
+					{
+						name: '首页'
+					},
+					{
+						name: '测试1'
+					},
+					{
+						name: '测试2'
+					},
+					{
+						name: '测试3'
+					},
+					{
+						name: '测试4'
+					},
+					{
+						name: '测试5'
+					},
+					{
+						name: '测试6'
+					},
+				],
+			}
+		},
+		methods: {
+			goToBack() {
+				uni.navigateBack({
+					
+				})
 			}
 		}
 	}

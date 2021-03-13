@@ -1,181 +1,283 @@
 <template>
-  <view class="container">
-    <view class="swiper-con">
-      <swiper
-        class="swiper"
-        :indicator-dots="indicatorDots"
-        :autoplay="autoplay"
-        :interval="interval"
-        :duration="duration"
-		:circular="true"
-		indicator-active-color="#333"
-      >
-        <swiper-item>
-          <view class="swiper-item uni-bg-red">
-			<image class="swiper-image"
-			mode="aspectFill" src="/static/pages/index/swipe1.png"></image>
-		  </view>
-        </swiper-item>
-        <swiper-item>
-          <view class="swiper-item uni-bg-green">
-			  <image class="swiper-image"
-			  mode="aspectFill" src="/static/pages/index/swipe2.png"></image>
-		  </view>
-        </swiper-item>
-        <swiper-item>
-          <view class="swiper-item uni-bg-blue">
-			  <image class="swiper-image"
-			  mode="aspectFill" src="/static/pages/index/swipe3.png"></image>
-		  </view>
-        </swiper-item>
-      </swiper>
-    </view>
-	<view class="main-con">
-		<liuyuno-tabs
-		 class="main-tabs"
-     ref="tab"
-		 :tabData="tabs" :defaultIndex="defaultIndex" @tabClick='tabClick' />
-
-    <index-swipe-page
-        ref="content"
-        class="page-content"
-        :swiper-data="tabs"
-        @change="onSwipeChange"
-    ></index-swipe-page>
-<!--		<index-fragment-main-->
-<!--		v-show="defaultIndex === 0" ref="fagmain"></index-fragment-main>-->
-<!--		<view v-show="defaultIndex !== 0">-->
-<!--			<al-empty></al-empty>-->
-<!--		</view>-->
+	<view class="container">
+		<scroll-view class="nav-scroll" :enable-flex="true" scroll-with-animation :throttle="false" :scroll-left="scrollToLeft" scroll-x @scroll="handleScroll">
+			<view class="nav uni-nav">
+				<view class="nav-item" :class="swiperIndex == index ? 'nav-item-act' : ''" :key="index" v-for="(item, index) in list" @click="taggleNav(index)">
+					{{ item.title }}
+				</view>
+				<view class="nav-line" :style="style"></view>
+			</view>
+		</scroll-view>
+		<view class="swiper">
+			<swiper :current="swiperIndex" :duration="300" class="swiper-1" easing-function="linear" @change="swiperChange">
+				<swiper-item v-for="(item, index) in list" :key="item.uuid">
+					<scroll-view
+						:lower-threshold="80"
+						:refresher-triggered="refreStatus"
+						@refresherrefresh="handleRefre"
+						:refresher-enabled="true"
+						class="swiper-scroll"
+						scroll-y="true"
+						@scrolltolower="swiperScrollLower"
+					>
+						<view class="swiper-item-wrap">
+							<view class="swiper-item-list"
+							v-for="(sub_item, sub_item_index) in item.content"
+							:key="sub_item_index">
+							<view v-if="index === 0">
+								<div class="css-ib-grid css-ib-grid--column-2 ele-grid-item">
+									<div class="css-ib-grid-item"
+									@click="goToDemo(demo_item)"
+									v-for="(demo_item, demo_item_index) in demoList"
+									>
+									   <text class="text">{{demo_item.name}}</text>
+									</div>
+								</div>
+							</view>
+							<view v-else>{{sub_item_index}} {{sub_item}}</view>
+							</view>
+						</view>
+					</scroll-view>
+				</swiper-item>
+			</swiper>
+		</view>
 	</view>
-  </view>
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
-import liuyunoTabs from "@/components/liuyuno-tabs/liuyuno-tabs.vue";
+import shortUUID  from 'short-uuid'
+import {demoPages} from "@/var";
 
-import { swiperMixin } from "@/pages/index/mixin";
-import IndexSwipePage from "@/pages/index/components/index-swipe-page";
+const mockData = [
+				{ title: '首页', content: ['首页-1', '首页-2', '首页-3', '首页-4'] },
+				{ title: '测试', content: ['测试-1', '测试-2', '测试-3', '测试-4', '测试-5'] },
+				{ title: '我的', content: ['我的-1', '我的-2', '我的-3',] },
+				{ title: 'hello', content: ['hello-1', 'hello-2', 'hello-3', 'hello-4', 'hello-5'] },
+				{ title: '测试-1', content: ['测试-1-1', '测试-1-2', '测试-1-3', '测试-1-4', '测试-1-5'] },
+				{ title: '测试-2', content: ['测试-2-1', '测试-2-2', '测试-2-3', '测试-2-4', '测试-2-5'] },
+				{ title: '测试-3', content: ['测试-3-1', '测试-3-2', '测试-3-3', '测试-3-4', '测试-3-5'] },
+				{ title: '测试-4', content: ['测试-4-1', '测试-4-2', '测试-4-3', '测试-4-4', '测试-4-5'] },
+				{ title: '测试-5', content: ['测试-5-1', '测试-5-2', '测试-5-3', '测试-5-4', '测试-5-5'] }
+			]
+
+let pageControlMixin = {
+	methods: {
+		goToDemo(row) {
+			uni.navigateTo({
+			  url: row.url,
+			});
+		}
+	}
+}
 
 export default {
 	mixins: [
-		swiperMixin
+		pageControlMixin
 	],
-	components: {
-    IndexSwipePage,
-		liuyunoTabs,
+	data() {
+		return {
+			swiperIndex: 0, //当前的swiperindex
+			navItemWidth: '', //选中下划线的宽度
+			navItemLeft: 0, //选中下划线的显示位置
+			scrollToLeft: 0, //scrollview需要滚动的距离
+			navInfos: [], //所有navitem的节点信息
+			parentLeft: 0, //nav盒子的节点信息
+			componentWidth: 0, //nav盒子的宽度
+			list: mockData.map(v => {
+				v.uuid = shortUUID.generate()
+				return v
+			}),
+			demoList: demoPages,
+			refreStatus: false
+		};
 	},
-  data() {
-    return {
-      tabs: [
-        {
-          name: '首页'
-        },
-        {
-          name: '测试1'
-        },
-        {
-          name: '测试2'
-        },
-        {
-          name: '测试3'
-        },
-        {
-          name: '测试4'
-        },
-        {
-          name: '测试5'
-        },
-        {
-          name: '测试6'
-        },
-      ],
-      defaultIndex: 0,
-      contentIndex: 0,
-    };
-  },
-  computed: {
-	...mapGetters([
-		'device'
-	])
-  },
-  mounted() {
-	  this.$nextTick(() => {
-		  console.log('你好这是从vuex得到的device', this.device)
-		  this.$store.dispatch('app/SetDevice', uni.getSystemInfoSync().platform)
+	computed: {
+		style() {
+			return `width:${this.navItemWidth}px; left:${this.navItemLeft}px`;
+		}
+	},
+	mounted() {
+		this.init();
+	},
+	methods: {
+		// 获取dom信息
+		init() {
+			const query = uni.createSelectorQuery().in(this);
+			query.select('.uni-nav').fields({ rect: true, size: true }, res => {
+				this.parentLeft = res.left;
+				this.componentWidth = res.width;
+				console.log('res==>', res);
+			});
+			query.selectAll('.nav-item').fields({ rect: true, size: true }, data => {
+				data.forEach((item, index) => {
+					if (index == 0) {
+						this.navItemWidth = item.width;
+						this.navItemLeft = item.left;
+					}
+					this.navInfos.push({ width: item.width, left: item.left });
+				});
+			});
+			query.exec();
+		},
+		// 点击导航切换swiper
+		taggleNav(val) {
+			this.swiperIndex = val;
+		},
+		// 滚动tabs以及移动下划线
+		scrollDom() {
+			let info = this.navInfos[this.swiperIndex];
+			let offsetLeft = info.left - this.parentLeft;
+			let scrollLeft = offsetLeft - (this.componentWidth - info.width) / 2;
+			this.scrollToLeft = scrollLeft < 0 ? 0 : scrollLeft;
+			this.navItemLeft = this.navInfos[this.swiperIndex].left;
 			setTimeout(() => {
-					  console.log('你好这是从vuex得到的device', this.device)
-			}, 0)
-	  })
-  },
-  methods: {
-	  tabClick(e) {
-	  	// this.defaultIndex = e
-      this.contentIndex = e
-      // this.$refs.content.setIndex(e)
-	  },
-    onSwipeChange(e) {
-	    console.log('onSwipeChange', e)
-      // this.$refs.tab.setIndex(e.current)
-    }
-  },
+				this.navItemWidth = info.width;
+			}, 50);
+		},
+		// swiper的index变动
+		swiperChange(e) {
+			this.swiperIndex = e.detail.current;
+			this.scrollDom();
+			this.$emit('currentIndex', this.swiperIndex);
+		},
+		// tabs-scrollview触底
+		handleScroll(e) {
+			this.scrollDom();
+		},
+		// swiper-ScrollLower触底
+		swiperScrollLower() {
+			uni.showToast({
+				icon: 'none',
+				title: `此时为${this.list[this.swiperIndex].title}触底`
+			});
+			setTimeout(() => {
+				this.getData();
+			}, 500);
+		},
+		// 生成列表数据
+		getData() {
+			uni.showLoading({
+				title: '加载中'
+			});
+			setTimeout(() => {
+				for (let index = 0; index < 10; index++) {
+					let arr = this.list[this.swiperIndex].content;
+					this.$set(arr, arr.length, Math.random() + '-' + index + this.list[this.swiperIndex].title);
+				}
+				uni.hideLoading();
+			}, 1000);
+			console.log(this.list[this.swiperIndex]);
+		},
+		// 下拉事件
+		handleRefre() {
+			this.refreStatus = true;
+			uni.showLoading({
+				title: '下拉加载中'
+			});
+			setTimeout(() => {
+				this.list[this.swiperIndex].content = [];
+				for (var i = 0; i < 5; i++) {
+					this.list[this.swiperIndex].content.push([this.list[this.swiperIndex].title + '下拉-' + i]);
+				}
+				uni.hideLoading();
+			}, 1000);
+			setTimeout(() => {
+				this.refreStatus = false;
+			}, 1000);
+		}
+	}
 };
 </script>
 
-
-<style lang="scss">
-@import "../../styles/alh";
-
-/* 注意，父元素需要固定高度，z-paging的height:100%才会生效 */
-page {
-  height: 100%;
-}
-
-.container {
-  font-size: 14px;
-  line-height: 24px;
-  height: 100%;
-}
-
-$swiperHeight: 300upx;
-.swiper-con {
-	height: $swiperHeight;
-}
-
-.main-con {
-	height: calc(100% - #{$swiperHeight});
-}
-
-$tabsHeight: 90upx;
-.main-tabs {
-	height: $tabsHeight;
-}
-
-.page-content {
-  display: block;
-height: calc(100% - #{$tabsHeight} - var(--safe-area-inset-bottom));
-// background-color: #EEEEEE;
-}
-
-/* #ifdef MP-WEIXIN */
-.page-content {
-height: calc(100% - #{$tabsHeight} - #{$tabbarHeight} - var(--safe-area-inset-bottom));
+<style lang="scss" >
+/* #ifndef APP-NVUE */
+::-webkit-scrollbar {
+	display: none;
 }
 /* #endif */
 
-.swiper {
-  height: 300rpx;
+/* #ifdef H5 */
+// 通过样式穿透，隐藏H5下，scroll-view下的滚动条
+scroll-view ::v-deep ::-webkit-scrollbar {
+	display: none;
 }
-.swiper-item {
-  display: block;
-  height: 300rpx;
-  line-height: 300rpx;
-  text-align: center;
+/* #endif */
+
+
+page {
+	height: 100%;
 }
 
-.swiper-image {
-	width: 100%;
+.container {
 	height: 100%;
+	overflow: hidden;
+}
+
+$navHeight: 80upx;
+
+.nav-item {
+	display: inline-block;
+	margin: 0 16upx;
+	text-align: center;
+	transition: color 0.3s ease;
+}
+
+.nav {
+	white-space: nowrap;
+	position: relative;
+	height: $navHeight;
+	padding: 20upx 0;
+}
+
+.nav-item-act {
+	color: pink;
+	font-weight: bolder;
+}
+
+.nav-line {
+	position: absolute;
+	bottom: 0;
+	height: 10upx;
+	border-radius: 10upx;
+	background-color: pink;
+	transition: left 0.3s ease;
+}
+
+.swiper {
+	height: calc(100% - #{$navHeight});
+	> swiper {
+		height: 100%;
+	}
+}
+
+swiper-item {
+	position: relative;
+}
+// .swiper-item {
+// 	overflow-y: scroll;
+// }
+
+$swiperListItemHeight: 600upx;
+.swiper-item-list {
+	height: $swiperListItemHeight;
+	border-bottom: 2upx solid pink;
+	padding: 0 30upx;
+}
+.swiper-scroll {
+	height: 100%;
+}
+
+
+// page
+
+.ele-grid-item {
+	.text {
+		font-size: 32upx;
+	}
+
+	.css-ib-grid-item {
+		vertical-align: top;
+		height: 60upx;
+	}	
 }
 </style>

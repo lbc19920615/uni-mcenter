@@ -35,3 +35,7 @@
 6. link scroll
 
 	https://ext.dcloud.net.cn/plugin?id=1458
+	
+7. page swiper
+
+	https://ext.dcloud.net.cn/plugin?id=1534

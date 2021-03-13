@@ -10,10 +10,9 @@
 </template>
 
 <script>
-import IndexFragmentMain from "@/pages/index/components/index-fragment-main";
 export default {
   name: "index-swipe-com",
-  components: {IndexFragmentMain},
+  components: {},
   props: {
     item: {
       type: Object,
