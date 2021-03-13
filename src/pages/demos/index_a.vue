@@ -7,7 +7,7 @@
 	</view> -->
 	<view class="container" id="container">
 		<view class="placeholder" id="placeholder">
-			<button @click="goToBack" style="width: 150upx; margin: 0;">返回</button>
+			<button @click="goToBack" style="width: 150upx; margin: 0; margin-top: 60upx;">返回</button>
 		</view>
 		<scroll-view id="scrollView" scroll-y="true" 
 		:refresher-triggered="triggered"
