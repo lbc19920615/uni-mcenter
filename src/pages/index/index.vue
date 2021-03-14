@@ -1,8 +1,13 @@
 <template>
 	<view class="container">
-		<scroll-view class="nav-scroll" :enable-flex="true" scroll-with-animation :throttle="false" :scroll-left="scrollToLeft" scroll-x @scroll="handleScroll">
+		<scroll-view class="nav-scroll"
+                 :enable-flex="true"
+                 scroll-with-animation
+                 :throttle="false"
+                 :scroll-left="scrollToLeft" scroll-x @scroll="handleScroll">
 			<view class="nav uni-nav">
-				<view class="nav-item" :class="swiperIndex == index ? 'nav-item-act' : ''" :key="index" v-for="(item, index) in list" @click="taggleNav(index)">
+				<view class="nav-item"
+              :class="swiperIndex == index ? 'nav-item-act' : ''" :key="index" v-for="(item, index) in list" @click="taggleNav(index)">
 					{{ item.title }}
 				</view>
 				<view class="nav-line" :style="style"></view>
@@ -15,7 +20,7 @@
 						:lower-threshold="80"
 						:refresher-triggered="refreStatus"
 						@refresherrefresh="handleRefre"
-						 :refresher-threshold="50" 
+						 :refresher-threshold="50"
 						 :upper-threshold="30"
 						:refresher-enabled="true"
 						class="swiper-scroll"
@@ -38,7 +43,7 @@
 									</div>
 								</div>
 							</view>
-							<view v-else>{{sub_item_index}} {{sub_item}}</view>
+							<view class="other-griditem" v-else> <text class="text"> {{sub_item_index}}</text> <text class="text">{{sub_item}}</text></view>
 							</view>
 						</view>
 					</scroll-view>
@@ -88,7 +93,7 @@ export default {
 			parentLeft: 0, //nav盒子的节点信息
 			componentWidth: 0, //nav盒子的宽度
 			// 防止在中途就刷新 确保到顶部下拉
-			IsSwiperScrolltoupper: true, 
+			IsSwiperScrolltoupper: true,
 			list: mockData.map(v => {
 				v.uuid = shortUUID.generate()
 				return v
@@ -203,7 +208,7 @@ export default {
 				}, 1000);
 				setTimeout(() => {
 					this.refreStatus = false;
-				}, 1000);	
+				}, 1000);
 			} else {
 				setTimeout(() => {
 				uni.hideLoading();
@@ -252,6 +257,7 @@ $navHeight: 80upx;
 	position: relative;
 	height: $navHeight;
 	padding: 20upx 0;
+  font-size: 32upx;
 }
 
 .nav-item-act {
@@ -303,6 +309,12 @@ $swiperListItemHeight: 600upx;
 	.css-ib-grid-item {
 		vertical-align: top;
 		height: 60upx;
-	}	
+	}
+}
+
+.other-griditem {
+  .text {
+    font-size: 60upx;
+  }
 }
 </style>
