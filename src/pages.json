@@ -20,50 +20,59 @@
 		}
         ,{
             "path" : "pages/demos/form",
-            "style" :                                                                                    
+            "style" :
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "form",
                 "enablePullDownRefresh": false
             }
-            
+
         }
         ,{
             "path" : "pages/demos/layout",
-            "style" :                                                                                    
+            "style" :
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "layout",
                 "enablePullDownRefresh": false
             }
-            
+
         }
         ,{
             "path" : "pages/demos/index_a",
-            "style" :                                                                                    
+            "style" :
             {
                 "navigationBarTitleText": "",
                 "enablePullDownRefresh": false,
 				"navigationStyle":"custom"
             }
-            
+
         }
         ,{
             "path" : "pages/demos/scroll",
-            "style" :                                                                                    
+            "style" :
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "scroll",
                 "enablePullDownRefresh": false
             }
-            
+
         }
         ,{
             "path" : "pages/demos/sliding",
-            "style" :                                                                                    
+            "style" :
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "sliding",
                 "enablePullDownRefresh": false,
 				"navigationStyle":"custom"
             }
-            
+
+        }
+        ,{
+            "path" : "pages/demos/dropdown",
+            "style" :
+            {
+                "navigationBarTitleText": "dropdown",
+                "enablePullDownRefresh": false
+            }
+
         }
     ],
 	"globalStyle": {

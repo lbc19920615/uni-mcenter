@@ -13,19 +13,22 @@
         <swiper-item>
           <view class="swiper-item uni-bg-red">
 			<image class="swiper-image"
-			mode="aspectFill" src="/static/pages/index/swipe1.png"></image>
+			mode="aspectFill"
+             src="https://oss.kaoyanvip.cn/attach/file1615688418849.png"></image>
 		  </view>
         </swiper-item>
         <swiper-item>
           <view class="swiper-item uni-bg-green">
 			  <image class="swiper-image"
-			  mode="aspectFill" src="/static/pages/index/swipe2.png"></image>
+			  mode="aspectFill"
+               src="https://oss.kaoyanvip.cn/attach/file1615688453203.png"></image>
 		  </view>
         </swiper-item>
         <swiper-item>
           <view class="swiper-item uni-bg-blue">
 			  <image class="swiper-image"
-			  mode="aspectFill" src="/static/pages/index/swipe3.png"></image>
+			  mode="aspectFill"
+               src="https://oss.kaoyanvip.cn/attach/file1615688463231.png"></image>
 		  </view>
         </swiper-item>
       </swiper>

@@ -29,4 +29,9 @@ export let demoPages = [
 		icon: "/static/c1.png",
 		url: "/pages/demos/sliding",
 	},
+	{
+		name: "下拉菜单",
+		icon: "/static/c1.png",
+		url: "/pages/demos/dropdown",
+	},
 ]
