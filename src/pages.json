@@ -74,6 +74,15 @@
             }
 
         }
+        ,{
+            "path" : "pages/demos/canvas",
+            "style" :
+            {
+                "navigationBarTitleText": "canvas",
+                "enablePullDownRefresh": false
+            }
+
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
@@ -120,6 +129,16 @@
 			{
 				"name": "pages/demos/sliding",
 				"pathName": "pages/demos/sliding",
+				"scene": null
+			},
+			{
+				"name": "pages/demos/dropdown",
+				"pathName": "pages/demos/dropdown",
+				"scene": null
+			},
+			{
+				"name": "pages/demos/canvas",
+				"pathName": "pages/demos/canvas",
 				"scene": null
 			}
 		]

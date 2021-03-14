@@ -34,4 +34,9 @@ export let demoPages = [
 		icon: "/static/c1.png",
 		url: "/pages/demos/dropdown",
 	},
+	{
+		name: "cavans和海报",
+		icon: "/static/c1.png",
+		url: "/pages/demos/canvas",
+	},
 ]
