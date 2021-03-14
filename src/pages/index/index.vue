@@ -33,7 +33,10 @@
 							<view class="swiper-item-list"
 							v-for="(sub_item, sub_item_index) in item.content"
 							:key="sub_item_index">
-							<view v-if="index === 0">
+              <view v-if="index === 0 && sub_item_index == 0">
+                <index-swiper></index-swiper>
+              </view>
+							<view v-else-if="index === 0 && sub_item_index == 1">
 								<div class="css-ib-grid css-ib-grid--column-2 ele-grid-item">
 									<div class="css-ib-grid-item"
 									@click="goToDemo(demo_item)"
@@ -56,6 +59,7 @@
 <script>
 import shortUUID  from 'short-uuid'
 import {demoPages} from "@/var";
+import IndexSwiper from "@/pages/index/components/index-swiper";
 
 const mockData = [
 				{ title: '首页', content: ['首页-1', '首页-2', '首页-3', '首页-4',  '首页-5', '首页-6', '首页-7'] },
@@ -80,7 +84,8 @@ let pageControlMixin = {
 }
 
 export default {
-	mixins: [
+  components: {IndexSwiper},
+  mixins: [
 		pageControlMixin
 	],
 	data() {
@@ -243,7 +248,7 @@ page {
 	overflow: hidden;
 }
 
-$navHeight: 80upx;
+$navHeight: 60upx;
 
 .nav-item {
 	display: inline-block;
@@ -290,9 +295,11 @@ swiper-item {
 
 $swiperListItemHeight: 600upx;
 .swiper-item-list {
-	height: $swiperListItemHeight;
 	border-bottom: 2upx solid pink;
-	padding: 0 30upx;
+  &:not(:first-child) {
+    height: $swiperListItemHeight;
+    padding: 0 30upx;
+  }
 }
 .swiper-scroll {
 	height: 100%;
