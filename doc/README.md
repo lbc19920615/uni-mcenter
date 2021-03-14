@@ -43,3 +43,7 @@
 8. dropdown
 
     https://ext.dcloud.net.cn/plugin?id=1078		
+ 
+9. popup
+
+   https://ext.dcloud.net.cn/plugin?id=329
