@@ -83,6 +83,16 @@
             }
 
         }
+        ,{
+            "path" : "pages/demos/rx_list",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "rx_list",
+                "enablePullDownRefresh": false,
+				"navigationStyle":"custom"
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
@@ -139,6 +149,11 @@
 			{
 				"name": "pages/demos/canvas",
 				"pathName": "pages/demos/canvas",
+				"scene": null
+			},
+			{
+				"name": "pages/demos/rx_list",
+				"pathName": "pages/demos/rx_list",
 				"scene": null
 			}
 		]

@@ -39,4 +39,9 @@ export let demoPages = [
 		icon: "/static/c1.png",
 		url: "/pages/demos/canvas",
 	},
+	{
+		name: "rx_list",
+		icon: "/static/c1.png",
+		url: "/pages/demos/rx_list",
+	},
 ]
