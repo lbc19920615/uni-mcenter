@@ -32,18 +32,24 @@
 
 	https://ext.dcloud.net.cn/plugin?id=4121
 	
-6. link scroll
-
-	https://ext.dcloud.net.cn/plugin?id=1458
-	
-7. page swiper
+6. page swiper
 
 	https://ext.dcloud.net.cn/plugin?id=1534
 	
-8. dropdown
+7. dropdown
 
     https://ext.dcloud.net.cn/plugin?id=1078		
  
-9. popup
+8. popup
 
    https://ext.dcloud.net.cn/plugin?id=329
+
+9. keyboard
+
+	浮动键盘
+
+	https://ext.dcloud.net.cn/plugin?id=44
+	
+10. textarea
+
+	https://ext.dcloud.net.cn/plugin?id=2600
