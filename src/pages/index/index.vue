@@ -1,5 +1,5 @@
 <template>
-	<view class="page container">
+	<view class="page container" :class="appTheme">
 		<scroll-view class="nav-scroll"
                  :enable-flex="true"
                  scroll-with-animation
@@ -68,6 +68,7 @@
 import shortUUID  from 'short-uuid'
 import {demoPages} from "@/var";
 import IndexSwiper from "@/pages/index/components/index-swiper";
+import {pageMixin} from "@/utils/mixins/page";
 
 const mockData = [
 				{ title: '首页', content: ['首页-1', '首页-2', '首页-3', '首页-4',  '首页-5', '首页-6', '首页-7'] },
@@ -94,6 +95,7 @@ let pageControlMixin = {
 export default {
   components: {IndexSwiper},
   mixins: [
+    pageMixin,
 		pageControlMixin
 	],
 	data() {
@@ -122,6 +124,8 @@ export default {
 	},
 	mounted() {
 		this.init();
+		this.pageSetTheme(this.PAGE_THEME_DARK);
+
 	},
 	methods: {
 		// 获取dom信息

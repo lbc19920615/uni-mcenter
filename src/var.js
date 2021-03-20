@@ -15,11 +15,6 @@ export let demoPages = [
 		url: "/pages/demos/layout",
 	},
 	{
-		name: "仿菜场首页",
-		icon: "/static/c1.png",
-		url: "/pages/demos/index_a",
-	},
-	{
 		name: "左右滚动带指示栏",
 		icon: "/static/c1.png",
 		url: "/pages/demos/scroll",
@@ -40,7 +35,7 @@ export let demoPages = [
 		url: "/pages/demos/canvas",
 	},
 	{
-		name: "rx_list",
+		name: "瑞幸 购买列表",
 		icon: "/static/c1.png",
 		url: "/pages/demos/rx_list",
 	},

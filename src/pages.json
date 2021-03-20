@@ -127,11 +127,6 @@
 				"scene": null
 			},
 			{
-				"name": "pages/demos/index_a",
-				"pathName": "pages/demos/index_a",
-				"scene": null
-			},
-			{
 				"name": "pages/demos/scroll",
 				"pathName": "pages/demos/scroll",
 				"scene": null

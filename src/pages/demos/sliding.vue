@@ -54,7 +54,7 @@
 import {mapGetters} from 'vuex'
 import liuyunoTabs from "@/components/liuyuno-tabs/liuyuno-tabs.vue";
 
-import { swiperMixin } from "@/pages/demos/mixin";
+import { swiperMixin } from "@/pages/demos/sliding/mixin";
 import IndexSwipePage from "@/pages/demos/components/index-swipe-page";
 
 export default {
