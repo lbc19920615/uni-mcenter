@@ -1,5 +1,5 @@
 <template>
-	<safe-area class="page">
+	<safe-area :custom-nav="true" class="page">
 		<category-s></category-s>
 	</safe-area>
 </template>

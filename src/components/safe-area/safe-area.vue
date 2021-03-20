@@ -1,6 +1,7 @@
 <template>
 	<view class="safe-area"
   :class="{'safe-area--custom': customNav}"
+  :style="{'padding-top': safeAreaTop + 'px', 'padding-bottom': safeAreaBottom + 'px'}"
   >
 		<slot></slot>
 	</view>
@@ -14,11 +15,15 @@
     },
 		data() {
 			return {
-
+        safeAreaTop: 0,
+        safeAreaBottom: 0,
 			};
 		},
     mounted() {
-		  console.log(this)
+      const { safeArea } = wx.getSystemInfoSync()
+      console.log(safeArea)
+      this.safeAreaTop = safeArea.top
+      this.safeAreaBottom = safeArea.bottom - safeArea.height
     }
   }
 </script>
@@ -34,9 +39,11 @@ $cls: 'safe-area';
 .#{$cls} {
 	box-sizing: border-box;
   height: 100%;
+  //background-color: #2D87D5;
+  //background-clip: content-box;
 
   &--custom {
-    padding: 100upx 0;
+    //padding: 100upx 0;
     .#{$cls} {
 
 
