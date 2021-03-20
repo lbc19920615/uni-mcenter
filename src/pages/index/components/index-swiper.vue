@@ -8,26 +8,17 @@
         :duration="duration"
         :circular="true"
         indicator-active-color="#333"
+        previous-margin="60rpx"
+        next-margin="60rpx"
+        @change="onChange"
+        @transition="onTransition"
     >
-      <swiper-item>
-        <view class="swiper-item uni-bg-red">
+      <swiper-item v-for="(item, index) in list" :key="index">
+        <view class="swiper-item"
+              :class="currentIndex == index ? 'swiper--active': ''">
           <image class="swiper-image"
                  mode="aspectFill"
-                 src="https://oss.kaoyanvip.cn/attach/file1615688418849.png"></image>
-        </view>
-      </swiper-item>
-      <swiper-item>
-        <view class="swiper-item uni-bg-green">
-          <image class="swiper-image"
-                 mode="aspectFill"
-                 src="https://oss.kaoyanvip.cn/attach/file1615688453203.png"></image>
-        </view>
-      </swiper-item>
-      <swiper-item>
-        <view class="swiper-item uni-bg-blue">
-          <image class="swiper-image"
-                 mode="aspectFill"
-                 src="https://oss.kaoyanvip.cn/attach/file1615688463231.png"></image>
+                 :src="item"></image>
         </view>
       </swiper-item>
     </swiper>
@@ -39,26 +30,35 @@ export default {
   name: "index-swiper",
   data() {
     return {
-      background: ["color1", "color2", "color3"],
+      list: [
+          'https://oss.kaoyanvip.cn/attach/file1615688418849.png',
+          'https://oss.kaoyanvip.cn/attach/file1615688453203.png',
+          'https://oss.kaoyanvip.cn/attach/file1615688463231.png',
+      ],
       indicatorDots: true,
-      autoplay: true,
+      autoplay: false,
       interval: 10000,
       duration: 1000,
+      currentIndex: 0,
+      swiperItemWidth: 0,
     };
   },
+  mounted() {
+    let self = this
+    uni.createSelectorQuery().in(this).select('.swiper-item')
+        .boundingClientRect(result => {
+          self.swiperItemWidth = result.width
+        }).exec()
+  },
   methods: {
-    changeIndicatorDots(e) {
-      this.indicatorDots = !this.indicatorDots;
+    onChange(e) {
+      // console.log('onChange', e)
+      this.currentIndex = e.detail.current
     },
-    changeAutoplay(e) {
-      this.autoplay = !this.autoplay;
-    },
-    intervalChange(e) {
-      this.interval = e.target.value;
-    },
-    durationChange(e) {
-      this.duration = e.target.value;
-    },
+    onTransition(e) {
+      let {dx, dy} = e.detail
+      // console.log(dx, dy)
+    }
   },
 }
 </script>
@@ -72,12 +72,21 @@ export default {
     display: block;
     height: 300rpx;
     line-height: 300rpx;
+    padding: 0 20upx;
     text-align: center;
+    transform: scale(1);
+    //transition: transform .5s ease;
+    transition: none;
+    &.swiper--active {
+      transform: scale(1);
+      transition: transform .1s ease;
+    }
   }
 
   .swiper-image {
     width: 100%;
     height: 100%;
+    border-radius: 15rpx;
   }
 }
 </style>

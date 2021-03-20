@@ -39,7 +39,9 @@
 							v-for="(sub_item, sub_item_index) in item.content"
 							:key="sub_item_index">
               <view v-if="index === 0 && sub_item_index == 0">
-                <index-swiper></index-swiper>
+                <div class="ui-m-t-20 ui-m-b-20">
+                  <index-swiper></index-swiper>
+                </div>
               </view>
 							<view v-else-if="index === 0 && sub_item_index == 1">
 								<div class="css-ib-grid css-ib-grid--column-2 ele-grid-item">
@@ -301,7 +303,7 @@ swiper-item {
 
 $swiperListItemHeight: 600upx;
 .swiper-item-list {
-	border-bottom: 2upx solid pink;
+	//border-bottom: 2upx solid pink;
   &:not(:first-child) {
     height: $swiperListItemHeight;
     padding: 0 30upx;

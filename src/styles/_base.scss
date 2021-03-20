@@ -17,3 +17,14 @@
 .ui-block {
   display: block;
 }
+
+@for $i from 1 through  3 {
+  $v: $i * 10;
+  .ui-m-t-#{$v} {
+    margin-top: #{$v}upx;
+  }
+  .ui-m-b-#{$v} {
+    margin-bottom: #{$v}upx;
+  }
+}
+
