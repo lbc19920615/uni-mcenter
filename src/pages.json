@@ -85,13 +85,13 @@
         }
         ,{
             "path" : "pages/demos/rx_list",
-            "style" :                                                                                    
+            "style" :
             {
                 "navigationBarTitleText": "rx_list",
                 "enablePullDownRefresh": false,
 				"navigationStyle":"custom"
             }
-            
+
         }
     ],
 	"globalStyle": {
@@ -149,6 +149,11 @@
 			{
 				"name": "pages/demos/canvas",
 				"pathName": "pages/demos/canvas",
+				"scene": null
+			},
+			{
+				"name": "pages/demos/layout",
+				"pathName": "pages/demos/layout",
 				"scene": null
 			},
 			{
