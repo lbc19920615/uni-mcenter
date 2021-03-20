@@ -7,14 +7,19 @@
                  :scroll-left="scrollToLeft" scroll-x @scroll="handleScroll">
 			<view class="nav uni-nav">
 				<view class="nav-item"
-              :class="swiperIndex == index ? 'nav-item-act' : ''" :key="index" v-for="(item, index) in list" @click="taggleNav(index)">
+              :class="swiperIndex == index ? 'nav-item-act' : ''"
+              :key="index" v-for="(item, index) in list" @click="taggleNav(index)">
 					{{ item.title }}
 				</view>
 				<view class="nav-line" :style="style"></view>
 			</view>
 		</scroll-view>
 		<view class="swiper">
-			<swiper :current="swiperIndex" :duration="300" class="swiper-1" easing-function="linear" @change="swiperChange">
+			<swiper :current="swiperIndex"
+              :duration="300" class="swiper-1"
+              easing-function="linear"
+              @change="swiperChange"
+      >
 				<swiper-item v-for="(item, index) in list" :key="item.uuid">
 					<scroll-view
 						:lower-threshold="80"
@@ -41,6 +46,7 @@
 									<div class="css-ib-grid-item"
 									@click="goToDemo(demo_item)"
 									v-for="(demo_item, demo_item_index) in demoList"
+                       :key="demo_item_index"
 									>
 									   <text class="text">{{demo_item.name}}</text>
 									</div>
@@ -162,7 +168,7 @@ export default {
 		},
 		swiperScroll(e) {
 			const {scrollLeft, scrollTop, scrollHeight, scrollWidth, deltaX, deltaY} = e.detail
-			console.log('scrollTop', scrollTop)
+			// console.log('scrollTop', scrollTop)
 			if (scrollTop > 80) {
 				this.IsSwiperScrolltoupper = false
 			} else {
