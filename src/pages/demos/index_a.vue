@@ -5,22 +5,22 @@
 			<button size="mini" type="primary" style="margin-left: 215px; background-color: #ff976a">指定容器</button>
 		</uni-sticky>
 	</view> -->
-	<view class="container" id="container">
+	<view class="page container" id="container">
 		<view class="placeholder" id="placeholder">
 			<button @click="goToBack" style="width: 150upx; margin: 0; margin-top: 60upx;">返回</button>
 		</view>
-		<scroll-view id="scrollView" scroll-y="true" 
+		<scroll-view id="scrollView" scroll-y="true"
 		:refresher-triggered="triggered"
-		 :refresher-threshold="100" 
+		 :refresher-threshold="100"
 		 refresher-background="lightgreen"
 		 @scroll="onScroll"
 		 @refresherrefresh="onRefresh"
-		 @refresherrestore="onRestore" 
-		 @scrolltolower="onScrollToLower" 
+		 @refresherrestore="onRestore"
+		 @scrolltolower="onScrollToLower"
 		refresher-enabled="true" >
 			<view style="height: 3000upx; background-color: #E0E0E0;">
 				<div style=" background-color: #FFFF99;">
-					<view id="upHeight"  style="height: 300upx;"></view>	
+					<view id="upHeight"  style="height: 300upx;"></view>
 <liuyuno-tabs
 		 class="tab"
 		 :tabData="tabs" :defaultIndex="0"  />
@@ -28,7 +28,7 @@
 			</view>
 		</scroll-view>
 		<view class="fixed-tabbar" v-show="showFixed">
-			<button size="mini" type="primary" 
+			<button size="mini" type="primary"
 			style="background-color: #ff976a">指定容器在tab消失时出现</button>
 		</view>
 	</view>
@@ -36,7 +36,7 @@
 
 <script>
 	import XaberUniSticky from '@/components/xaber-uni-sticky/xaber-uni-sticky.vue'
-	
+
 	let fixedTabbarMixin = {
 		data() {
 			return {
@@ -57,19 +57,19 @@
 			},
 			detectScrollViewScroll(e) {
 				const {scrollLeft, scrollTop, scrollHeight, scrollWidth, deltaX, deltaY} = e.detail
-				// console.log(scrollTop)	
+				// console.log(scrollTop)
 				if (this.showHeight !== null) {
 					let pointh = this.showHeight + this.showLater
 					if (scrollTop > pointh) {
 						this.showFixed = true
 					} else {
 						this.showFixed = false
-					}	
+					}
 				}
 			}
 		}
 	}
-	
+
 	let tabsMixin = {
 		data() {
 			return {
@@ -101,18 +101,18 @@
 		methods: {
 			goToBack() {
 				uni.navigateBack({
-					
+
 				})
 			}
 		}
 	}
-	
+
 	export default {
 		mixins: [
 			fixedTabbarMixin,
 			tabsMixin,
 		],
-		components: {    
+		components: {
 			XaberUniSticky,
 		},
 		data() {
@@ -133,14 +133,14 @@
 				this.detectScrollViewScroll(e);
 			},
 			onRefresh() {
-				if (this._freshing) return;  
-				this._freshing = true;  
-				if (!this.triggered)//界面下拉触发，triggered可能不是true，要设为true  
-					this.triggered = true;  
-				setTimeout(() => {  
-					this.triggered = false;//触发onRestore，并关闭刷新图标  
-					this._freshing = false;  
-				}, 1000)  
+				if (this._freshing) return;
+				this._freshing = true;
+				if (!this.triggered)//界面下拉触发，triggered可能不是true，要设为true
+					this.triggered = true;
+				setTimeout(() => {
+					this.triggered = false;//触发onRestore，并关闭刷新图标
+					this._freshing = false;
+				}, 1000)
 			},
 		   onRestore() {
 				this.triggered = 'restore'; // 需要重置
@@ -164,11 +164,11 @@ page {
 $placeholderHeight: 180upx;
 $tabHeight: 100upx;
 
-.container {	
+.container {
   font-size: 14px;
   line-height: 24px;
   height: 100%;
-  
+
   .tab {
 	  height: $tabHeight;
   }

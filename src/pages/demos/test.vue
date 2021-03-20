@@ -1,5 +1,5 @@
 <template>
-	<view>
+	<view class="page">
 		<common-drag :list.sync="list" :number="20"></common-drag>
 	</view>
 </template>

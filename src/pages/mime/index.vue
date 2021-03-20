@@ -1,5 +1,5 @@
 <template>
-	<view class="container">
+	<view class="page container">
 		<drag-list-demo></drag-list-demo>
 	</view>
 </template>

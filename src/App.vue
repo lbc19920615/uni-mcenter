@@ -49,12 +49,9 @@
 	    }
 	}
 
-  // 处理scrollbar滚动条
-	.uni-scroll-view::-webkit-scrollbar {
-      width:0;
-    height:0;
-    color:transparent;
-	}
+  @import "styles/reset";
+
+  @import "styles/base";
 
   // 推荐使用CSS中的媒体查询 prefers-color-scheme 进行适配
   @media (prefers-color-scheme: dark){

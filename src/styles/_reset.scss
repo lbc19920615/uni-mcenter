@@ -1,0 +1,11 @@
+////
+/// This is css grid init lib
+/// @group app
+////
+
+// 处理scrollbar滚动条
+.uni-scroll-view::-webkit-scrollbar {
+  width:0;
+  height:0;
+  color:transparent;
+}

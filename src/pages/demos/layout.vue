@@ -34,7 +34,7 @@
 </style>
 
 <template>
-	<view class="page-layout-con">
+	<view class="page page-layout-con">
 		<view class="header" >uni grid</view>
 		<!-- 一般用法 -->
 		<uni-grid :column="3">

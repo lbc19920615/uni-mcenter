@@ -1,5 +1,5 @@
 <template>
-	<view>
+	<view class="page">
 	  <view>
       <canvas style="width: 300px; height: 200px;"
               canvas-id="firstCanvas" id="firstCanvas"></canvas>

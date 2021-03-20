@@ -1,5 +1,5 @@
 <template>
-	<view class="container">
+	<view class="page container">
 		<scroll-view class="nav-scroll"
                  :enable-flex="true"
                  scroll-with-animation

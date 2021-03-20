@@ -1,5 +1,5 @@
 <template>
-  <view class="container">
+  <view class="page container">
     <view class="swiper-con">
       <swiper
         class="swiper"

@@ -1,5 +1,5 @@
 <template>
-  <view>
+  <view class="page">
 
     <view class="datajson">
       <view class="text">菜单数据index：</view>
@@ -85,7 +85,7 @@ export default {
   // #ifdef H5
   this.menuTop = uni.getSystemInfoSync().windowTop + 'px'
   // #endif
-	  
+
     //定时器模拟ajax异步请求数据
     setTimeout(()=>{
       this.filterData = data;
