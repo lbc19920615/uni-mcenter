@@ -8,7 +8,7 @@
 				</view>
 			</view>
 		</scroll-view>
-		<scroll-view class="scroll-Y" :scroll-y="true" :scroll-top="scrollTop" 
+		<scroll-view class="scroll-Y" :scroll-y="true" :scroll-top="scrollTop"
 		:scroll-with-animation="true" @scroll="scrollEvent"
 		@scrolltoupper="scrollToUp" @scrolltolower="scrollToDown"
 		>
@@ -99,14 +99,14 @@
 			let theNode = uni.createSelectorQuery().in(this).selectAll(".categoryList");
 			theNode.boundingClientRect((data) => {
 				data.forEach((item, index) => {
-		
+
 					if (index < data.length - 1) {
 					this.nodeHeight.push({
 						top: item.top,
 						index: index
-					})	
+					})
 					}
-		
+
 					// // #ifdef H5
 					// this.nodeHeight.push({
 					// 	top: item.top + this.windowTop,
@@ -146,7 +146,7 @@
 				this.scrollVal =  0
 			},
 			scrollToDown() {
-				// 
+				//
 			},
 			scrollEvent(e) {
 				let scrollToDownHolder = 60
@@ -172,10 +172,10 @@
 							// 	this.categoryNameActive = item.index;
 							// }
 							 if (this.scrollVal < item.top + scrollToUpHolder) {
-								console.log(item)
+								// console.log(item)
 								 this.categoryNameActive = item.index;
 							 }
-							
+
 						})
 					}
 				}
@@ -189,12 +189,12 @@
 	:host {
 		display: block;
 	}
-	
+
 	.category-s-wrap {
 	height: 600upx;
 		font-size: 28upx;
 	}
-	
+
 	.categoryTitle {
 		width: 249upx;
 		float: left;
