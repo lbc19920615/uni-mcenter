@@ -11,7 +11,19 @@
 	export default {
 		name:"safe-area",
     props: {
-		  customNav: Boolean
+		  customNav: Boolean,
+      useTop: {
+		    type: Boolean,
+        default() {
+		      return true
+        }
+      },
+      useBottom: {
+        type: Boolean,
+        default() {
+          return true
+        }
+      }
     },
 		data() {
 			return {
@@ -21,9 +33,13 @@
 		},
     mounted() {
       const { safeArea } = wx.getSystemInfoSync()
-      console.log(safeArea)
-      this.safeAreaTop = safeArea.top
-      this.safeAreaBottom = safeArea.bottom - safeArea.height
+      // console.log(safeArea)
+      if (this.useTop) {
+        this.safeAreaTop = safeArea.top
+      }
+      if (this.useBottom) {
+        this.safeAreaBottom = safeArea.bottom - safeArea.height
+      }
     }
   }
 </script>
