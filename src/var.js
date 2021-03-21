@@ -40,3 +40,11 @@ export let demoPages = [
 		url: "/pages/demos/rx_list",
 	},
 ]
+
+export let miniPages = [
+	{
+		name: "相机",
+		icon: "/static/c1.png",
+		url: "/pages/demos/mini_camera",
+	},
+]

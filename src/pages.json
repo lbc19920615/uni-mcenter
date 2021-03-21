@@ -93,6 +93,15 @@
             }
 
         }
+        ,{
+            "path" : "pages/demos/mini_camera",
+            "style" :
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+
+        }
     ],
 	"globalStyle": {
 		"navigationBarBackgroundColor": "@navBgColor",
@@ -156,6 +165,11 @@
 			{
 				"name": "pages/demos/rx_list",
 				"pathName": "pages/demos/rx_list",
+				"scene": null
+			},
+			{
+				"name": "pages/demos/mini_camera",
+				"pathName": "pages/demos/mini_camera",
 				"scene": null
 			}
 		]

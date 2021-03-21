@@ -39,20 +39,12 @@
 							v-for="(sub_item, sub_item_index) in item.content"
 							:key="sub_item_index">
               <view v-if="index === 0 && sub_item_index == 0">
-                <div class="ui-m-t-20 ui-m-b-20">
+                <view class="ui-m-t-20 ui-m-b-20">
                   <index-swiper></index-swiper>
-                </div>
+                </view>
               </view>
 							<view v-else-if="index === 0 && sub_item_index == 1">
-								<div class="css-ib-grid css-ib-grid--column-2 ele-grid-item">
-									<div class="css-ib-grid-item"
-									@click="goToDemo(demo_item)"
-									v-for="(demo_item, demo_item_index) in demoList"
-                       :key="demo_item_index"
-									>
-									   <text class="text">{{demo_item.name}}</text>
-									</div>
-								</div>
+								<index-routes></index-routes>
 							</view>
 							<view class="other-griditem" v-else> <text class="text"> {{sub_item_index}}</text> <text class="text">{{sub_item}}</text></view>
 							</view>
@@ -69,6 +61,7 @@ import shortUUID  from 'short-uuid'
 import {demoPages} from "@/var";
 import IndexSwiper from "@/pages/index/components/index-swiper";
 import {pageMixin} from "@/utils/mixins/page";
+import IndexRoutes from "@/pages/index/components/index-routes";
 
 const mockData = [
 				{ title: '首页', content: ['首页-1', '首页-2', '首页-3', '首页-4',  '首页-5', '首页-6', '首页-7'] },
@@ -82,21 +75,11 @@ const mockData = [
 				{ title: '测试-5', content: ['测试-5-1', '测试-5-2', '测试-5-3', '测试-5-4', '测试-5-5'] }
 			]
 
-let pageControlMixin = {
-	methods: {
-		goToDemo(row) {
-			uni.navigateTo({
-			  url: row.url,
-			});
-		}
-	}
-}
 
 export default {
-  components: {IndexSwiper},
+  components: {IndexRoutes, IndexSwiper},
   mixins: [
     pageMixin,
-		pageControlMixin
 	],
 	data() {
 		return {
