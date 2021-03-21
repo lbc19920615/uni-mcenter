@@ -2,12 +2,10 @@
 	export default {
 		onLaunch: function() {
 			console.log('App Launch')
-
-      uni.onThemeChange(function (res) {
-        console.log(res.theme);
-      });
-
     },
+    // onThemeChange:function(options){
+    //   console.log(options,'系统主题');
+    // },
 		onShow: function() {
 			console.log('App Show')
 		},
@@ -53,12 +51,6 @@
 
   @import "styles/base";
 
-  // 推荐使用CSS中的媒体查询 prefers-color-scheme 进行适配
-  @media (prefers-color-scheme: dark){
-    .container {
-        background-color: #1B1C1E;
-        color: white;
-    }
-  }
+  @import "styles/theme-dark";
 
 </style>

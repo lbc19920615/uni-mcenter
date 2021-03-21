@@ -2,7 +2,7 @@ const app = {
 	namespaced: true,
   state: {
 		device: 'mobile',
-		theme: 'light',
+		theme: uni.getSystemInfoSync().theme,
 	},
 	mutations: {
 	  SET_DEVICE: (state, v) => {

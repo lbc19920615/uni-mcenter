@@ -1,0 +1,22 @@
+@mixin theme-dark($sel) {
+  color: #efefef;
+}
+
+// 推荐使用CSS中的媒体查询 prefers-color-scheme 进行适配
+@media (prefers-color-scheme: dark){
+  //.container {
+  //  background-color: #1B1C1E;
+  //  color: white;
+  //}
+  .page {
+    &.dark {
+      @include theme-dark('.page');
+    }
+  }
+}
+
+.page {
+  &.dark {
+    @include theme-dark('.page');
+  }
+}

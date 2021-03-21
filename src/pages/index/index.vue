@@ -1,5 +1,5 @@
 <template>
-	<view class="page container" :class="appTheme">
+	<view class="page container" :class="pageSkin">
 		<scroll-view class="nav-scroll"
                  :enable-flex="true"
                  scroll-with-animation
@@ -124,8 +124,6 @@ export default {
 	},
 	mounted() {
 		this.init();
-		this.pageSetTheme(this.PAGE_THEME_DARK);
-
 	},
 	methods: {
 		// 获取dom信息
