@@ -25,6 +25,9 @@
 
 <script>
 import {demoPages, miniPages} from "@/var";
+import { Router } from '@/lib/miniap-router/index.js'
+
+console.log(Router);
 
 export default {
   name: 'IndexRoutes',
