@@ -1,11 +1,15 @@
 <script>
+	import { aliasRouter } from '@/router';
+
+
 	export default {
 		onLaunch: function() {
 			console.log('App Launch')
-    },
-    // onThemeChange:function(options){
-    //   console.log(options,'系统主题');
-    // },
+      setTimeout(() => {
+        console.log(aliasRouter)
+        // aliasRouter.switchTab('/mime');
+      }, 1000)
+		},
 		onShow: function() {
 			console.log('App Show')
 		},
