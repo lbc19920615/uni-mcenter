@@ -18,7 +18,8 @@
       >
         <text class="text">{{demo_item.name}}</text>
       </view>
-		<!-- #endif -->
+	</view>	
+	<!-- #endif -->
   </view>
 </template>
 
