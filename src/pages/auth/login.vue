@@ -11,7 +11,7 @@
 	import {pageMixin} from "@/utils/mixins/page";
   import AlAuthPhone from "@/components/al-auth-phone/al-auth-phone";
   import {authLoginMixin} from "@/utils/mixins/auth";
-  import {getToken} from "@/utils/auth/token";
+  import {getToken} from "@/utils/auth/token"
 
   export default {
     components: {AlAuthPhone},
@@ -25,7 +25,6 @@
 		},
     onShow() {
 		  this.open();
-
     },
 		methods: {
       open(){
