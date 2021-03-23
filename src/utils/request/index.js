@@ -1,6 +1,7 @@
 import axios from 'axios-miniprogram'
 import {showToast} from "@/utils/msg";
 import { getRequestLogger } from "@/utils/logger";
+import store from "@/store/index";
 
 const logger = getRequestLogger();
 
@@ -68,18 +69,17 @@ service.interceptors.response.use(
 			// 50021: access_token过期,
 			// 50022: access_token失效,
 			if (res.code === 61000 || res.code === 50021 || res.code === 50022) {
-				showReloginModal(res).then(() => {
-				//	store.dispatch('FedLogOut')
-				})
-				.then(() => {
-					if (res.code === 50021) {
-						// location.reload()
-					} else if (res.code === 61000) {
-						// redirectToOA()
-					} else {
-						// router.push('/login')
-					}
-				})
+				showReloginModal(res)
+					.then(() => store.dispatch('FedLogOut'))
+					.then(() => {
+						if (res.code === 50021) {
+							// location.reload()
+						} else if (res.code === 61000) {
+							// redirectToOA()
+						} else {
+							// router.push('/login')
+						}
+					})
 			}
 
       return Promise.reject('error')
