@@ -1,13 +1,21 @@
 // import { mapGetters } from 'vuex'
 import SafeArea from "@/components/safe-area/safe-area";
 
+function initTheme() {
+	let v = uni.getSystemInfoSync().theme
+	if (!v) {
+		v = 'light'
+	}
+	return v
+}
+
 export let pageMixin = {
 	components: {
 		SafeArea,
 	},
 	data() {
 		return {
-			pageSkin: uni.getSystemInfoSync().theme
+			pageSkin: initTheme()
 		}
 	},
 	onLoad() {
@@ -27,6 +35,14 @@ export let pageMixin = {
 		// ])
 	},
 	methods: {
+		/**
+		 * 获取主题
+		 * @return {*}
+		 * @private
+		 */
+		_pageGetTheme() {
+			return initTheme()
+		},
 		/**
 		 * 设置主题
 		 * @param v

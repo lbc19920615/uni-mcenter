@@ -299,22 +299,4 @@ $swiperListItemHeight: 600upx;
 }
 
 
-// page
-
-.ele-grid-item {
-	.text {
-		font-size: 32upx;
-	}
-
-	.css-ib-grid-item {
-		vertical-align: top;
-		height: 60upx;
-	}
-}
-
-.other-griditem {
-  .text {
-    font-size: 60upx;
-  }
-}
 </style>

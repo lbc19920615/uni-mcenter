@@ -39,6 +39,11 @@ export let demoPages = [
 		icon: "/static/c1.png",
 		url: "/pages/demos/rx_list",
 	},
+	{
+		name: "弹窗login",
+		icon: "/static/c1.png",
+		url: "/pages/auth/login",
+	},
 ]
 
 export let miniPages = [

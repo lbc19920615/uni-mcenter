@@ -1,12 +1,12 @@
 <template>
-	<view class="page" :class="pageSkin">
+	<app-page>
     <button @click="open">打开弹窗</button>
     <uni-popup ref="popup" type="center">
       <al-auth
           :step="AUTH_STEP.ONE"
           @get-phone-success="onGetPhoneSuccess"></al-auth>
     </uni-popup>
-	</view>
+	</app-page>
 </template>
 
 <script>
@@ -25,7 +25,7 @@
 			return {
 			}
 		},
-    onShow() {
+    mounted() {
 		  this.open();
     },
 		methods: {

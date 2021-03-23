@@ -1,3 +1,24 @@
+<style lang="scss">
+.index-routes {
+  .ele-grid-item {
+    .text {
+      font-size: 32upx;
+    }
+
+    .css-ib-grid-item {
+      vertical-align: top;
+      height: 60upx;
+    }
+  }
+
+  .other-griditem {
+    .text {
+      font-size: 60upx;
+    }
+  }
+}
+</style>
+
 <template>
   <view class="index-routes">
     <view class="css-ib-grid css-ib-grid--column-2 ele-grid-item">
@@ -18,7 +39,7 @@
       >
         <text class="text">{{demo_item.name}}</text>
       </view>
-	</view>	
+	</view>
 	<!-- #endif -->
   </view>
 </template>
