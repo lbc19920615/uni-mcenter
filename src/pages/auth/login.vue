@@ -2,19 +2,21 @@
 	<view class="page" :class="pageSkin">
     <button @click="open">打开弹窗</button>
     <uni-popup ref="popup" type="center">
-      <al-auth-phone @get-phone-success="onGetPhoneSuccess"></al-auth-phone>
+      <al-auth
+          :step="AUTH_STEP.ONE"
+          @get-phone-success="onGetPhoneSuccess"></al-auth>
     </uni-popup>
 	</view>
 </template>
 
 <script>
 	import {pageMixin} from "@/utils/mixins/page";
-  import AlAuthPhone from "@/components/al-auth-phone/al-auth-phone";
+  import AlAuth from "@/components/al-auth/al-auth";
   import {authLoginMixin} from "@/utils/mixins/auth";
   import {getToken} from "@/utils/auth/token"
 
   export default {
-    components: {AlAuthPhone},
+    components: {AlAuth},
     mixins: [
 	    pageMixin,
       authLoginMixin,
