@@ -102,6 +102,15 @@
             }
 
         }
+        ,{
+            "path" : "pages/auth/login",
+            "style" :
+            {
+                "navigationBarTitleText": "login",
+                "enablePullDownRefresh": false
+            }
+
+        }
     ],
 	"globalStyle": {
 		"navigationBarBackgroundColor": "@navBgColor",
@@ -165,6 +174,11 @@
 			{
 				"name": "pages/demos/rx_list",
 				"pathName": "pages/demos/rx_list",
+				"scene": null
+			},
+			{
+				"name": "pages/auth/login",
+				"pathName": "pages/auth/login",
 				"scene": null
 			},
 			{
