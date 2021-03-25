@@ -1,5 +1,5 @@
 <template>
-	<view class="page">
+	<app-page>
 	  <view>
       <canvas style="width: 300px; height: 200px;"
               canvas-id="firstCanvas" id="firstCanvas"></canvas>
@@ -9,7 +9,7 @@
       <canvas style="width: 300px; height: 200px;"
               canvas-id="painterCanvas" id="painterCanvas"></canvas>
     </view>
-	</view>
+	</app-page>
 </template>
 
 <script>

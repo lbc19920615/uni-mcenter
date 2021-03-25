@@ -34,7 +34,7 @@
 </style>
 
 <template>
-	<view class="page page-layout-con">
+	<app-page class="page-layout-con">
 		<view class="header" >uni grid</view>
 		<!-- 一般用法 -->
 		<uni-grid :column="3">
@@ -97,7 +97,7 @@
       <div class="gr-layout__item">6</div>
       <div class="gr-layout__item">7</div>
     </div>
-	</view>
+	</app-page>
 </template>
 
 <script>

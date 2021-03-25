@@ -1,5 +1,5 @@
 <template>
-	<div class="page">
+  <app-page>
     <view class="evan-form-show">
       <evan-form :hide-required-asterisk="hideRequiredAsterisk" ref="form" :model="info">
         <evan-form-item label="姓名：" prop="name">
@@ -80,7 +80,7 @@
       <button @click="toggleRequiredParam" class="evan-form-show__button">显示/隐藏required字段</button>
       <button @click="dynamicSave" class="evan-form-show__button">表单校验</button>
     </view>
-  </div>
+  </app-page>
 </template>
 
 <script>

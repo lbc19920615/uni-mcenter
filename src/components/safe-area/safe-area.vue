@@ -34,11 +34,13 @@
     mounted() {
       const { safeArea } = wx.getSystemInfoSync()
       // console.log(safeArea)
-      if (this.useTop) {
-        this.safeAreaTop = safeArea.top
-      }
-      if (this.useBottom) {
-        this.safeAreaBottom = safeArea.bottom - safeArea.height
+      if (this.customNav) {
+        if (this.useTop) {
+          this.safeAreaTop = safeArea.top
+        }
+        if (this.useBottom) {
+          this.safeAreaBottom = safeArea.bottom - safeArea.height
+        }
       }
     }
   }

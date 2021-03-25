@@ -1,7 +1,7 @@
 <template>
-	<view class="page" :class="pageSkin">
+	<app-page>
 		<ss-hycamera @runMethod="onRunMethod"></ss-hycamera>
-	</view>
+  </app-page>
 </template>
 
 <script>

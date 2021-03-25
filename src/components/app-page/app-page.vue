@@ -1,5 +1,5 @@
 <template>
-  <view class="page" :class="pageSkin">
+  <view class="page app-page" :class="pageSkin">
     <slot></slot>
   </view>
 </template>

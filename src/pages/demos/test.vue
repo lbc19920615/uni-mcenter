@@ -1,7 +1,7 @@
 <template>
-	<view class="page">
+	<app-page>
 		<common-drag :list.sync="list" :number="20"></common-drag>
-	</view>
+  </app-page>
 </template>
 
 <script>

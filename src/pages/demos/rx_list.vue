@@ -1,7 +1,9 @@
 <template>
-	<safe-area :custom-nav="true" class="page">
-		<category-s></category-s>
-	</safe-area>
+  <app-page>
+    <safe-area :custom-nav="true">
+      <category-s></category-s>
+    </safe-area>
+  </app-page>
 </template>
 
 <script>

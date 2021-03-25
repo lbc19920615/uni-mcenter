@@ -1,5 +1,5 @@
 <template>
-  <view class="page">
+  <app-page>
 
     <view class="datajson">
       <view class="text">菜单数据index：</view>
@@ -39,7 +39,7 @@
       <view class="loading-text">{{loadingText}}</view>
     </view>
 
-  </view>
+  </app-page>
 </template>
 
 <script>
