@@ -111,6 +111,15 @@
             }
 
         }
+        ,{
+            "path" : "pages/demos/search_page",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "search_page",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarBackgroundColor": "@navBgColor",
@@ -179,6 +188,11 @@
 			{
 				"name": "pages/auth/login",
 				"pathName": "pages/auth/login",
+				"scene": null
+			},
+			{
+				"name": "pages/demos/search_page",
+				"pathName": "pages/demos/search_page",
 				"scene": null
 			},
 			{

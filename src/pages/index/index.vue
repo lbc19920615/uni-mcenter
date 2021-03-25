@@ -1,5 +1,5 @@
 <template>
-	<view class="page container" :class="pageSkin">
+	<app-page>
 		<scroll-view class="nav-scroll"
                  :enable-flex="true"
                  scroll-with-animation
@@ -53,14 +53,13 @@
 				</swiper-item>
 			</swiper>
 		</view>
-	</view>
+  </app-page>
 </template>
 
 <script>
 import shortUUID  from 'short-uuid'
 import {demoPages} from "@/var";
 import IndexSwiper from "@/pages/index/components/index-swiper";
-import {pageMixin} from "@/utils/mixins/page";
 import IndexRoutes from "@/pages/index/components/index-routes";
 
 const mockData = [
@@ -79,7 +78,7 @@ const mockData = [
 export default {
   components: {IndexRoutes, IndexSwiper},
   mixins: [
-    pageMixin,
+
 	],
 	data() {
 		return {
