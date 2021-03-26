@@ -3,7 +3,8 @@ Component({
 		selected: 0,
     color: "#7A7E83",
     selectedColor: "#3cc51f",
-		"list": [{
+		"list": [
+			{
 				"pagePath": "/pages/index/index",
 				iconPath: "/static/tabbar/icon_component.png",
 				selectedIconPath: "/static/tabbar/icon_component_HL.png",

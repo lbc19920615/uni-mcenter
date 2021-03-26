@@ -44,6 +44,12 @@
     }
   }
 
+  page {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+  }
+
   @import "styles/css-var";
 
 	@import "styles/css-grid";
