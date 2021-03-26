@@ -27,7 +27,7 @@
 					<scroll-view
 						:lower-threshold="80"
 						:refresher-triggered="refreStatus"
-						@refresherrefresh="handleRefre"
+						@refresherrefresh="handleRefresh"
 						 :refresher-threshold="50"
 						 :upper-threshold="30"
 						:refresher-enabled="true"
@@ -209,7 +209,7 @@ export default {
 			console.log(this.list[this.swiperIndex]);
 		},
 		// 下拉事件
-		handleRefre() {
+		handleRefresh() {
 			if (this.IsSwiperScrolltoupper) {
 				this.refreStatus = true;
 				uni.showLoading({
@@ -218,7 +218,9 @@ export default {
 				setTimeout(() => {
 					this.list[this.swiperIndex].content = [];
 					for (var i = 0; i < 5; i++) {
-						this.list[this.swiperIndex].content.push([this.list[this.swiperIndex].title + '下拉-' + i]);
+						this.list[this.swiperIndex].content.push(
+                this.list[this.swiperIndex].title + '下拉-' + i
+            );
 					}
 					uni.hideLoading();
 				}, 1000);
@@ -260,6 +262,7 @@ page, .app-page {
 }
 
 $navHeight: 60upx;
+$paddingV: 20upx;
 
 .nav-item {
 	display: inline-block;
@@ -291,7 +294,7 @@ $navHeight: 60upx;
 }
 
 .swiper {
-	height: calc(100% - #{$navHeight});
+	height: calc(100% - #{$navHeight + $paddingV * 2});
 	> swiper {
 		height: 100%;
 	}
