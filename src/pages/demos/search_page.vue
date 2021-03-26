@@ -1,20 +1,42 @@
 <template>
 	<app-page class="search-page">
-		<uni-search-bar  cancel-button="always" :focus="true" @confirm="search"></uni-search-bar>
+    <view class="ui-pd-common-h ui-m-t-20 search-page-search">
+      <uni-search-bar
+          cancel-button="always" :focus="true" @confirm="search"></uni-search-bar>
+    </view>
+
+    <view class="ui-pd-common-h search-page-section">
+      <view class="ui-m-b-20 ui-flex ui-items-center ui-justify-between search-page-section__header">
+        热搜记录
+      </view>
+      <view class="search-page-section__body search-tags">
+        <view class="search-page-section__item search-tag history-item"
+              v-for="(hisotry, hisotryIndex) in hisotrys"
+              :key="hisotryIndex"
+              v-if="hisotry"
+        >
+          <view class="history-item__name">{{hisotry.name}}</view>
+          <!--          <view class="history-item__remove" @click="removeHistory(hisotry)">x</view>-->
+        </view>
+      </view>
+    </view>
 
 		<view class="ui-pd-common-h search-page-section">
-			<view class="ui-m-b-20 search-page-section__header">搜索历史</view>
-			<view class="search-page-section__body">
-				<view class="search-page-section__item history-item"
+			<view class="ui-m-b-20 ui-flex ui-items-center ui-justify-between search-page-section__header">
+        历史记录
+      </view>
+			<view class="search-page-section__body search-tags">
+				<view class="search-page-section__item search-tag history-item"
 				v-for="(hisotry, hisotryIndex) in hisotrys"
 				:key="hisotryIndex"
               v-if="hisotry"
 				>
           <view class="history-item__name">{{hisotry.name}}</view>
-          <view class="history-item__remove" @click="removeHistory(hisotry)">x</view>
+<!--          <view class="history-item__remove" @click="removeHistory(hisotry)">x</view>-->
         </view>
 			</view>
 		</view>
+
 	</app-page>
 </template>
 
@@ -81,19 +103,41 @@ import shortUUID  from 'short-uuid'
   font-size: 32upx;
   color: var(--text-black-common);
 
+  .uni-searchbar {
+    padding: 0;
+  }
+
+  .search-tag {
+    padding: 10upx 20upx;
+    background: #F4F5FE;
+    border-radius: 1000px;
+    display: inline-flex;
+    font-size: 24upx;
+    font-weight: 400;
+    color: #252B33
+  }
+
+  .search-tags {
+    margin-bottom: -24upx;
+  }
+
+  .search-tag {
+    margin-right: 24upx;
+    margin-bottom: 24upx;
+  }
+
   .search-page-section {
+    margin-top: 60upx;
     &__header {
+      font-weight: bold;
     }
   }
 
   $sel: ".history-item";
 
   #{$sel} {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-
-
+    //align-items: center;
+    //justify-content: flex-start;
 
     #{$sel}__name + #{$sel}__remove {
       margin-left: 20upx;
