@@ -1,6 +1,7 @@
 <style lang="scss">
-.app-page {
+page, .app-page {
   height: 100%;
+  font-size: 32upx;
 }
 
 .al-scroll-row-item {
