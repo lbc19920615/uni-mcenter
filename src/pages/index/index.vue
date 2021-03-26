@@ -38,15 +38,19 @@
 							<view class="swiper-item-list"
 							v-for="(sub_item, sub_item_index) in item.content"
 							:key="sub_item_index">
-              <view v-if="index === 0 && sub_item_index == 0">
-                <view class="ui-m-t-20 ui-m-b-20">
-                  <index-swiper></index-swiper>
-                </view>
-              </view>
-							<view v-else-if="index === 0 && sub_item_index == 1">
-								<index-routes></index-routes>
-							</view>
-							<view class="other-griditem" v-else> <text class="text"> {{sub_item_index}}</text> <text class="text">{{sub_item}}</text></view>
+                <template v-if="index === 0 && sub_item_index == 0">
+                  <view class="ui-m-t-20 ui-m-b-20">
+                    <index-swiper></index-swiper>
+                  </view>
+                </template>
+                <template v-else-if="index === 0 && sub_item_index == 1">
+                  <view class="other-griditem" >
+                    <index-routes></index-routes>
+                  </view>
+                </template>
+                <template v-else>
+                  <view class="other-griditem" > <text class="text"> {{sub_item_index}}</text> <text class="text">{{sub_item}}</text></view>
+                </template>
 							</view>
 						</view>
 					</scroll-view>
@@ -288,7 +292,11 @@ swiper-item {
 $swiperListItemHeight: 600upx;
 .swiper-item-list {
 	//border-bottom: 2upx solid pink;
-  &:not(:first-child) {
+  //&:not(:first-child) {
+  //  height: $swiperListItemHeight;
+  //  padding: 0 30upx;
+  //}
+  .other-griditem {
     height: $swiperListItemHeight;
     padding: 0 30upx;
   }
