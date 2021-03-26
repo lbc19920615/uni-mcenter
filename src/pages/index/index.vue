@@ -299,6 +299,9 @@ $swiperListItemHeight: 600upx;
   .other-griditem {
     height: $swiperListItemHeight;
     padding: 0 30upx;
+    .text {
+      font-size: 32upx;
+    }
   }
 }
 .swiper-scroll {
