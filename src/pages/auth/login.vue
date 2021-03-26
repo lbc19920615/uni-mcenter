@@ -1,6 +1,6 @@
 <template>
 	<app-page>
-    <button @click="open">打开弹窗</button>
+    <button @click="open">打开授权手机号弹窗</button>
     <uni-popup ref="popup" type="center">
       <al-auth
           :step="AUTH_STEP.ONE"
@@ -26,7 +26,7 @@
 			}
 		},
     mounted() {
-		  this.open();
+		  // this.open();
     },
 		methods: {
       open(){

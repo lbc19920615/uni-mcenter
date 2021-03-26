@@ -1,7 +1,16 @@
+<style lang="scss">
+.al-auth {
+  &-button {
+  }
+}
+</style>
+
 <template>
   <view class="al-auth">
     <al-auth-phone v-if="curStep === AUTH_STEP.ONE"
-                   @get-phone-success="onGetPhoneSuccess"></al-auth-phone>
+                   @get-phone-success="onGetPhoneSuccess"
+                  @get-phone-fail="onGetPhoneFail"
+    ></al-auth-phone>
     <view v-if="curStep === AUTH_STEP.THREE"></view>
   </view>
 </template>
@@ -24,6 +33,9 @@ export default {
   methods: {
     onGetPhoneSuccess(e) {
       this.$emit('get-phone-success', e)
+    },
+    onGetPhoneFail(e) {
+      this.$emit('get-phone-fail', e)
     }
   }
 }

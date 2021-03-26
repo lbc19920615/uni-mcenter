@@ -2,17 +2,36 @@
 @import "../../styles/alh";
 
 .al-auth-phone {
-  padding: 20upx;
-  background-color: var(--backround-color-common);
+  @include init-al-auth('.al-auth-phone');
+
+  padding: 60upx 20upx;
+  &__desc {
+    text-align: center;
+    > image {
+      width: 120upx;
+      height: 120upx;
+    }
+    margin-bottom: 210upx;
+  }
+  width: 510upx;
 }
 </style>
 
 <template>
   <view class="al-auth-phone">
-    <view>请授权</view>
-    <button type="button"
-            open-type="getPhoneNumber"
-            @getphonenumber="onGetphonenumber">一键授权手机号</button>
+    <view class="al-auth-phone__inner">
+      <view class="al-auth-phone__desc">
+        <image src="/static/logo.png"
+               class="app-class-card__avatar"></image>
+      </view>
+      <view class="al-auth-phone__title">申请使用你的手机号</view>
+      <button
+          class="al-auth-phone__button"
+          hover-class="none"
+          type="button"
+          open-type="getPhoneNumber"
+          @getphonenumber="onGetphonenumber">一键授权手机号</button>
+    </view>
   </view>
 </template>
 
@@ -32,6 +51,8 @@ export default {
       // console.log('onGetphonenumber', e)
       if (errMsg === "getPhoneNumber:ok") {
         this.$emit('get-phone-success', obj)
+      } else {
+        this.$emit('get-phone-fail', obj)
       }
     }
   }
