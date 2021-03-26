@@ -1,6 +1,10 @@
 <template>
 	<app-page>
-		<uni-search-bar placeholder="自定placeholder" @confirm="search"></uni-search-bar>
+		<uni-search-bar  cancel-button="always" :focus="true" @confirm="search"></uni-search-bar>
+		
+		<view>
+			always
+		</view>
 	</app-page>
 </template>
 
@@ -12,8 +16,8 @@
 			}
 		},
 		methods: {
-			search() {
-				
+			search(e) {
+				console.log('search', e)
 			}
 		}
 	}
