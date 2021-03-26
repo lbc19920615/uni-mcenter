@@ -1,6 +1,6 @@
 <template>
 	<app-page>
-		search_page
+		<uni-search-bar placeholder="自定placeholder" @confirm="search"></uni-search-bar>
 	</app-page>
 </template>
 
@@ -12,7 +12,9 @@
 			}
 		},
 		methods: {
-			
+			search() {
+				
+			}
 		}
 	}
 </script>
