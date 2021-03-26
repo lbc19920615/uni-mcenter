@@ -44,6 +44,11 @@ export let demoPages = [
 		icon: "/static/c1.png",
 		url: "/pages/auth/login",
 	},
+	{
+		name: "搜索页面",
+		icon: "/static/c1.png",
+		url: "/pages/demos/search_page",
+	},
 ]
 
 export let miniPages = [

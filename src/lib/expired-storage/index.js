@@ -68,10 +68,10 @@ class Storage {
 		};
 
 		this.remove = function (key) {
-			return localStorage['removeItem'](key, value);
+			return localStorage['removeItem'](key);
 			// return supportWechatMiniProgram ? Wechat['removeStorageSync'](key) : LocalStorage['removeItem'](key);
 		};
 	}
 }
 
-module.exports = new Storage();
+export default new Storage();

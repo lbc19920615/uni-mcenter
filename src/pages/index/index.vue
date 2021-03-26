@@ -231,7 +231,7 @@ scroll-view ::v-deep ::-webkit-scrollbar {
 /* #endif */
 
 
-page {
+page, .app-page {
 	height: 100%;
 }
 

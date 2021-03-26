@@ -20,7 +20,7 @@
 </script>
 
 <style lang="scss">
-  :root {
+  page {
     /* -------------------------------------------------------------------
         Assign the default/constant/env values to CSS variables
     */
@@ -44,7 +44,7 @@
     }
   }
 
-
+  @import "styles/css-var";
 
 	@import "styles/css-grid";
 	@include init-css-grid("css-ib-grid", 5, 24upx);

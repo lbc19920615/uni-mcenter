@@ -6,6 +6,10 @@
 /// app tabbar height
 $tabbarHeight: 100rpx;
 
+
+/// app common padding h
+$commonPaddingH: 30upx;
+
 /// app common padding
-$commonPadding: 0 30upx;
+$commonPadding: 0 $commonPaddingH;
 

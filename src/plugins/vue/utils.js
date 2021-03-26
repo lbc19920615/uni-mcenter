@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import * as money from './utils/money.js'
+import expStorage from '@/lib/expired-storage/index'
 
 const utils = {
   // 手机号格式是否正确
@@ -16,5 +17,7 @@ const utils = {
 export default {
 	install() {
 		Vue.prototype.$utils = utils
+		Vue.prototype.$Expire = expStorage.Expire
+		Vue.prototype.$expStorage = expStorage
 	}
 }
