@@ -20,7 +20,10 @@
               easing-function="linear"
               @change="swiperChange"
       >
-				<swiper-item v-for="(item, index) in list" :key="item.uuid">
+				<swiper-item v-for="(item, index) in list"
+                     class="index-fragment"
+                     :class="['index-fragment-' + index]"
+                     :key="item.uuid">
 					<scroll-view
 						:lower-threshold="80"
 						:refresher-triggered="refreStatus"
@@ -37,16 +40,27 @@
 						<view class="swiper-item-wrap">
 							<view class="swiper-item-list"
 							v-for="(sub_item, sub_item_index) in item.content"
+
 							:key="sub_item_index">
-                <template v-if="index === 0 && sub_item_index == 0">
-                  <view class="ui-m-t-20 ui-m-b-20">
-                    <index-swiper></index-swiper>
-                  </view>
-                </template>
-                <template v-else-if="index === 0 && sub_item_index == 1">
-                  <view class="other-griditem" >
-                    <index-routes></index-routes>
-                  </view>
+                <template v-if="index === 0">
+                  <!--      start 首页            -->
+                  <template v-if="sub_item_index === 0">
+                    <view class="ui-m-t-20 ui-m-b-20">
+                      <index-swiper></index-swiper>
+                    </view>
+                  </template>
+                  <template v-else-if="sub_item_index === 1">
+                    <view class="other-griditem" >
+                      <index-routes></index-routes>
+                    </view>
+                  </template>
+                  <template v-else>
+                    <view class="other-griditem">
+                     <app-class-card :item="sub_item"
+                                     :index="sub_item_index"></app-class-card>
+                    </view>
+                  </template>
+                  <!--      end 首页            -->
                 </template>
                 <template v-else>
                   <view class="other-griditem" > <text class="text"> {{sub_item_index}}</text> <text class="text">{{sub_item}}</text></view>
@@ -65,6 +79,7 @@ import shortUUID  from 'short-uuid'
 import {demoPages} from "@/var";
 import IndexSwiper from "@/pages/index/components/index-swiper";
 import IndexRoutes from "@/pages/index/components/index-routes";
+import AppClassCard from "@/components/app-class-card/app-class-card";
 
 const mockData = [
 				{ title: '首页', content: ['首页-1', '首页-2', '首页-3', '首页-4',  '首页-5', '首页-6', '首页-7'] },
@@ -80,7 +95,7 @@ const mockData = [
 
 
 export default {
-  components: {IndexRoutes, IndexSwiper},
+  components: {AppClassCard, IndexRoutes, IndexSwiper},
   mixins: [
 
 	],
@@ -285,25 +300,36 @@ $navHeight: 60upx;
 swiper-item {
 	position: relative;
 }
-// .swiper-item {
-// 	overflow-y: scroll;
-// }
 
 $swiperListItemHeight: 600upx;
-.swiper-item-list {
-	//border-bottom: 2upx solid pink;
-  //&:not(:first-child) {
-  //  height: $swiperListItemHeight;
-  //  padding: 0 30upx;
-  //}
+.index-fragment {
   .other-griditem {
-    height: $swiperListItemHeight;
     padding: 0 30upx;
     .text {
       font-size: 32upx;
     }
   }
+
+  &:not(.index-fragment-0) {
+    .other-griditem {
+      height: $swiperListItemHeight;
+    }
+  }
 }
+
+.index-fragment-0 {
+  .swiper-item-wrap {
+
+    background-image: linear-gradient(
+            180deg
+        , rgba(245, 245, 250, 0) 350upx, 750upx, #F5F5FA);
+  }
+
+  .other-griditem {
+    margin-top: 30upx;
+  }
+}
+
 .swiper-scroll {
 	height: 100%;
 }
