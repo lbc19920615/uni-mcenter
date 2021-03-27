@@ -23,7 +23,11 @@ const utils = {
 	 * @returns {number}
 	 */
 	rpx2px(v) {
-		return this.cachedSystemInfo.windowWidth / 750 * v;
+		let aspect = this.cachedSystemInfo.windowWidth / 750
+		if (aspect > 1) {
+			aspect = 1;
+		}
+		return aspect * v;
 	},
 	/**
 	 * rpx value to px string
