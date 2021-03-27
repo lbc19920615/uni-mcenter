@@ -10,6 +10,12 @@ module.exports = {
 			new webpack.DefinePlugin({
 				PRO_FOO: webpack.DefinePlugin.runtimeValue(() => {
 					return JSON.stringify({})
+				}, true ),
+				ROUTES: webpack.DefinePlugin.runtimeValue(() => {
+					const tfPages = new TransformPages({
+						includes: ['path', 'name', 'aliasPath','animation']
+					});
+					return JSON.stringify(tfPages.routes)
 				}, true )
 			})
 		]

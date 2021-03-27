@@ -45,6 +45,7 @@
 </template>
 
 <script>
+import { router } from "@/router";
 import {demoPages, miniPages} from "@/var";
 
 export default {
@@ -57,8 +58,8 @@ export default {
   },
   methods: {
     goToDemo(row) {
-      uni.navigateTo({
-        url: row.url,
+      router.push({
+        path: row.url,
       });
     }
   }

@@ -2,24 +2,28 @@
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
 			"path": "pages/index/index",
+			"name": "index",
 			"style": {
 				"navigationBarTitleText": "uni-app"
 			}
 		},
 		{
 			"path": "pages/mime/index",
+			"name": "mime",
 			"style": {
 				"navigationBarTitleText": "uni-app"
 			}
 		},
 		{
 			"path": "pages/demos/test",
+			"name": "demos_test",
 			"style": {
 				"navigationBarTitleText": "uni-app"
 			}
 		}
         ,{
             "path" : "pages/demos/form",
+			"name": "demos_form",
             "style" :
             {
                 "navigationBarTitleText": "form",
@@ -29,6 +33,7 @@
         }
         ,{
             "path" : "pages/demos/layout",
+			"name": "demos_layout",
             "style" :
             {
                 "navigationBarTitleText": "layout",
@@ -38,6 +43,7 @@
         }
         ,{
             "path" : "pages/demos/index_a",
+			"name": "demos_index_a",
             "style" :
             {
                 "navigationBarTitleText": "",
@@ -48,6 +54,7 @@
         }
         ,{
             "path" : "pages/demos/scroll",
+			"name": "demos_scroll",
             "style" :
             {
                 "navigationBarTitleText": "scroll",
@@ -57,6 +64,7 @@
         }
         ,{
             "path" : "pages/demos/sliding",
+			"name": "demos_sliding",
             "style" :
             {
                 "navigationBarTitleText": "sliding",
@@ -67,6 +75,7 @@
         }
         ,{
             "path" : "pages/demos/dropdown",
+			"name": "demos_dropdown",
             "style" :
             {
                 "navigationBarTitleText": "dropdown",
@@ -76,6 +85,7 @@
         }
         ,{
             "path" : "pages/demos/canvas",
+			"name": "demos_canvas",
             "style" :
             {
                 "navigationBarTitleText": "canvas",
@@ -85,6 +95,7 @@
         }
         ,{
             "path" : "pages/demos/rx_list",
+			"name": "demos_list",
             "style" :
             {
                 "navigationBarTitleText": "rx_list",
@@ -95,6 +106,7 @@
         }
         ,{
             "path" : "pages/demos/mini_camera",
+			"name": "demos_camera",
             "style" :
             {
                 "navigationBarTitleText": "",
@@ -104,6 +116,7 @@
         }
         ,{
             "path" : "pages/auth/login",
+			"name": "auth_login",
             "style" :
             {
                 "navigationBarTitleText": "login",
@@ -113,9 +126,41 @@
         }
         ,{
             "path" : "pages/demos/search_page",
+			"name": "demos_search_page",
             "style" :
             {
                 "navigationBarTitleText": "search_page",
+                "enablePullDownRefresh": false
+            }
+
+        }
+        ,{
+            "path" : "pages/course/detail",
+			"aliasPath": "/course/detail/:course_uuid",
+			"name": "course_detail",
+            "style" :
+            {
+                "navigationBarTitleText": "detail",
+                "enablePullDownRefresh": false
+            }
+
+        }
+        ,{
+            "path" : "pages/404/404",
+			"name": "404",
+            "style" :
+            {
+                "navigationBarTitleText": "404",
+                "enablePullDownRefresh": false
+            }
+
+        }
+        ,{
+            "path" : "pages/learn/learn",
+			"name": "learn",
+            "style" :
+            {
+                "navigationBarTitleText": "",
                 "enablePullDownRefresh": false
             }
 

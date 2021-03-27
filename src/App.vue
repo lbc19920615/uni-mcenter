@@ -1,15 +1,7 @@
 <script>
-	import { aliasRouter } from '@/router';
-
-
 	export default {
 		onLaunch: function() {
 		  this.$utils.UTILS_onLaunch();
-			console.log('App Launch')
-      setTimeout(() => {
-        console.log(aliasRouter)
-        // aliasRouter.switchTab('/mime');
-      }, 1000)
 		},
 		onShow: function() {
 			console.log('App Show')

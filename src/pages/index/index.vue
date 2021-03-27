@@ -61,7 +61,9 @@
                   <template v-else>
                     <view class="other-griditem">
                      <app-class-card :item="sub_item"
-                                     :index="sub_item_index"></app-class-card>
+                                     :index="sub_item_index"
+									 @click-card="onClickCard"
+									 ></app-class-card>
                     </view>
                   </template>
                   <!--      end 首页            -->
@@ -103,18 +105,32 @@ let indexHeaderMixin = {
   methods: {
     clickAction(type) {
       if (type === 'action0') {
-        router.navigateTo({
-          url: '/pages/demos/search_page'
+        router.push({
+          path: '/pages/demos/search_page'
         })
       }
     }
   }
 }
 
+let indexCardMixin = {
+	methods: {
+		onClickCard(e) {
+			router.push({
+			  name: 'course_detail',
+        params: {
+          course_uuid: Date.now()
+        }
+			})
+		}
+	}
+}
+
 export default {
   components: {IndexHeader, AppClassCard, IndexRoutes, IndexSwiper},
   mixins: [
-    indexHeaderMixin
+    indexHeaderMixin,
+    indexCardMixin,
 	],
 	data() {
 		return {

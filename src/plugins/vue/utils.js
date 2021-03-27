@@ -23,7 +23,7 @@ const utils = {
 	 * @returns {number}
 	 */
 	rpx2px(v) {
-		let aspect = this.cachedSystemInfo.windowWidth / 750
+		let aspect = uni.getSystemInfoSync().windowWidth / 750
 		if (aspect > 1) {
 			aspect = 1;
 		}

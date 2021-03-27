@@ -1,5 +1,5 @@
 <template>
-  <view class="app-class-card">
+  <view class="app-class-card" @click="onClickItem">
     <image src="/static/logo.png"
            mode="widthFix"
            class="app-class-card__avatar"></image>
@@ -32,13 +32,18 @@ export default {
   },
   watch: {
     item(newVal) {
-      console.log('newVal', newVal)
+      // console.log('newVal', newVal)
       this.innerItem = newVal
     }
   },
   created() {
-    console.log('item', this.item)
+    // console.log('item', this.item)
     this.innerItem = this.item
+  },
+  methods: {
+    onClickItem() {
+      this.$emit('click-card', this.innerItem)
+    }
   }
 }
 </script>
