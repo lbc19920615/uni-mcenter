@@ -1,0 +1,27 @@
+////
+/// This is css grid init lib
+/// @group app
+////
+
+/// size
+@mixin size($w, $h: $w) {
+  width: $w;
+  height: $h;
+}
+
+/// aspect-ratio
+@mixin aspect-ratio($w, $h) {
+  &::before {
+    content: "";
+    width: 1px;
+    margin-left: -1px;
+    float: left;
+    height: 0;
+    padding-top: $w / $h * 100%;
+  }
+  &::after { /* to clear float */
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
