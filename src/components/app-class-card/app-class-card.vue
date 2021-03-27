@@ -32,7 +32,7 @@ export default {
   },
   watch: {
     item(newVal) {
-      // console.log('newVal', newVal)
+      console.log('newVal', newVal)
       this.innerItem = newVal
     }
   },
