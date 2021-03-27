@@ -60,6 +60,7 @@
                   </template>
                   <template v-else>
                     <view class="other-griditem">
+                      {{sub_item}}
                      <app-class-card :item="sub_item"
                                      :index="sub_item_index"
 									 @click-card="onClickCard"
@@ -156,8 +157,11 @@ export default {
 			return `width:${this.navItemWidth}px; left:${this.navItemLeft}px`;
 		}
 	},
-	mounted() {
-		this.init();
+  onLoad() {
+		this.$nextTick(() => {
+      console.log('首页onLoad');
+      this.init();
+    })
 	},
 	methods: {
 		// 获取dom信息

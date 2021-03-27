@@ -1,10 +1,10 @@
 <template>
-  <view class="app-class-card" @click="onClickItem">
+  <view class="app-class-card" @click="clickItem">
     <image src="/static/logo.png"
            mode="widthFix"
            class="app-class-card__avatar"></image>
     <view class="app-class-card__body">
-      <view class="app-class-card__title">{{innerItem}}</view>
+      <view class="app-class-card__title">{{item}}</view>
       <view class="app-class-card__main">{{index}}</view>
       <view class="app-class-card__actions"><view class="app-class-card__action-inner">some action</view></view>
     </view>
@@ -12,37 +12,32 @@
 </template>
 
 <script>
+import {commonHooksMixin} from "@/utils/mixins/component";
+
 export default {
   name: "app-class-card",
+  mixins: [
+      commonHooksMixin
+  ],
   props: {
     item: {
       type: String,
-      default() {
-        return ""
-      }
+      default: ""
     },
     index: {
-      type: [Number, String]
+      type: Number
     }
   },
   data() {
     return {
-      innerItem: ""
     }
-  },
-  watch: {
-    item(newVal) {
-      console.log('newVal', newVal)
-      this.innerItem = newVal
-    }
-  },
-  created() {
-    // console.log('item', this.item)
-    this.innerItem = this.item
   },
   methods: {
-    onClickItem() {
-      this.$emit('click-card', this.innerItem)
+    comReady() {
+      console.log('item', this.item)
+    },
+    clickItem() {
+      this.$emit('click-card', this.item)
     }
   }
 }

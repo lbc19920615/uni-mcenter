@@ -17,8 +17,13 @@
 </template>
 
 <script>
+import {commonHooksMixin} from "@/utils/mixins/component";
+
 export default {
   name: "index-header",
+  mixins: [
+    commonHooksMixin
+  ],
   props: {
     height: Number,
     placeholder: String
@@ -28,19 +33,19 @@ export default {
       headerStyle: ''
     }
   },
-  created() {
-    let height = this.$utils.calcPx(this.height);
-    let headerStyle = ''
-    if (height) {
-      headerStyle = headerStyle +  `height: ${height};`
-    }
-    // #ifdef H5
-    headerStyle = headerStyle + `top: ${this.$utils.getViewportTop(0)}px;`
-    // #endif
-    console.log(headerStyle)
-    this.headerStyle = headerStyle
-  },
   methods: {
+    comReady() {
+      let height = this.$utils.calcPx(this.height);
+      let headerStyle = ''
+      if (height) {
+        headerStyle = headerStyle +  `height: ${height};`
+      }
+      // #ifdef H5
+      headerStyle = headerStyle + `top: ${this.$utils.getViewportTop(0)}px;`
+      // #endif
+      console.log(headerStyle)
+      this.headerStyle = headerStyle
+    },
     clickAction(type) {
       this.$emit('click-action', type)
     }
