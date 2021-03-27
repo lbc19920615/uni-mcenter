@@ -48,25 +48,20 @@
 							:key="sub_item_index">
                 <template v-if="index === 0">
                   <!--      start 首页            -->
-                  <template v-if="sub_item_index === 0">
-                    <view class="ui-m-t-20 ui-m-b-20">
-                      <index-swiper></index-swiper>
-                    </view>
-                  </template>
-                  <template v-else-if="sub_item_index === 1">
-                    <view class="other-griditem" >
-                      <index-routes></index-routes>
-                    </view>
-                  </template>
-                  <template v-else>
-                    <view class="other-griditem">
-                      {{sub_item}}
-                     <app-class-card :item="sub_item"
-                                     :index="sub_item_index"
-									 @click-card="onClickCard"
-									 ></app-class-card>
-                    </view>
-                  </template>
+                  <view class="ui-m-t-20 ui-m-b-20"
+                        v-if="sub_item_index === 0"
+                  >
+                    <index-swiper></index-swiper>
+                  </view>
+                  <view class="other-griditem"  v-else-if="sub_item_index === 1" >
+                    <index-routes></index-routes>
+                  </view>
+                  <view class="other-griditem" v-else>
+                    <app-class-card :item="sub_item"
+                                    :index="sub_item_index"
+                                    @click-card="onClickCard"
+                    ></app-class-card>
+                  </view>
                   <!--      end 首页            -->
                 </template>
                 <template v-else>

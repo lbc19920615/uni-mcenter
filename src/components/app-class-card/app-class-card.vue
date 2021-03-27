@@ -4,7 +4,7 @@
            mode="widthFix"
            class="app-class-card__avatar"></image>
     <view class="app-class-card__body">
-      <view class="app-class-card__title">{{item}}</view>
+      <view class="app-class-card__title">{{innerItem}}</view>
       <view class="app-class-card__main">{{index}}</view>
       <view class="app-class-card__actions"><view class="app-class-card__action-inner">some action</view></view>
     </view>
@@ -28,13 +28,20 @@ export default {
       type: Number
     }
   },
+  watch: {
+    item(newVal) {
+      console.log('newVal', newVal)
+    }
+  },
   data() {
     return {
+      innerItem: ''
     }
   },
   methods: {
     comReady() {
       console.log('item', this.item)
+      this.innerItem = this.item
     },
     clickItem() {
       this.$emit('click-card', this.item)
