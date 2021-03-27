@@ -18,7 +18,7 @@ $submitBarHeight: 100upx;
 }
 
 .course-detail {
-  background-color: #ededed;
+  //background-color: #ededed;
 }
 
 .submit-bar {
@@ -30,7 +30,7 @@ $submitBarHeight: 100upx;
 	<app-page>
 		<view class="page-inner">
       <course-info></course-info>
-      <course-detail></course-detail>
+      <course-detail :item="mockData"></course-detail>
       <course-tab
           :tabs="tabs"
           @click-tab="onClickTab"></course-tab>
@@ -57,7 +57,7 @@ $submitBarHeight: 100upx;
             '课程大纲',
             '老师介绍',
         ],
-        mockData,
+        mockData: mockData.data,
 			}
 		},
     onLoad(...options){

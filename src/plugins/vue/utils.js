@@ -2,7 +2,28 @@ import Vue from 'vue'
 import * as money from './utils/money.js'
 import expStorage from '@/lib/expired-storage/index'
 
+import objectPath from 'object-path'
+
+import deepClone from 'clone-deep'
+
+const ObjUtils = {
+	getObjByPath(obj, path, defaultVal) {
+		if (!obj) {
+			return defaultVal
+		} else {
+			let hasPath = objectPath.has(obj, path)
+			if (hasPath) {
+				return objectPath.get(obj, path)
+			} else {
+				return defaultVal
+			}
+		}
+	},
+	deepClone
+}
+
 const utils = {
+	...ObjUtils,
 	cachedSystemInfo: null,
 	/**
 	 * 手机号格式是否正确

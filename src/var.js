@@ -35,11 +35,6 @@ export let demoPages = [
 		url: "/pages/demos/canvas",
 	},
 	{
-		name: "图片拖动排序",
-		icon: "/static/c1.png",
-		url: "/pages/demos/test",
-	},
-	{
 		name: "瑞幸 购买列表",
 		icon: "/static/c1.png",
 		url: "/pages/demos/rx_list",

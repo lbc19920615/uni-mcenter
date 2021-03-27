@@ -24,15 +24,28 @@
 			currentActive: {
 				type: Number,
 				default: 0
-			}
+			},
+      lineWidth: {
+			  type: Number,
+        default: 30
+      }
 		},
 		mounted(){
 			uni.createSelectorQuery().in(this).select('#tab-item-'+ this.currentActive).boundingClientRect().exec((res)=>{
-				this.market_left = res[0].left + 'px';
-				this.market_width = res[0].width;
+        if (Array.isArray(res) && res[0]) {
+          this.market_left = this.getLeft(res[0].left, res[0].width) + 'px';
+          this.market_width = this.getWidth();
+        }
 			});
 		},
 		methods: {
+	    getWidth(v) {
+	      return this.lineWidth
+      },
+      getLeft(left, width) {
+	      let w = (width - this.lineWidth) / 2
+	      return left +  w
+      },
 			tabClick(e){
 				let target = e.target;
 				this.activeAction(target);
@@ -40,10 +53,10 @@
 			},
 			activeAction(target){
 				let index = Number(target.dataset.index);
-				this.market_left = target.offsetLeft + 'px';
 				uni.createSelectorQuery().in(this).select('#tab-item-' + index).boundingClientRect().exec((res)=>{
 					if (Array.isArray(res) && res[0]) {
-            this.market_width = res[0].width;
+            this.market_left = this.getLeft(res[0].width * index, res[0].width) + 'px';
+            this.market_width = this.getWidth();
           }
 				});
 			}
