@@ -1,6 +1,10 @@
 <template>
-	<app-page>
-		<scroll-view class="nav-scroll"
+	<app-page :pdt="80">
+    <index-header :height="80"
+                  placeholder="考研政治徐涛"
+    @click-action="clickAction"
+    ></index-header>
+    <scroll-view class="nav-scroll"
                  :enable-flex="true"
                  scroll-with-animation
                  :throttle="false"
@@ -75,11 +79,13 @@
 </template>
 
 <script>
+import { router } from '@/router';
 import shortUUID  from 'short-uuid'
 import {demoPages} from "@/var";
 import IndexSwiper from "@/pages/index/components/index-swiper";
 import IndexRoutes from "@/pages/index/components/index-routes";
 import AppClassCard from "@/components/app-class-card/app-class-card";
+import IndexHeader from "@/pages/index/components/index-header";
 
 const mockData = [
 				{ title: '首页', content: ['首页-1', '首页-2', '首页-3', '首页-4',  '首页-5', '首页-6', '首页-7'] },
@@ -93,11 +99,22 @@ const mockData = [
 				{ title: '测试-5', content: ['测试-5-1', '测试-5-2', '测试-5-3', '测试-5-4', '测试-5-5'] }
 			]
 
+let indexHeaderMixin = {
+  methods: {
+    clickAction(type) {
+      if (type === 'action0') {
+        router.navigateTo({
+          url: '/pages/demos/search_page'
+        })
+      }
+    }
+  }
+}
 
 export default {
-  components: {AppClassCard, IndexRoutes, IndexSwiper},
+  components: {IndexHeader, AppClassCard, IndexRoutes, IndexSwiper},
   mixins: [
-
+    indexHeaderMixin
 	],
 	data() {
 		return {

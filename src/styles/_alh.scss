@@ -13,4 +13,11 @@ $commonPaddingH: 30upx;
 /// app common padding
 $commonPadding: 0 $commonPaddingH;
 
+
+@mixin size($w, $h: $w) {
+  width: $w;
+  height: $h;
+}
+
 @import "components/al-auth";
+

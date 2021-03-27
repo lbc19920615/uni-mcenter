@@ -4,6 +4,7 @@
 
 	export default {
 		onLaunch: function() {
+		  this.$utils.UTILS_onLaunch();
 			console.log('App Launch')
       setTimeout(() => {
         console.log(aliasRouter)
