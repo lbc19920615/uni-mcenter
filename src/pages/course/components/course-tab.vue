@@ -9,6 +9,7 @@
 
 <script>
 	export default {
+	  name: 'course-tab',
 		data() {
 			return {
 				market_left: 0,
@@ -18,7 +19,7 @@
 		props: {
 			tabs: {
 				type: Array,
-				default: () => ["全部","待付款","待发货","待收货","待评价",]
+				default: () => ["全部","待付款","待发货"]
 			},
 			currentActive: {
 				type: Number,
@@ -35,13 +36,15 @@
 			tabClick(e){
 				let target = e.target;
 				this.activeAction(target);
-				this.$emit('click',{index: target.dataset.index})
+				this.$emit('click-tab',{index: target.dataset.index})
 			},
 			activeAction(target){
 				let index = Number(target.dataset.index);
 				this.market_left = target.offsetLeft + 'px';
 				uni.createSelectorQuery().in(this).select('#tab-item-' + index).boundingClientRect().exec((res)=>{
-					this.market_width = res[0].width;
+					if (Array.isArray(res) && res[0]) {
+            this.market_width = res[0].width;
+          }
 				});
 			}
 		}

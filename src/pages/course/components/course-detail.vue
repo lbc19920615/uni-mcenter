@@ -12,6 +12,6 @@ export default {
 $sel: ".course-detail";
 
 #{$sel} {
-  height: 1700upx;
+  height: 600upx;
 }
 </style>
