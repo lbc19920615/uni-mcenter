@@ -47,6 +47,11 @@ export let demoPages = [
 		url: "/pages/demos/rx_list",
 	},
 	{
+		name: "native socket",
+		icon: "/static/c1.png",
+		url: "/sub_pages/demos/native-socket",
+	},
+	{
 		name: "弹窗login",
 		icon: "/static/c1.png",
 		url: "/pages/auth/login",
