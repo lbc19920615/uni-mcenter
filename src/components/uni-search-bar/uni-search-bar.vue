@@ -6,9 +6,11 @@
           <uni-icons color="#999999" size="18" type="search" />
         </slot>
       </view>
-      <input v-if="show || searchVal" :focus="showSync" :placeholder="placeholder" :maxlength="maxlength" class="uni-searchbar__box-search-input"
+      <input v-if="show || searchVal" :placeholder="placeholder" :maxlength="maxlength" class="uni-searchbar__box-search-input"
              confirm-type="search" type="text" v-model="searchVal" @confirm="confirm" @blur="blur" />
-      <text v-else class="uni-searchbar__text-placeholder">{{ placeholder }}</text>
+<!--      <input v-if="show || searchVal" :focus="showSync" :placeholder="placeholder" :maxlength="maxlength" class="uni-searchbar__box-search-input"-->
+<!--             confirm-type="search" type="text" v-model="searchVal" @confirm="confirm" @blur="blur" />-->
+<!--      <text v-else class="uni-searchbar__text-placeholder">{{ placeholder }}</text>-->
       <view v-if="show && (clearButton==='always'||clearButton==='auto'&&searchVal!=='')" class="uni-searchbar__box-icon-clear"
             @click="clear">
         <slot name="clearIcon">
@@ -140,7 +142,7 @@ export default {
         value: this.searchVal
       });
       this.searchVal = ""
-      this.show = false
+      // this.show = false
       this.showSync = false
       // #ifndef APP-PLUS
       uni.hideKeyboard()

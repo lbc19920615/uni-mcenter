@@ -2,7 +2,7 @@
 	<app-page class="search-page">
     <view class="ui-pd-common-h ui-m-t-20 search-page-search">
       <uni-search-bar
-          cancel-button="always" :focus="true" @confirm="search"></uni-search-bar>
+          cancel-button="always" :focus="true" @confirm="search" @cancel="cancel"></uni-search-bar>
     </view>
 
     <view class="ui-pd-common-h search-page-section">
@@ -42,6 +42,7 @@
 
 <script>
 import shortUUID  from 'short-uuid'
+import {router} from "@/router";
 
 	export default {
 	  props: {
@@ -68,6 +69,9 @@ import shortUUID  from 'short-uuid'
           this.addHistory(e.value)
         }, 300)
 			},
+      cancel() {
+			  router.back();
+      },
       fetchHistory() {
         let v = this.$expStorage.get(this.HisLsKey)
         if (Array.isArray(v)) {
