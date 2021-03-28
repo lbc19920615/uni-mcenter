@@ -31,3 +31,21 @@
   $var-name: "--" + $prefix + "-" + $prop;
   #{$prop}: var(#{$var-name}, $defaultVal);
 }
+
+// def-com-style
+@mixin def-com-style($sel) {
+  //@debug content-exists();
+  $is_exits:  content-exists();
+  @if $is_exits {
+    /*  #ifdef H5  */
+    ::v-deep #{$sel} {
+      @content;
+    }
+    /* #endif */
+    /*  #ifndef H5  */
+    #{$sel} {
+      @content;
+    }
+    /* #endif */
+  }
+}

@@ -11,29 +11,34 @@ $card-avatar-size: 60px;
   align-items: flex-start;
   &__avatar {
     width: var(--media-card-avatar-width, $card-avatar-size);
-    @include def-var($tag + '-avatar', "height", $card-avatar-size);
+    height: var(--media-card-avatar-height, $card-avatar-size);
     border-radius: var(--media-card-avatar-border-radius, 1000px);
   }
   &__body {
-    flex: 1;
     box-sizing: border-box;
-    padding-left: var(--media-card-body-padding-left, 60rpx);
+    padding-left: var(--media-card-body-padding-gutter, 15px);
   }
   &__title {
-    font-size: var(--media-card-avatar-font-size, 32rpx);
-    //font-weight: var(--media-card-avatar-font-weight, bold);
-    @include def-var($tag + '-title', "font-weight", bold);
+    font-size: var(--media-card-avatar-font-size, 24px);
+    font-weight: var(--media-card-avatar-font-weight, bold);
+  }
+  &.revese {
+    flex-direction: row-reverse;
+    #{$sel}__body {
+      padding-left: 0;
+      padding-right: var(--media-card-body-padding-gutter, 15px);
+    }
   }
 }
 </style>
 
 <template>
-  <view class="media-card">
-    <image class="media-card__avatar" :style="avatarStyle"></image>
-    <div class="media-card__body">
-      <div class="media-card__title">{{title}}</div>
+  <view class="media-card" :class="{'revese': reverse}">
+    <image class="media-card__avatar"></image>
+    <view class="media-card__body">
+      <view class="media-card__title">{{title}}</view>
       <slot></slot>
-    </div>
+    </view>
   </view>
 </template>
 
