@@ -7,7 +7,7 @@
 	</view> -->
 	<view class="page container" id="container">
 		<view class="placeholder" id="placeholder">
-			<button @click="goToBack" style="width: 150upx; margin: 0; margin-top: 60upx;">返回</button>
+			<button @click="goToBack" style="width: 150rpx; margin: 0; margin-top: 60rpx;">返回</button>
 		</view>
 		<scroll-view id="scrollView" scroll-y="true"
 		:refresher-triggered="triggered"
@@ -18,9 +18,9 @@
 		 @refresherrestore="onRestore"
 		 @scrolltolower="onScrollToLower"
 		refresher-enabled="true" >
-			<view style="height: 3000upx; background-color: #E0E0E0;">
+			<view style="height: 3000rpx; background-color: #E0E0E0;">
 				<div style=" background-color: #FFFF99;">
-					<view id="upHeight"  style="height: 300upx;"></view>
+					<view id="upHeight"  style="height: 300rpx;"></view>
 <liuyuno-tabs
 		 class="tab"
 		 :tabData="tabs" :defaultIndex="0"  />
@@ -161,8 +161,8 @@ page {
 }
 
 
-$placeholderHeight: 180upx;
-$tabHeight: 100upx;
+$placeholderHeight: 180rpx;
+$tabHeight: 100rpx;
 
 .container {
   font-size: 14px;

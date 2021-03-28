@@ -61,7 +61,7 @@ $cls: 'safe-area';
   //background-clip: content-box;
 
   &--custom {
-    //padding: 100upx 0;
+    //padding: 100rpx 0;
     .#{$cls} {
 
 

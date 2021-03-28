@@ -72,7 +72,7 @@ export default {
     display: block;
     height: 300rpx;
     line-height: 300rpx;
-    padding: 0 20upx;
+    padding: 0 20rpx;
     text-align: center;
     transform: scale(1);
     //transition: transform .5s ease;

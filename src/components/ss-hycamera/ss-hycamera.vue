@@ -101,19 +101,19 @@
 	}
 
   @mixin camera-button() {
-    height: 100upx;
-    width: 100upx;
+    height: 100rpx;
+    width: 100rpx;
     position: absolute;
     z-index: 2;
-    bottom: 200upx;
+    bottom: 200rpx;
     left: 50%;
-    margin-left: -50upx;
-    border: 2upx solid #ffffff;
-    border-radius: 50upx;
+    margin-left: -50rpx;
+    border: 2rpx solid #ffffff;
+    border-radius: 50rpx;
     text-align: center;
-    line-height: 100upx;
+    line-height: 100rpx;
     color:#ffffff;
-    font-size: 30upx;
+    font-size: 30rpx;
   }
 
 	.ss-hycamera-button {
@@ -132,11 +132,11 @@
 	}
 
 	.ss-hycamera-qh{
-		height: 40upx;
-		width: 40upx;
+		height: 40rpx;
+		width: 40rpx;
 		position: absolute;
 		z-index: 2;
-		bottom: 80upx;
-		left: 20upx;
+		bottom: 80rpx;
+		left: 20rpx;
 	}
 </style>

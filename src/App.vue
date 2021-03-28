@@ -46,7 +46,7 @@
   @import "styles/css-var";
 
 	@import "styles/css-grid";
-	@include init-css-grid("css-ib-grid", 5, 24upx);
+	@include init-css-grid("css-ib-grid", 5, 24rpx);
 
 	@import "styles/flex";
 	@include init-flex("ui");

@@ -293,12 +293,12 @@ page, .app-page {
 	overflow: hidden;
 }
 
-$navHeight: 60upx;
-$paddingV: 20upx;
+$navHeight: 60rpx;
+$paddingV: 20rpx;
 
 .nav-item {
 	display: inline-block;
-	margin: 0 16upx;
+	margin: 0 16rpx;
 	text-align: center;
 	transition: color 0.3s ease;
 }
@@ -307,8 +307,8 @@ $paddingV: 20upx;
 	white-space: nowrap;
 	position: relative;
 	height: $navHeight;
-	padding: 20upx 0;
-  font-size: 32upx;
+	padding: 20rpx 0;
+  font-size: 32rpx;
 }
 
 .nav-item-act {
@@ -319,8 +319,8 @@ $paddingV: 20upx;
 .nav-line {
 	position: absolute;
 	bottom: 0;
-	height: 10upx;
-	border-radius: 10upx;
+	height: 10rpx;
+	border-radius: 10rpx;
 	background-color: pink;
 	transition: left 0.3s ease;
 }
@@ -336,12 +336,12 @@ swiper-item {
 	position: relative;
 }
 
-$swiperListItemHeight: 600upx;
+$swiperListItemHeight: 600rpx;
 .index-fragment {
   .other-griditem {
-    padding: 0 30upx;
+    padding: 0 30rpx;
     .text {
-      font-size: 32upx;
+      font-size: 32rpx;
     }
   }
 
@@ -357,11 +357,11 @@ $swiperListItemHeight: 600upx;
 
     background-image: linear-gradient(
             180deg
-        , rgba(245, 245, 250, 0) 350upx, 750upx, #F5F5FA);
+        , rgba(245, 245, 250, 0) 350rpx, 750rpx, #F5F5FA);
   }
 
   .other-griditem {
-    margin-top: 30upx;
+    margin-top: 30rpx;
   }
 }
 

@@ -134,7 +134,7 @@ page {
   height: 100%;
 }
 
-$swiperHeight: 300upx;
+$swiperHeight: 300rpx;
 .swiper-con {
 	height: $swiperHeight;
 }
@@ -143,7 +143,7 @@ $swiperHeight: 300upx;
 	height: calc(100% - #{$swiperHeight});
 }
 
-$tabsHeight: 90upx;
+$tabsHeight: 90rpx;
 .main-tabs {
 	height: $tabsHeight;
 }

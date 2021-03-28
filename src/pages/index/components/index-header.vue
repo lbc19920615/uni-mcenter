@@ -69,25 +69,25 @@ $sel: ".index-header";
     flex-shrink: 0;
   }
   &-input {
-    width: 526upx;
-    height: 64upx;
+    width: 526rpx;
+    height: 64rpx;
     background: #F7F8FC;
-    border-radius: 32upx;
+    border-radius: 32rpx;
 
-    padding: 0 10upx;
+    padding: 0 10rpx;
 
     display: flex;
     align-items: center;
   }
   &__icon {
-    @include size(56upx);
+    @include size(56rpx);
   }
   &__text {
     color: var(--color-gray-200);
-    font-size: 28upx;
+    font-size: 28rpx;
   }
   #{$sel}__action {
-    margin-left: 27upx;
+    margin-left: 27rpx;
   }
 }
 </style>

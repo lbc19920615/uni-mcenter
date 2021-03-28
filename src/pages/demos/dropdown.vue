@@ -178,7 +178,7 @@ export default {
 }
 .swiper {
   width: 100%;
-  margin-top: 10upx;
+  margin-top: 10rpx;
   display: flex;
   justify-content: center;
   .swiper-box {
@@ -187,7 +187,7 @@ export default {
 
     overflow: hidden;
     border-radius: 15rpx;
-    box-shadow: 0upx 8upx 25rpx rgba(0, 0, 0, 0.2);
+    box-shadow: 0rpx 8rpx 25rpx rgba(0, 0, 0, 0.2);
     //兼容ios，微信小程序
     position: relative;
     z-index: 1;
@@ -203,16 +203,16 @@ export default {
     }
     .indicator {
       position: absolute;
-      bottom: 20upx;
-      left: 20upx;
+      bottom: 20rpx;
+      left: 20rpx;
       background-color: rgba(255, 255, 255, 0.4);
-      width: 150upx;
-      height: 5upx;
-      border-radius: 3upx;
+      width: 150rpx;
+      height: 5rpx;
+      border-radius: 3rpx;
       overflow: hidden;
       display: flex;
       .dots {
-        width: 0upx;
+        width: 0rpx;
         background-color: rgba(255, 255, 255, 1);
         transition: all 0.3s ease-out;
         &.on {

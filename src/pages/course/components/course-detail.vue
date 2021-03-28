@@ -62,15 +62,15 @@ $sel: ".course-detail";
 
 #{$sel} {
   &__inner {
-    padding: 30upx $commonPaddingH;
+    padding: 30rpx $commonPaddingH;
   }
   &__title {
-    font-size: 42upx;
+    font-size: 42rpx;
     line-height: 1;
-    margin-bottom: 26upx;
+    margin-bottom: 26rpx;
   }
   &__sub-title {
-    font-size: 26upx;
+    font-size: 26rpx;
     line-height: 1.4;
     color: var(--color-gray-200);
   }
