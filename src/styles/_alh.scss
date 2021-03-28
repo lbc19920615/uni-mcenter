@@ -6,14 +6,12 @@
 /// app tabbar height
 $tabbarHeight: 100rpx;
 
-
 /// app common padding h
 $commonPaddingH: 30rpx;
 
 /// app common padding
 $commonPadding: 0 $commonPaddingH;
 
-@import "almixin";
+@import 'almixin';
 
-@import "components/al-auth";
-
+@import 'components/al-auth';

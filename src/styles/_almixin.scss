@@ -4,38 +4,52 @@
 ////
 
 /// size
+///
+/// @param {*} $w
+/// @param {*} $h [$w]
 @mixin size($w, $h: $w) {
   width: $w;
   height: $h;
 }
 
 /// aspect-ratio
+///
+/// @param {*} $w
+/// @param {*} $h
 @mixin aspect-ratio($w, $h) {
   &::before {
-    content: "";
+    content: '';
     width: 1px;
     margin-left: -1px;
     float: left;
     height: 0;
     padding-top: $w / $h * 100%;
   }
-  &::after { /* to clear float */
-    content: "";
+  &::after {
+    /* to clear float */
+    content: '';
     display: table;
     clear: both;
   }
 }
 
 /// def-var
+///
+/// @param {*} $prefix
+/// @param {*} $prop
+/// @param {*} $defaultVal
+
 @mixin def-var($prefix, $prop, $defaultVal) {
-  $var-name: "--" + $prefix + "-" + $prop;
+  $var-name: '--' + $prefix + '-' + $prop;
   #{$prop}: var(#{$var-name}, $defaultVal);
 }
 
 // def-com-style
+///
+/// @param {*} $sel
 @mixin def-com-style($sel) {
   //@debug content-exists();
-  $is_exits:  content-exists();
+  $is_exits: content-exists();
   @if $is_exits {
     /*  #ifdef H5  */
     ::v-deep #{$sel} {

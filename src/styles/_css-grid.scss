@@ -3,24 +3,28 @@
 /// @group css grid
 ////
 
-@import "./family";
+@import './family';
 
+/// init-css-grid-item
+/// @param {*} $sel
+/// @param {*} $column
+/// @param {*} $gap
 @mixin init-css-grid-item($sel, $column, $gap) {
-	$itemGapWidth: ($gap * ($column - 1)) ;
-	// $itemWidth: percentage(1 / $column);
-	.#{$sel}--column-#{$column} {
-		.#{$sel}-item {
-			width: calc((100% - #{$itemGapWidth}) / #{$column});
-			margin-right: calc(#{$gap});
+  $itemGapWidth: ($gap * ($column - 1));
+  // $itemWidth: percentage(1 / $column);
+  .#{$sel}--column-#{$column} {
+    .#{$sel}-item {
+      width: calc((100% - #{$itemGapWidth}) / #{$column});
+      margin-right: calc(#{$gap});
 
-			&:last-child {
-				margin-right: 0;
-			}
-			@include each($column) {
-					margin-right: 0;
-			}
-		}	
-	}
+      &:last-child {
+        margin-right: 0;
+      }
+      @include each($column) {
+        margin-right: 0;
+      }
+    }
+  }
 }
 
 /// init-css-grid
@@ -28,18 +32,18 @@
 /// @param {number} $maxColumn - max grid column
 /// @param {number} $gap - gap of item
 @mixin init-css-grid($sel, $maxColumn, $gap: 0) {
-	.#{$sel} {
-		text-align: justify;
-		font-size: 0.1px;
-			
-		.#{$sel}-item {
-		  display: inline-block;
-		}
-	}
-	
-	$i: 2;
-	@while $i < $maxColumn {
-		@include init-css-grid-item($sel, $i, $gap);
-		$i: $i + 1;
-	}
+  .#{$sel} {
+    text-align: justify;
+    font-size: 0.1px;
+
+    .#{$sel}-item {
+      display: inline-block;
+    }
+  }
+
+  $i: 2;
+  @while $i < $maxColumn {
+    @include init-css-grid-item($sel, $i, $gap);
+    $i: $i + 1;
+  }
 }
