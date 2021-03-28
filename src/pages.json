@@ -163,18 +163,30 @@
                 "navigationBarTitleText": "",
                 "enablePullDownRefresh": false
             }
-
-        }
-        ,{
-            "path" : "pages/demos/commonui",
-            "style" :
-            {
-                "navigationBarTitleText": "commonui",
-                "enablePullDownRefresh": false
-            }
-
         }
     ],
+	"subPackages": [
+		{
+			"root": "sub_pages",
+			"pages": [
+				{
+					"path": "demos/commonui",
+					"name": "commonui",
+					"style": {
+						"navigationBarTitleText": "commonui"
+					}
+				}
+			]
+		}
+	],
+	"preloadRule": {
+		"pages/index/index": {
+			"network": "all",
+			"packages": [
+				"sub_pages"
+			]
+		}
+	},
 	"globalStyle": {
 		"navigationBarBackgroundColor": "@navBgColor",
 		"navigationBarTextStyle": "@navTxtStyle",

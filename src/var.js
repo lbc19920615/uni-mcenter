@@ -29,7 +29,7 @@ export let demoPages = [
 	{
 		name: "常见UI",
 		icon: "/static/c1.png",
-		url: "/pages/demos/commonui",
+		url: "/sub_pages/demos/commonui",
 	},
 	{
 		name: "下拉菜单",
