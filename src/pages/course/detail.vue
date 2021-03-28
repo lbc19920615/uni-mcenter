@@ -33,7 +33,10 @@ $submitBarHeight: 100rpx;
       <course-info></course-info>
       <course-detail :item="mockData"></course-detail>
       <course-tab :tabs="tabs" @click-tab="onClickTab"></course-tab>
-      <view>{{ currentActive }}</view>
+      <view>
+        <mp-html :content="infoHtml" v-if="currentActive === 0"></mp-html>
+        <view v-else>{{ currentActive }}</view>
+      </view>
     </view>
     <submit-bar></submit-bar>
   </app-page>
@@ -46,19 +49,22 @@ import SubmitBar from "@/pages/course/components/submit-bar";
 import CourseDetail from "@/pages/course/components/course-detail";
 import CourseTab from "@/pages/course/components/course-tab";
 export default {
-  components: { CourseTab, CourseDetail, SubmitBar, CourseInfo },
+  components: {CourseTab, CourseDetail, SubmitBar, CourseInfo },
   data() {
     return {
       course_uuid: "",
       currentActive: 0,
       tabs: ["课程详情", "课程大纲", "老师介绍"],
       mockData: mockData.data,
+      infoHtml: '',
+      otherObj: {}
     };
   },
   onLoad(...options) {
     // console.log(options)
     // console.log(this.$Route)
     this.course_uuid = this.$Route.query.course_uuid;
+    this.infoHtml = this.mockData.intro
   },
   methods: {
     onClickTab(e) {
