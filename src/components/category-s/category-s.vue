@@ -191,19 +191,19 @@
 	}
 
 	.category-s-wrap {
-	height: 600upx;
-		font-size: 28upx;
+	height: 600rpx;
+		font-size: 28rpx;
 	}
 
 	.categoryTitle {
-		width: 249upx;
+		width: 249rpx;
 		float: left;
 		height: 100%;
 		border-right: 1px solid #ccc;
 	}
 
 	.SV_categoryTitle {
-		width: 250upx;
+		width: 250rpx;
 		height: 100%;
 		float: left;
 	}
@@ -211,8 +211,8 @@
 	.categoryName {
 		width: 100%;
 		text-align: center;
-		height: 100upx;
-		line-height: 100upx;
+		height: 100rpx;
+		line-height: 100rpx;
 		color: #3E3E3E;
 	}
 
@@ -222,43 +222,43 @@
 
 	.scroll-Y {
 		height: 100%;
-		width: 500upx;
+		width: 500rpx;
 		float: left;
 	}
 
 	.categoryList {
 		width: 100%;
-		padding-left: 16upx;
+		padding-left: 16rpx;
 		box-sizing: border-box;
 		height: 100%;
 	}
 
 	.categoryListName {
 		width: 100%;
-		height: 100upx;
-		line-height: 100upx;
-		text-indent: 20upx;
+		height: 100rpx;
+		line-height: 100rpx;
+		text-indent: 20rpx;
 		float: left;
 	}
 
 	.categoryListBox {
-		width: 145upx;
+		width: 145rpx;
 		border: 1px solid #CCCCCC;
-		margin-right: 15upx;
+		margin-right: 15rpx;
 		float: left;
 		overflow: hidden;
 	}
 
 	.categoryListBox image {
-		width: 145upx;
-		height: 145upx;
+		width: 145rpx;
+		height: 145rpx;
 	}
 
 	.categoryListName_line {
-		height: 30upx;
+		height: 30rpx;
 		background: rgba(0, 126, 96, 0.7);
-		width: 8upx;
+		width: 8rpx;
 		float: left;
-		margin-top: 35upx;
+		margin-top: 35rpx;
 	}
 </style>

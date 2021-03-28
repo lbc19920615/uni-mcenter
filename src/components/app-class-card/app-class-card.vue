@@ -56,17 +56,17 @@ export default {
 $sel: ".app-class-card";
 
 #{$sel} {
-  padding: 30upx $commonPaddingH;
+  padding: 30rpx $commonPaddingH;
   box-sizing: border-box;
   background-color: var(--backround-color-common);
-  border-radius: 20upx;
+  border-radius: 20rpx;
   &__avatar {
   }
   &__body {
-    font-size: 32upx;
+    font-size: 32rpx;
   }
   &__title {
-    margin-bottom: 20upx;
+    margin-bottom: 20rpx;
   }
 }
 
@@ -74,11 +74,11 @@ $sel: ".app-class-card";
   display: flex;
   align-items: flex-start;
   &__avatar {
-    width: 160upx;
+    width: 160rpx;
   }
   &__body {
     flex: 1;
-    padding-left: 30upx;
+    padding-left: 30rpx;
   }
   &__actions {
     display: flex;
