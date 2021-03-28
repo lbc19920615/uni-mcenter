@@ -32,10 +32,10 @@ export default {
       img: ''
     }
   },
+  created() {
+    this.render(this.item);
+  },
   methods: {
-    comReady() {
-      this.render(this.item);
-    },
     render(item) {
       this.img = this.$utils.getObjByPath(item, 'img_cover')
     }
