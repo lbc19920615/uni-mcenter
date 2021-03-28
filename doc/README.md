@@ -9,6 +9,10 @@
 
    https://ext.dcloud.net.cn/plugin?id=280
 
+3. socket.io
+
+   https://ext.dcloud.net.cn/plugin?id=1461
+
 ## components
 1. swipe
 
