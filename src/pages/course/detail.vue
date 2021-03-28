@@ -9,21 +9,27 @@ uni-page-body {
 
 $submitBarHeight: 100rpx;
 
-.page-inner {
-  &__scroll {
-    height: 600rpx;
+.page-course-detail {
+  .page-inner {
+    &__scroll {
+      height: 600rpx;
+    }
+
+    padding-bottom: calc(#{$submitBarHeight} + var(--safe-area-inset-bottom));
+    box-sizing: border-box;
   }
 
-  padding-bottom: calc(#{$submitBarHeight} + var(--safe-area-inset-bottom));
-  box-sizing: border-box;
-}
+  .course-detail {
+    //background-color: #ededed;
+  }
 
-.course-detail {
-  //background-color: #ededed;
-}
+  .submit-bar {
+    height: $submitBarHeight;
+  }
 
-.submit-bar {
-  height: $submitBarHeight;
+  &__tab {
+    padding-bottom: 20rpx;
+  }
 }
 </style>
 
@@ -32,8 +38,10 @@ $submitBarHeight: 100rpx;
     <view class="page-inner">
       <course-info :item="mockData"></course-info>
       <course-detail :item="mockData"></course-detail>
-      <course-tab :tabs="tabs" @click-tab="onClickTab"></course-tab>
-      <view>
+      <view class="page-course-detail__tab">
+        <course-tab :tabs="tabs" @click-tab="onClickTab"></course-tab>
+      </view>
+      <view class="page-course-detail__content">
         <mp-html :content="infoHtml" v-if="currentActive === 0"></mp-html>
         <view v-else>{{ currentActive }}</view>
       </view>
