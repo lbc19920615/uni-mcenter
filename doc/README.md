@@ -57,3 +57,7 @@
 10. textarea
 
 	https://ext.dcloud.net.cn/plugin?id=2600
+
+11. mp-html
+
+    https://ext.dcloud.net.cn/plugin?id=805
