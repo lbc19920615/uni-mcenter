@@ -42,7 +42,7 @@ $submitBarHeight: 100rpx;
         <course-tab :tabs="tabs" @click-tab="onClickTab"></course-tab>
       </view>
       <view class="page-course-detail__content">
-        <mp-html :content="infoHtml" v-if="currentActive === 0"></mp-html>
+        <mp-html :tag-style="tagStyle" :content="infoHtml" v-if="currentActive === 0"></mp-html>
         <view v-else>{{ currentActive }}</view>
       </view>
     </view>
@@ -66,7 +66,9 @@ export default {
       tabs: ["课程详情", "课程大纲", "老师介绍"],
       mockData: mockData.data,
       infoHtml: '',
-      otherObj: {}
+      tagStyle: {
+        img: 'display: block; margin: 0 auto;'
+      }
     };
   },
   onLoad(...options) {
