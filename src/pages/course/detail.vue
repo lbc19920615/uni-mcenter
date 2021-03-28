@@ -30,7 +30,7 @@ $submitBarHeight: 100rpx;
 <template>
   <app-page class="page-course-detail">
     <view class="page-inner">
-      <course-info></course-info>
+      <course-info :item="mockData"></course-info>
       <course-detail :item="mockData"></course-detail>
       <course-tab :tabs="tabs" @click-tab="onClickTab"></course-tab>
       <view>
@@ -48,8 +48,9 @@ import CourseInfo from "@/pages/course/components/course-info";
 import SubmitBar from "@/pages/course/components/submit-bar";
 import CourseDetail from "@/pages/course/components/course-detail";
 import CourseTab from "@/pages/course/components/course-tab";
+import MpHtml from "@/uni_modules/mp-html/components/mp-html/mp-html";
 export default {
-  components: {CourseTab, CourseDetail, SubmitBar, CourseInfo },
+  components: {MpHtml, CourseTab, CourseDetail, SubmitBar, CourseInfo },
   data() {
     return {
       course_uuid: "",
