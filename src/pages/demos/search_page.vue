@@ -100,7 +100,7 @@ import shortUUID  from 'short-uuid'
 <style lang="scss">
 .search-page {
 
-  font-size: 32upx;
+  font-size: 32rpx;
   color: var(--text-black-common);
 
   .uni-searchbar {
@@ -108,26 +108,26 @@ import shortUUID  from 'short-uuid'
   }
 
   .search-tag {
-    padding: 10upx 20upx;
+    padding: 10rpx 20rpx;
     background: #F4F5FE;
     border-radius: 1000px;
     display: inline-flex;
-    font-size: 24upx;
+    font-size: 24rpx;
     font-weight: 400;
     color: #252B33
   }
 
   .search-tags {
-    margin-bottom: -24upx;
+    margin-bottom: -24rpx;
   }
 
   .search-tag {
-    margin-right: 24upx;
-    margin-bottom: 24upx;
+    margin-right: 24rpx;
+    margin-bottom: 24rpx;
   }
 
   .search-page-section {
-    margin-top: 60upx;
+    margin-top: 60rpx;
     &__header {
       font-weight: bold;
     }
@@ -140,11 +140,11 @@ import shortUUID  from 'short-uuid'
     //justify-content: flex-start;
 
     #{$sel}__name + #{$sel}__remove {
-      margin-left: 20upx;
+      margin-left: 20rpx;
     }
 
     #{$sel}__remove {
-      padding: 0 10upx;
+      padding: 0 10rpx;
       background-color: #eee;
       color: #ffffff;
     }

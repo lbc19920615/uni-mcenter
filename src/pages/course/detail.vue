@@ -6,11 +6,11 @@ page, .app-page, uni-page-body {
 }
 
 
-$submitBarHeight: 100upx;
+$submitBarHeight: 100rpx;
 
 .page-inner {
   &__scroll {
-    height: 600upx;
+    height: 600rpx;
   }
 
   padding-bottom: calc(#{$submitBarHeight} + var(--safe-area-inset-bottom));

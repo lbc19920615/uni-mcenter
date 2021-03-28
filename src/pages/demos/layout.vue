@@ -1,25 +1,25 @@
 <style lang="scss">
 .page-layout-con {
 	.header {
-		font-size: 36upx;
-		margin: 20upx 0;
+		font-size: 36rpx;
+		margin: 20rpx 0;
 		font-weight: bold;
 	}
 	.text {
-		font-size: 28upx;
+		font-size: 28rpx;
 	}
 	.exp-row {
 		> view {
-			// width: 30upx;
-			// height: 20upx;
+			// width: 30rpx;
+			// height: 20rpx;
 			background-color: #eee;
 		}
 	}
   .gr-layout {
     display: grid;
     grid-template-columns: repeat(2,1fr);
-    grid-auto-rows: 120upx;
-    grid-gap: 20upx;
+    grid-auto-rows: 120rpx;
+    grid-gap: 20rpx;
   }
 
   .gr-layout--first-big {
@@ -84,7 +84,7 @@
 		<view class="header" >flexbox</view>
 		<view class="ui-vcenter-row exp-row">
 			<view>1</view>
-			<view style="width: 120upx; padding: 10upx; margin-left: 10upx;">2</view>
+			<view style="width: 120rpx; padding: 10rpx; margin-left: 10rpx;">2</view>
 		</view>
 
     <view class="header">grid layout</view>

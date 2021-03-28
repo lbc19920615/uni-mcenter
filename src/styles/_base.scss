@@ -24,10 +24,10 @@
 @for $i from 1 through  3 {
   $v: $i * 10;
   .ui-m-t-#{$v} {
-    margin-top: #{$v}upx;
+    margin-top: #{$v}rpx;
   }
   .ui-m-b-#{$v} {
-    margin-bottom: #{$v}upx;
+    margin-bottom: #{$v}rpx;
   }
 }
 

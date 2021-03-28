@@ -165,6 +165,15 @@
             }
 
         }
+        ,{
+            "path" : "pages/demos/commonui",
+            "style" :
+            {
+                "navigationBarTitleText": "commonui",
+                "enablePullDownRefresh": false
+            }
+
+        }
     ],
 	"globalStyle": {
 		"navigationBarBackgroundColor": "@navBgColor",
@@ -247,6 +256,11 @@
 			{
 				"name": "pages/demos/search_page",
 				"pathName": "pages/demos/search_page",
+				"scene": null
+			},
+			{
+				"name": "pages/demos/commonui",
+				"pathName": "pages/demos/commonui",
 				"scene": null
 			},
 			{

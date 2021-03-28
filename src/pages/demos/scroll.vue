@@ -1,7 +1,7 @@
 <style lang="scss">
 page, .app-page {
   height: 100%;
-  font-size: 32upx;
+  font-size: 32rpx;
 }
 
 .al-scroll-row-item {
@@ -16,14 +16,14 @@ page, .app-page {
 
 .container {
   .chapter-title {
-    height: 120upx;
+    height: 120rpx;
     position: sticky;
     top: 0;
     background: #6cd0e9;
   }
 
   .section-wrapper {
-    height: 700upx;
+    height: 700rpx;
   }
 }
 </style>

@@ -2,18 +2,18 @@
 .index-routes {
   .ele-grid-item {
     .text {
-      font-size: 32upx;
+      font-size: 32rpx;
     }
 
     .css-ib-grid-item {
       vertical-align: top;
-      height: 60upx;
+      height: 60rpx;
     }
   }
 
   .other-griditem {
     .text {
-      font-size: 60upx;
+      font-size: 60rpx;
     }
   }
 }

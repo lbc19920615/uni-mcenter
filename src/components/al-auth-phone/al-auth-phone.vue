@@ -4,16 +4,16 @@
 .al-auth-phone {
   @include init-al-auth('.al-auth-phone');
 
-  padding: 60upx 20upx;
+  padding: 60rpx 20rpx;
   &__desc {
     text-align: center;
     > image {
-      width: 120upx;
-      height: 120upx;
+      width: 120rpx;
+      height: 120rpx;
     }
-    margin-bottom: 210upx;
+    margin-bottom: 210rpx;
   }
-  width: 510upx;
+  width: 510rpx;
 }
 </style>
 

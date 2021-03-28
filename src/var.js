@@ -1,3 +1,5 @@
+
+
 export let demoPages = [
 	{
 		name: "图片拖动排序",
@@ -19,10 +21,15 @@ export let demoPages = [
 		icon: "/static/c1.png",
 		url: "/pages/demos/scroll",
 	},
+	// {
+	// 	name: "新首页",
+	// 	icon: "/static/c1.png",
+	// 	url: "/pages/demos/sliding",
+	// },
 	{
-		name: "新首页",
+		name: "常见UI",
 		icon: "/static/c1.png",
-		url: "/pages/demos/sliding",
+		url: "/pages/demos/commonui",
 	},
 	{
 		name: "下拉菜单",

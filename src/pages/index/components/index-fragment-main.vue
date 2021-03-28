@@ -2,7 +2,7 @@
 	@import "../../../styles/alh";
 
 	.index-demo-item {
-	  height: 150upx;
+	  height: 150rpx;
 	  padding: $commonPadding;
 	}
 

@@ -25,3 +25,9 @@
     clear: both;
   }
 }
+
+/// def-var
+@mixin def-var($prefix, $prop, $defaultVal) {
+  $var-name: "--" + $prefix + "-" + $prop;
+  #{$prop}: var(#{$var-name}, $defaultVal);
+}
