@@ -1,5 +1,5 @@
 <template>
-  <view> native-socket </view>
+  <app-page class="page-socket"> native-socket </app-page>
 </template>
 
 <script>
