@@ -1,11 +1,15 @@
 <template>
   <app-page class="page-login">
-    <button @click="open">打开授权手机号弹窗</button>
+    <button @click="openAuth">打开授权手机号弹窗</button>
+    <button @click="openLogin">打开登录弹窗</button>
     <uni-popup ref="popup" type="center">
       <al-auth
         :step="AUTH_STEP.ONE"
         @get-phone-success="onGetPhoneSuccess"
       ></al-auth>
+    </uni-popup>
+    <uni-popup ref="loginpop" type="center">
+      <al-login mode="phone"></al-login>
     </uni-popup>
   </app-page>
 </template>
@@ -14,9 +18,10 @@
 import { pageMixin } from "@/utils/mixins/page";
 import AlAuth from "@/components/al-auth/al-auth";
 import { authLoginMixin } from "@/utils/mixins/auth";
+import AlLogin from "@/components/al-login/al-login";
 
 export default {
-  components: { AlAuth },
+  components: {AlLogin, AlAuth },
   mixins: [pageMixin, authLoginMixin],
   data() {
     return {};
@@ -25,9 +30,13 @@ export default {
     // this.open();
   },
   methods: {
-    open() {
+    openAuth() {
       // 通过组件定义的ref调用uni-popup方法
       this.$refs.popup.open();
+    },
+    openLogin() {
+      // 通过组件定义的ref调用uni-popup方法
+      this.$refs.loginpop.open();
     },
   },
 };
