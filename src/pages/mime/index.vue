@@ -19,7 +19,7 @@
 <template>
 	<app-page class="page-mime">
     <view class="ui-pd-common-h">
-      <media-card title="151****2116">
+      <media-card title="152****2116">
         <view>测试哦</view>
       </media-card>
     </view>
