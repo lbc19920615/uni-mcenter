@@ -1,4 +1,9 @@
 
+## TODO
+1. 从下到上面的actionsheet
+2. 封装下swiper tab scrollview 简单化调用
+
+## log
 ### 0.1.1-20210329
 1. 手机登录弹窗
 2. 小程序分包模式
