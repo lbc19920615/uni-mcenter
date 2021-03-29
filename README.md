@@ -6,6 +6,10 @@
 
 uni-mcenter 是一款自己学习搜集的 uniapp
 
+## develop log
+
+[develop.md](./develop.md)
+
 ## part
 
 [socket.io server](https://github.com/lbc19920615/socketio-server)
