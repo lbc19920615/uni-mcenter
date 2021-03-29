@@ -50,6 +50,11 @@ export let demoPages = [
 		url: "/sub_pages/demos/native-socket"
 	},
 	{
+		name: "ucharts 图表",
+		icon: "/static/c1.png",
+		url: "/sub_pages/demos/charts"
+	},
+	{
 		name: "弹窗login",
 		icon: "/static/c1.png",
 		url: "/pages/auth/login"

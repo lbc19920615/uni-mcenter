@@ -180,7 +180,15 @@
 						"enablePullDownRefresh": false
 					}
 				}
-			]
+			    ,{
+                    "path" : "demos/charts",
+                    "style" :                                                                                    
+					{
+						"navigationBarTitleText": "charts",
+						"enablePullDownRefresh": false
+					}
+                }
+            ]
 		}
 	],
 	"preloadRule": {
@@ -277,6 +285,11 @@
 			{
 				"name": "sub_pages/demos/commonui",
 				"pathName": "sub_pages/demos/commonui",
+				"scene": null
+			},
+			{
+				"name": "sub_pages/demos/charts",
+				"pathName": "sub_pages/demos/charts",
 				"scene": null
 			},
 			{
