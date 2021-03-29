@@ -1,6 +1,6 @@
 <template>
-	<app-page :pdt="80">
-    <index-header :height="80"
+	<app-page>
+    <index-header 
                   placeholder="考研政治徐涛"
     @click-action="clickAction"
     ></index-header>
@@ -270,6 +270,18 @@ export default {
 </script>
 
 <style lang="scss" >
+@import "../../styles/alh";
+
+$headerBarHeight: 80rpx;
+
+.app-page {
+	padding-top: $headerBarHeight;
+}
+	
+@include def-com-style('.index-header') {
+	height: $headerBarHeight;
+}	
+	
 /* #ifndef APP-NVUE */
 ::-webkit-scrollbar {
 	display: none;

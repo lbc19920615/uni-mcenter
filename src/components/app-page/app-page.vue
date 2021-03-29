@@ -1,6 +1,5 @@
 <template>
   <view class="page app-page"
-        :style="{'padding-top': paddingTop}"
         :class="pageSkin">
     <slot></slot>
   </view>
@@ -21,7 +20,6 @@ export default {
   ],
   data() {
     return {
-      paddingTop: this.$utils.calcPx(this.pdt)
     }
   },
   methods: {

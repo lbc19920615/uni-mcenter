@@ -33,18 +33,21 @@ export default {
       headerStyle: ''
     }
   },
+	created() {
+		this.renderReady()
+	},
   methods: {
-    comReady() {
-      let height = this.$utils.calcPx(this.height);
-      let headerStyle = ''
-      if (height) {
-        headerStyle = headerStyle +  `height: ${height};`
-      }
-      // #ifdef H5
-      headerStyle = headerStyle + `top: ${this.$utils.getViewportTop(0)}px;`
-      // #endif
-      console.log(headerStyle)
-      this.headerStyle = headerStyle
+    renderReady() {
+			// let height = this.$utils.calcPx(this.height);
+			let headerStyle = ''
+			// if (height) {
+			// 	headerStyle = headerStyle +  `height: ${height};`
+			// }
+			// #ifdef H5
+			headerStyle = headerStyle + `top: ${this.$utils.getViewportTop(0)}px;`
+			// #endif
+			// console.log(headerStyle)
+			this.headerStyle = headerStyle 
     },
     clickAction(type) {
       this.$emit('click-action', type)
