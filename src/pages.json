@@ -73,16 +73,6 @@
 
         }
         ,{
-            "path" : "pages/demos/canvas",
-			"name": "demos_canvas",
-            "style" :
-            {
-                "navigationBarTitleText": "canvas",
-                "enablePullDownRefresh": false
-            }
-
-        }
-        ,{
             "path" : "pages/demos/rx_list",
 			"name": "demos_list",
             "style" :
@@ -171,6 +161,16 @@
 					"style": {
 						"navigationBarTitleText": "native-socket"
 					}
+				},
+				{
+				    "path" : "demos/canvas",
+					"name": "demos_canvas",
+				    "style" :
+				    {
+				        "navigationBarTitleText": "canvas",
+				        "enablePullDownRefresh": false
+				    }
+				
 				}
 			]
 		}
@@ -237,8 +237,8 @@
 				"scene": null
 			},
 			{
-				"name": "pages/demos/canvas",
-				"pathName": "pages/demos/canvas",
+				"name": "sub_pages/demos/canvas",
+				"pathName": "sub_pages/demos/canvas",
 				"scene": null
 			},
 			{
@@ -267,8 +267,8 @@
 				"scene": null
 			},
 			{
-				"name": "pages/demos/commonui",
-				"pathName": "pages/demos/commonui",
+				"name": "sub_pages/demos/commonui",
+				"pathName": "sub_pages/demos/commonui",
 				"scene": null
 			},
 			{

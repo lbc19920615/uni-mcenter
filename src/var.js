@@ -37,7 +37,7 @@ export let demoPages = [
 	{
 		name: "cavans和海报",
 		icon: "/static/c1.png",
-		url: "/pages/demos/canvas"
+		url: "/sub_pages/demos/canvas"
 	},
 	{
 		name: "瑞幸 购买列表",
