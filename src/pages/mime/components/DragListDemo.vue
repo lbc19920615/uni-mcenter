@@ -8,7 +8,7 @@
 				</div>
 			</view>
 		</template>
-	</HM-dragSorts> 
+	</HM-dragSorts>
 </template>
 
 <script>
@@ -18,17 +18,17 @@
 			return {
 				list:[
 					{
-						"name": "图片拖动排序", 
+						"name": "图片拖动排序",
 						"icon": "/static/c1.png",
 						"url": "/pages/demos/test"
 					},
 					{
-						"name": "类似于element-form表单", 
+						"name": "类似于element-form表单",
 						"icon": "/static/c1.png",
 						"url": "/pages/demos/form"
 					},
 					{
-						"name": "布局", 
+						"name": "布局",
 						"icon": "/static/c1.png",
 						"url": "/pages/demos/layout"
 					},
@@ -65,23 +65,18 @@
 	}
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
     //scoped css只在当前页生效 不影响子组件
 	.icon {
 		width: 40rpx;
 		height: 40rpx;
 	}
-	
-    page {background-color: #efeff4;}
-    @media (prefers-color-scheme: dark){
-		page {
-			background-color: #000000;
-		} 
-	
-		.content {
-			.row{display: flex;flex-direction: row;align-items: center;}
-			.icon{width: 30px;border-radius: 6px;margin-right: 13px;}
-			.text{font-size: 13px;}
-		}
-	}
+  //  @media (prefers-color-scheme: dark){
+  //
+	//	.content {
+	//		.row{display: flex;flex-direction: row;align-items: center;}
+	//		.icon{width: 30px;border-radius: 6px;margin-right: 13px;}
+	//		.text{font-size: 13px;}
+	//	}
+	//}
 </style>

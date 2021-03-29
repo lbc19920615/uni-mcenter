@@ -170,7 +170,15 @@
 				        "navigationBarTitleText": "canvas",
 				        "enablePullDownRefresh": false
 				    }
-				
+				},
+				{
+					"path" : "mime/mime-order",
+					"name": "mime-order",
+					"style" :
+					{
+						"navigationBarTitleText": "我的订单",
+						"enablePullDownRefresh": false
+					}
 				}
 			]
 		}
