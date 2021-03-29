@@ -42,17 +42,6 @@
 
         }
         ,{
-            "path" : "pages/demos/index_a",
-			"name": "demos_index_a",
-            "style" :
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false,
-				"navigationStyle":"custom"
-            }
-
-        }
-        ,{
             "path" : "pages/demos/scroll",
 			"name": "demos_scroll",
             "style" :
