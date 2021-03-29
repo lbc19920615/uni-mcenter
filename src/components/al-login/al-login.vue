@@ -14,12 +14,6 @@ $sel: ".al-login";
     font-size: 32rpx;
   }
 
-  @include def-com-style('.evan-form-item-container__label') {
-    font-size: 32rpx;
-    //color: #2D87D5;
-    width: 4em;
-  }
-
   .al-login__form-item {
     margin-bottom: 20rpx;
     &:last-child {

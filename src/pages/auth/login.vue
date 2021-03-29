@@ -43,4 +43,13 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../../styles/alh";
+
+.page-login {
+  @include def-com-style('.evan-form-item-container__label') {
+    font-size: 32rpx;
+    //color: #2D87D5;
+    width: 4em;
+  }
+}
 </style>
