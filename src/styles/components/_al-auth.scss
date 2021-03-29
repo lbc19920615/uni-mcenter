@@ -1,6 +1,4 @@
 @mixin init-al-auth($sel) {
-  background-color: var(--backround-color-common);
-  border-radius: 10rpx;
 
   #{$sel}__inner {
     display: flex;

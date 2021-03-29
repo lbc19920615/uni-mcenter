@@ -4,7 +4,6 @@
 .al-auth-phone {
   @include init-al-auth('.al-auth-phone');
 
-  padding: 60rpx 20rpx;
   &__desc {
     text-align: center;
     > image {

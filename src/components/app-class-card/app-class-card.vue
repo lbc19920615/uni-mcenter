@@ -58,7 +58,7 @@ $sel: ".app-class-card";
 #{$sel} {
   padding: 30rpx $commonPaddingH;
   box-sizing: border-box;
-  background-color: var(--backround-color-common);
+  background-color: var(--background-color-common);
   border-radius: 20rpx;
   &__avatar {
   }

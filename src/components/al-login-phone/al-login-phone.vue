@@ -6,9 +6,6 @@ $sel: ".al-login";
 
 #{$sel} {
   font-size: 32rpx;
-  background-color: #ffffff;
-  padding: 30rpx;
-  border-radius: 10rpx;
 
   .form-input-placeholder {
     font-size: 32rpx;
@@ -45,12 +42,9 @@ $sel: ".al-login";
 import EvanForm from "@/components/evan-form/evan-form";
 
 export default {
-  name: "al-login",
+  name: "al-login-phone",
   components: {EvanForm},
   props: {
-    mode: {
-      type: String
-    }
   },
   mounted() {
     // 这里必须放在mounted中，不然h5，支付宝小程序等会找不到this.$refs.form
@@ -96,11 +90,13 @@ export default {
   },
   methods: {
     save() {
+      let self = this
       this.$refs.form.validate((res) => {
         if (res) {
-          uni.showToast({
-            title: '验证通过'
-          })
+          // uni.showToast({
+          //   title: '验证通过'
+          // })
+          self.$emit('validate-success', self.$utils.deepClone(self.info))
         }
       })
     },
