@@ -11,6 +11,7 @@ $sel: ".actionsheet";
 <app-page class="page-actionsheet">
   <button @click="openPicker1">打开picker1</button>
   <button @click="openPicker2">打开picker2</button>
+  <button @click="openPicker3">打开picker3</button>
   <lb-picker ref="picker1"
              v-model="value1"
              :list="list1"></lb-picker>
@@ -18,6 +19,11 @@ $sel: ".actionsheet";
              v-model="value2"
              mode="unlinkedSelector"
              :list="list2"></lb-picker>
+  <lb-picker ref="picker3"
+             v-model="value3"
+             :level="3"
+             mode="multiSelector"
+             :list="list3"></lb-picker>
 </app-page>
 </template>
 
@@ -61,6 +67,25 @@ data() {
           { label: '选项222', value: '222' },
           { label: '选项333', value: '333' }
         ]
+      ],
+      value3: [],
+      list3: [
+        {
+          label: '选项1',
+          value: '1',
+          children: [
+            {
+              label: '选项1-1',
+              value: '1-1',
+              children: [
+                {
+                  label: '选项1-1-1',
+                  value: '1-1-1'
+                }
+              ]
+            }
+          ]
+        }
       ]
     }
 },
@@ -70,6 +95,9 @@ methods: {
   },
   openPicker2() {
     this.$refs.picker2.show()
+  },
+  openPicker3() {
+    this.$refs.picker3.show()
   }
 }
 }
