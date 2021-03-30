@@ -179,10 +179,26 @@
 						"navigationBarTitleText": "我的订单",
 						"enablePullDownRefresh": false
 					}
-				}
-			    ,{
+				},
+				{
+					"path" : "demos/actionsheet",
+					"style" :
+					{
+						"navigationBarTitleText": "actionsheet",
+						"enablePullDownRefresh": false
+					}
+				},
+				{
+					"path" : "demos/modal",
+					"style" :
+					{
+						"navigationBarTitleText": "modal",
+						"enablePullDownRefresh": false
+					}
+				},
+				{
                     "path" : "demos/charts",
-                    "style" :                                                                                    
+                    "style" :
 					{
 						"navigationBarTitleText": "charts",
 						"enablePullDownRefresh": false
