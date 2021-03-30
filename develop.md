@@ -1,6 +1,6 @@
 
 ## TODO
-1. 从下到上面的actionsheet
+1. modal
 
 ## log
 ### 0.1.1-20210330
