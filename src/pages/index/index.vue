@@ -1,6 +1,6 @@
 <template>
 	<app-page>
-    <index-header 
+    <index-header
                   placeholder="考研政治徐涛"
     @click-action="clickAction"
     ></index-header>
@@ -154,7 +154,7 @@ export default {
 	},
   onLoad() {
 		this.$nextTick(() => {
-      console.log('首页onLoad');
+      // console.log('首页onLoad');
       this.init();
     })
 	},
@@ -277,24 +277,10 @@ $headerBarHeight: 80rpx;
 .app-page {
 	padding-top: $headerBarHeight;
 }
-	
+
 @include def-com-style('.index-header') {
 	height: $headerBarHeight;
-}	
-	
-/* #ifndef APP-NVUE */
-::-webkit-scrollbar {
-	display: none;
 }
-/* #endif */
-
-/* #ifdef H5 */
-// 通过样式穿透，隐藏H5下，scroll-view下的滚动条
-scroll-view ::v-deep ::-webkit-scrollbar {
-	display: none;
-}
-/* #endif */
-
 
 page, .app-page {
 	height: 100%;
