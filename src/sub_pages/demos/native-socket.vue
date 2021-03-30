@@ -5,8 +5,6 @@
 <script>
 import io from "@/lib/uni-socket.io/uni-socket.io";
 
-console.log(io);
-
 export default {
   data() {
     return {};
