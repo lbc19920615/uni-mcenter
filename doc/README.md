@@ -61,3 +61,7 @@
 11. mp-html
 
     https://ext.dcloud.net.cn/plugin?id=805
+
+12. picker
+
+    https://ext.dcloud.net.cn/plugin?id=1111

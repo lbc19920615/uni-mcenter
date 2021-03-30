@@ -55,7 +55,7 @@ export let demoPages = [
 		url: "/sub_pages/demos/charts"
 	},
 	{
-		name: "actionsheet",
+		name: "picker",
 		icon: "/static/c1.png",
 		url: "/sub_pages/demos/actionsheet"
 	},
