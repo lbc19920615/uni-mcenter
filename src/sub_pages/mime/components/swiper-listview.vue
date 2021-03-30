@@ -219,26 +219,35 @@ export default {
       // setTimeout(() => {
       //   this.getData();
       // }, 500);
+      this.$emit('scroll-to-lower', {
+        context: this
+      })
+    },
+    stopRefreshLoadingStatus() {
+      uni.hideLoading();
+      this.refreStatus = false;
     },
     // 下拉事件
     handleRefresh() {
+      let self = this
+      function refreshList() {
+        self.list[self.swiperIndex].content = [];
+        for (var i = 0; i < 5; i++) {
+          self.list[self.swiperIndex].content.push(
+              self.list[self.swiperIndex].title + '下拉-' + i
+          );
+        }
+      }
+
       if (this.IsSwiperScrolltoupper) {
         this.refreStatus = true;
         uni.showLoading({
           title: '下拉加载中'
         });
-        setTimeout(() => {
-          this.list[this.swiperIndex].content = [];
-          for (var i = 0; i < 5; i++) {
-            this.list[this.swiperIndex].content.push(
-                this.list[this.swiperIndex].title + '下拉-' + i
-            );
-          }
-          uni.hideLoading();
-        }, 1000);
-        setTimeout(() => {
-          this.refreStatus = false;
-        }, 1000);
+        self.$emit('refresh', {
+          context: self,
+          refreshList,
+        })
       } else {
         setTimeout(() => {
           uni.hideLoading();
