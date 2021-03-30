@@ -5,6 +5,7 @@
 ## log
 ### 0.1.1-20210330
 1. 简单封装swiper+listview [demos/mime-order]
+2. picker
 
 ### 0.1.1-20210329
 1. 手机登录弹窗
