@@ -1,7 +1,8 @@
 
 ## TODO
 1. 支付方式
-2. webview-link component
+2. al-image 支持error fallback插槽
+3. webview-link component
 
 ## log
 ### 0.1.1-20210330
