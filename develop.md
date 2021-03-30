@@ -1,11 +1,13 @@
 
 ## TODO
-1. modal
+1. 支付方式
+2. webview-link component
 
 ## log
 ### 0.1.1-20210330
 1. 简单封装swiper+listview [demos/mime-order]
 2. picker
+3. modal
 
 ### 0.1.1-20210329
 1. 手机登录弹窗
