@@ -1,7 +1,6 @@
 
 ## TODO
-1. al-image 支持error fallback插槽
-2. webview-link component
+1. webview-link component
 
 ## log
 ### 0.1.1-20210331
