@@ -37,11 +37,10 @@ $sel: ".al-modal";
 </template>
 
 <script>
-import UniPopup from "@/uni_modules/uni-popup/components/uni-popup/uni-popup";
 export default {
   name: "al-modal",
   mixins: [],
-  components: {UniPopup},
+  components: {},
   props: {
     position: String
   },
