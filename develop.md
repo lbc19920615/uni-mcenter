@@ -1,10 +1,12 @@
 
 ## TODO
-1. 支付方式
-2. al-image 支持error fallback插槽
-3. webview-link component
+1. al-image 支持error fallback插槽
+2. webview-link component
 
 ## log
+### 0.1.1-20210331
+1. 支付方式
+
 ### 0.1.1-20210330
 1. 简单封装swiper+listview [demos/mime-order]
 2. picker
