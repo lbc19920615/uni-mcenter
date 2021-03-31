@@ -1,6 +1,7 @@
 
 ## TODO
 1. al-image error slot
+2. 优化主包大小
 
 ## log
 ### 0.1.1-20210331
