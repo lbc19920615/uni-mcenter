@@ -6,7 +6,7 @@
 
 <script>
 	import {pageMixin} from "@/utils/mixins/page";
-  import SsHycamera from "@/components/ss-hycamera/ss-hycamera";
+  import SsHycamera from "./components/ss-hycamera";
 
   export default {
     components: {SsHycamera},

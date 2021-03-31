@@ -7,7 +7,7 @@
 </template>
 
 <script>
-	import UCharts from "./components/u-charts";
+	import UCharts from "../lib/u-charts/u-charts/u-charts.vue";
   export default {
     components: {UCharts},
     data() {

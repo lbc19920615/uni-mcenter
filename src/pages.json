@@ -84,7 +84,7 @@
 
         }
         ,{
-            "path" : "pages/demos/mini_camera",
+            "path" : "sub_pages/demos/mini_camera",
 			"name": "demos_camera",
             "style" :
             {
@@ -347,8 +347,8 @@
 				"scene": null
 			},
 			{
-				"name": "pages/demos/mini_camera",
-				"pathName": "pages/demos/mini_camera",
+				"name": "sub_pages/demos/mini_camera",
+				"pathName": "sub_pages/demos/mini_camera",
 				"scene": null
 			}
 		]
