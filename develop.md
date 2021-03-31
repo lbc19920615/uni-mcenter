@@ -6,6 +6,7 @@
 ## log
 ### 0.1.1-20210331
 1. 支付方式
+2. 添加al-image 
 
 ### 0.1.1-20210330
 1. 简单封装swiper+listview [demos/mime-order]
