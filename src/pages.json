@@ -213,6 +213,15 @@
 					}
 				},
 				{
+					"path" : "demos/webview",
+					"name": "demos-webview",
+					"style" :
+					{
+						"navigationBarTitleText": "webview",
+						"enablePullDownRefresh": false
+					}
+				},
+				{
 					"path" : "demos/modal",
 					"style" :
 					{
