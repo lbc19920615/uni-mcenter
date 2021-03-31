@@ -18,6 +18,7 @@ $sel: ".al-image";
 
 <script>
 import { processState } from "@/var";
+import kebabCase from 'lodash/kebabCase'
 
 // console.log(processState.PENDING.key)
 
@@ -36,7 +37,7 @@ export default {
   },
   computed: {
     getCls() {
-      let state = this.$utils.lodash.kebabCase(this.state.key)
+      let state = kebabCase(this.state.key)
       return {
         ['al-image--load-' + state]: 1
       }

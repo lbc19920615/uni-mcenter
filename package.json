@@ -65,6 +65,7 @@
     "core-js": "^2.6.5",
     "enum": "^3.0.4",
     "flyio": "^0.6.2",
+    "lodash": "^4.17.21",
     "mp-painter": "^0.2.13",
     "mp-storage": "^1.0.3",
     "object-path": "^0.11.5",

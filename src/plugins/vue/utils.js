@@ -6,10 +6,7 @@ import objectPath from 'object-path'
 
 import deepClone from 'clone-deep'
 
-import kebabCase from 'lodash/kebabCase'
-
 let lodash = {
-	kebabCase
 }
 
 const ObjUtils = {
