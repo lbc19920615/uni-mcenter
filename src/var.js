@@ -83,3 +83,18 @@ export let miniPages = [
 		url: "/pages/demos/mini_camera"
 	}
 ];
+
+export let payTypes = [
+	{
+		name: '支付宝',
+		value: 1
+	},
+	{
+		name: '微信',
+		value: 2
+	},
+	{
+		name: '招行',
+		value: 3
+	},
+]

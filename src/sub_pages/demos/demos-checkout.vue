@@ -9,7 +9,8 @@ $sel: ".page-demos-checkout";
 
 <template>
 <app-page class="page-demos-checkout">
-  <pay-type-select></pay-type-select>
+<!--  {{model}}-->
+  <pay-type-select v-model="model.pay_type"></pay-type-select>
 </app-page>
 </template>
 
@@ -21,7 +22,11 @@ mixins: [],
 components: {PayTypeSelect},
 props: {},
 data() {
-    return {}
+    return {
+      model: {
+        pay_type: ''
+      }
+    }
 },
 methods: {}
 }
