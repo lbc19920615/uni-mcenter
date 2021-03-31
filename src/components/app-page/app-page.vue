@@ -1,6 +1,6 @@
 <template>
   <view class="page app-page"
-        :class="pageSkin">
+        :class="[pageSkin, pageClass]">
     <slot></slot>
   </view>
 </template>
@@ -13,7 +13,8 @@ export default {
     pdt: {
       type: Number,
       default: 0
-    }
+    },
+    pageClass: String
   },
   mixins: [
       pageMixin

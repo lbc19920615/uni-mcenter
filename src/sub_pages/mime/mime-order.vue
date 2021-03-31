@@ -1,5 +1,5 @@
 <template>
-  <app-page class="page-mime-order">
+  <app-page page-class="page-mime-order">
     <swiper-listview @refresh="refreshSwiperItem" @scroll-to-lower="scrollToLower"></swiper-listview>
   </app-page>
 </template>
@@ -51,5 +51,14 @@ page, .page-mime-order {
 
 #{$sel} {
   font-size: 32rpx;
+  .swiper-listview {
+    height: 100%;
+  }
+
+// #ifndef H5
+  swiper-listview {
+    height: 100%;
+  }
+// #endif
 }
 </style>
