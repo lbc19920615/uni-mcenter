@@ -205,6 +205,14 @@
 					}
 				},
 				{
+					"path" : "demos/demos-link",
+					"style" :
+					{
+						"navigationBarTitleText": "demos-link",
+						"enablePullDownRefresh": false
+					}
+				},
+				{
 					"path" : "demos/modal",
 					"style" :
 					{

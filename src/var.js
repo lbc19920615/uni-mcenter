@@ -67,6 +67,16 @@ export let demoPages = [
 		url: "/sub_pages/demos/modal"
 	},
 	{
+		name: "demos-image",
+		icon: "/static/c1.png",
+		url: "/sub_pages/demos/demos-image"
+	},
+	{
+		name: "demos-link",
+		icon: "/static/c1.png",
+		url: "/sub_pages/demos/demos-link"
+	},
+	{
 		name: "弹窗login",
 		icon: "/static/c1.png",
 		url: "/pages/auth/login"
