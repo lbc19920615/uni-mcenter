@@ -197,6 +197,14 @@
 					}
 				},
 				{
+					"path" : "demos/demos-image",
+					"style" :
+					{
+						"navigationBarTitleText": "demos-image",
+						"enablePullDownRefresh": false
+					}
+				},
+				{
 					"path" : "demos/modal",
 					"style" :
 					{

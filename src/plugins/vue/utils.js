@@ -6,6 +6,12 @@ import objectPath from 'object-path'
 
 import deepClone from 'clone-deep'
 
+import kebabCase from 'lodash/kebabCase'
+
+let lodash = {
+	kebabCase
+}
+
 const ObjUtils = {
 	getObjByPath(obj, path, defaultVal) {
 		if (!obj) {
@@ -37,6 +43,7 @@ const utils = {
     }
     return false
   },
+	lodash,
   money,
 	/**
 	 * rpx to px

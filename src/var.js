@@ -1,3 +1,5 @@
+import Enum from 'enum'
+
 export let demoPages = [
 	{
 		name: "图片拖动排序",
@@ -98,3 +100,5 @@ export let payTypes = [
 		value: 3
 	},
 ]
+
+export let processState = new Enum(['PENDING', 'FULFILLED', 'REJECTED'])
