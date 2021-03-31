@@ -92,7 +92,7 @@ export let miniPages = [
 	{
 		name: "相机",
 		icon: "/static/c1.png",
-		url: "/pages/demos/mini_camera"
+		url: "/sub_pages/demos/mini_camera"
 	}
 ];
 
