@@ -189,6 +189,14 @@
 					}
 				},
 				{
+					"path" : "demos/demos-checkout",
+					"style" :
+					{
+						"navigationBarTitleText": "demos-checkout",
+						"enablePullDownRefresh": false
+					}
+				},
+				{
 					"path" : "demos/modal",
 					"style" :
 					{
@@ -306,6 +314,11 @@
 			{
 				"name": "sub_pages/demos/charts",
 				"pathName": "sub_pages/demos/charts",
+				"scene": null
+			},
+			{
+				"name": "sub_pages/demos/demos-checkout",
+				"pathName": "sub_pages/demos/demos-checkout",
 				"scene": null
 			},
 			{
