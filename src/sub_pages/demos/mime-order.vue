@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import SwiperListview from "@/sub_pages/mime/components/swiper-listview";
+import SwiperListview from "./components/swiper-listview";
 export default {
   name: "page-mime-order",
   components: {SwiperListview},

@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import io from "@/lib/uni-socket.io/uni-socket.io";
+import io from "../lib/uni-socket.io/uni-socket.io";
 
 export default {
   data() {

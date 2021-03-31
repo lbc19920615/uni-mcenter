@@ -84,16 +84,6 @@
 
         }
         ,{
-            "path" : "sub_pages/demos/mini_camera",
-			"name": "demos_camera",
-            "style" :
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-
-        }
-        ,{
             "path" : "pages/auth/login",
 			"name": "auth_login",
             "style" :
@@ -172,7 +162,7 @@
 				    }
 				},
 				{
-					"path" : "mime/mime-order",
+					"path" : "demos/mime-order",
 					"name": "mime-order",
 					"style" :
 					{
@@ -187,6 +177,16 @@
 						"navigationBarTitleText": "actionsheet",
 						"enablePullDownRefresh": false
 					}
+				},
+				{
+					"path" : "demos/mini_camera",
+					"name": "demos_camera",
+					"style" :
+					{
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+
 				},
 				{
 					"path" : "demos/demos-checkout",
