@@ -11,7 +11,6 @@ Vue.config.productionTip = false
 import utils from '@/plugins/vue/utils.js'
 Vue.use(utils)
 
-
 import AppPage from '@/components/app-page/app-page';
 Vue.component('app-page', AppPage);
 
