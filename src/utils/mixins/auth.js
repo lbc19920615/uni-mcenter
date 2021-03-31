@@ -12,3 +12,35 @@ export let authLoginMixin = {
 		}
 	}
 }
+
+export let authSettingMixin = {
+	methods: {
+		isAuthorizeSetting(scope, cb) {
+			let self = this;
+			let scopeName = 'scope.' + scope
+			wx.getSetting({
+				success(res) {
+					if (!res.authSetting[scopeName]) {
+						wx.authorize({
+							scope: scopeName,
+							success() {
+								if (typeof cb == "function") {
+									cb(res)
+								}
+							},
+							fail(e) {
+								if (typeof cb == "function") {
+									cb(e)
+								}
+							}
+						})
+					} else {
+						if (typeof cb == "function") {
+							cb()
+						}
+					}
+				}
+			})
+		}
+	}
+}
