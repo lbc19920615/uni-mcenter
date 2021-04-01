@@ -24,11 +24,12 @@ export let pageMixin = {
 	},
 	mounted() {
 		let self = this
-		uni.onThemeChange(function (res) {
-		  // console.log(res.theme);
-			self.pageSkin = res.theme
-			self._pageSetTheme(res.theme)
-		});
+		console.log('sdsds', uni)
+		// uni.onThemeChange(function (res) {
+		//   // console.log(res.theme);
+		// 	self.pageSkin = res.theme
+		// 	self._pageSetTheme(res.theme)
+		// });
 	},
 	computed: {
 		// ...mapGetters([

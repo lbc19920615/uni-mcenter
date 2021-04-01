@@ -1,19 +1,80 @@
 <template>
 	<app-page>
-<!--    <index-header-->
-<!--                  placeholder="考研政治徐涛"-->
-<!--    @click-action="clickAction"-->
-<!--    ></index-header>-->
-		<view class="swiper"
-          :autoplay="true">
+    <index-header
+                  placeholder="考研政治徐涛"
+    @click-action="clickAction"
+    ></index-header>
+    <scroll-view class="nav-scroll"
+                 :enable-flex="true"
+                 scroll-with-animation
+                 :throttle="false"
+                 :scroll-left="scrollToLeft" scroll-x @scroll="handleScroll">
+			<view class="nav uni-nav">
+				<view class="nav-item"
+              :class="swiperIndex == index ? 'nav-item-act' : ''"
+              :key="index" v-for="(item, index) in list" @click="taggleNav(index)">
+					{{ item.title }}
+				</view>
+				<view class="nav-line" :style="style"></view>
+			</view>
+		</scroll-view>
+		<view class="swiper">
 			<swiper :current="swiperIndex"
-              class="swiper-1"
-              :interval="1000"
-              >
+              :duration="300" class="swiper-1"
+              easing-function="linear"
+              @change="swiperChange"
+      >
 				<swiper-item v-for="(item, index) in list"
                      class="index-fragment"
+                     :class="['index-fragment-' + index]"
                      :key="item.uuid">
-          <view class="other-griditem" > <text class="text"> ali {{index}}</text></view>
+					<scroll-view
+						:lower-threshold="80"
+						:refresher-triggered="refreStatus"
+						@refresherrefresh="handleRefresh"
+						 :refresher-threshold="50"
+						 :upper-threshold="30"
+						:refresher-enabled="true"
+						class="swiper-scroll"
+						scroll-y="true"
+						@scroll="swiperScroll"
+						@scrolltoupper="swiperScrolltoupper"
+						@scrolltolower="swiperScrollLower"
+					>
+						<view class="swiper-item-wrap">
+							<view class="swiper-item-list"
+							v-for="(sub_item, sub_item_index) in item.content"
+
+							:key="sub_item_index">
+                <!-- #ifdef MP-WEIXIN || H5 -->
+                <template v-if="index === 0">
+                  <!--      start 首页            -->
+                  <view class="ui-m-t-20 ui-m-b-20"
+                        v-if="sub_item_index === 0"
+                  >
+                    <index-swiper></index-swiper>
+                  </view>
+                  <view class="other-griditem"  v-else-if="sub_item_index === 1" >
+                    <index-routes></index-routes>
+                  </view>
+                  <view class="other-griditem" v-else>
+                    <app-class-card :item="sub_item"
+                                    :index="sub_item_index"
+                                    @click-card="onClickCard"
+                    ></app-class-card>
+                  </view>
+                  <!--      end 首页            -->
+                </template>
+                <template v-else>
+                  <view class="other-griditem" > <text class="text"> {{sub_item_index}}</text> <text class="text">{{sub_item}}</text></view>
+                </template>
+                <!-- #endif -->
+                <!-- #ifdef MP-ALIPAY -->
+                <view class="other-griditem" > <text class="text"> ali</text></view>
+                <!-- #endif -->
+							</view>
+						</view>
+					</scroll-view>
 				</swiper-item>
 			</swiper>
 		</view>
@@ -41,10 +102,36 @@ const mockData = [
 				{ title: '测试-5', content: ['测试-5-1', '测试-5-2', '测试-5-3', '测试-5-4', '测试-5-5'] }
 			]
 
+let indexHeaderMixin = {
+  methods: {
+    clickAction(type) {
+      if (type === 'action0') {
+        router.push({
+          path: '/pages/demos/search_page'
+        })
+      }
+    }
+  }
+}
+
+let indexCardMixin = {
+	methods: {
+		onClickCard(e) {
+			router.push({
+			  name: 'course_detail',
+        params: {
+          course_uuid: Date.now()
+        }
+			})
+		}
+	}
+}
+
 export default {
   components: {IndexHeader, AppClassCard, IndexRoutes, IndexSwiper},
   mixins: [
-
+    indexHeaderMixin,
+    indexCardMixin,
 	],
 	data() {
 		return {
@@ -192,18 +279,100 @@ export default {
 <style lang="scss" >
 @import "../../styles/alh";
 
+$headerBarHeight: 80rpx;
+
+.app-page {
+	padding-top: $headerBarHeight;
+}
+
+@include def-com-style('.index-header') {
+	height: $headerBarHeight;
+}
+
 page, .app-page {
 	height: 100%;
 }
 
+.container {
+	height: 100%;
+	overflow: hidden;
+}
+
+$navHeight: 60rpx;
+$paddingV: 20rpx;
+
+.nav-item {
+	display: inline-block;
+	margin: 0 16rpx;
+	text-align: center;
+	transition: color 0.3s ease;
+}
+
+.nav {
+	white-space: nowrap;
+	position: relative;
+	height: $navHeight;
+	padding: 20rpx 0;
+  font-size: 32rpx;
+}
+
+.nav-item-act {
+	color: pink;
+	font-weight: bolder;
+}
+
+.nav-line {
+	position: absolute;
+	bottom: 0;
+	height: 10rpx;
+	border-radius: 10rpx;
+	background-color: pink;
+	transition: left 0.3s ease;
+}
+
 .swiper {
-  height: 100vh;
-  > .swiper-1 {
-    height: 100% !important;
+	height: calc(100% - #{$navHeight + $paddingV * 2});
+	> swiper {
+		height: 100%;
+	}
+}
+
+swiper-item {
+	position: relative;
+}
+
+$swiperListItemHeight: 600rpx;
+.index-fragment {
+  .other-griditem {
+    padding: 0 30rpx;
+    .text {
+      font-size: 32rpx;
+    }
   }
-  .index-fragment {
-    height: 100%;
+
+  &:not(.index-fragment-0) {
+    .other-griditem {
+      height: $swiperListItemHeight;
+    }
   }
 }
+
+.index-fragment-0 {
+  .swiper-item-wrap {
+
+    background-image: linear-gradient(
+            180deg
+        , rgba(245, 245, 250, 0) 350rpx, 750rpx, #F5F5FA);
+  }
+
+  .other-griditem {
+    margin-top: 30rpx;
+  }
+}
+
+.swiper-scroll {
+	height: 100%;
+}
+
 
 </style>
