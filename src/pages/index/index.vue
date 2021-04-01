@@ -40,6 +40,8 @@
               @scroll="swiperScroll"
               @scrolltoupper="swiperScrolltoupper"
               @scrolltolower="swiperScrollLower"
+              catch-touch-start=""
+              catch-touch-move=""
           >
             <view class="swiper-item-wrap">
               <view class="swiper-item-list"
@@ -47,6 +49,7 @@
 
                     :key="sub_item_index">
                 <template v-if="index === 0">
+<!--       #ifndef MP-ALIPAY           -->
                   <!--      start 首页            -->
                   <view class="ui-m-t-20 ui-m-b-20"
                         v-if="sub_item_index === 0"
@@ -63,6 +66,10 @@
                     ></app-class-card>
                   </view>
                   <!--      end 首页            -->
+<!--       #endif          -->
+<!--       #ifdef MP-ALIPAY           -->
+                  <view class="other-griditem" > <text class="text"> {{sub_item_index}}</text> <text class="text">{{sub_item}}</text></view>
+<!--       #endif          -->
                 </template>
                 <template v-else>
                   <view class="other-griditem" > <text class="text"> {{sub_item_index}}</text> <text class="text">{{sub_item}}</text></view>
@@ -161,7 +168,8 @@ export default {
       //  #ifdef MP-ALIPAY
       setTimeout(() => {
         this.init();
-      }, 1000)
+        this.getData();
+      }, 0)
       // #endif
     })
   },
@@ -235,22 +243,29 @@ export default {
         title: `此时为${this.list[this.swiperIndex].title}触底`
       });
       setTimeout(() => {
+        uni.hideToast()
         this.getData();
       }, 500);
     },
     // 生成列表数据
     getData() {
+	  let self = this	
       uni.showLoading({
         title: '加载中'
       });
       setTimeout(() => {
+	    let arr = this.list[this.swiperIndex].content;
+		let tem = []		  
         for (let index = 0; index < 10; index++) {
-          let arr = this.list[this.swiperIndex].content;
-          this.$set(arr, arr.length, Math.random() + '-' + index + this.list[this.swiperIndex].title);
+			tem.push(Math.random() + '-' + index + this.list[this.swiperIndex].title)
+          // this.$set(arr, arr.length, Math.random() + '-' + index + this.list[this.swiperIndex].title);
         }
+		// this.$set(arr, arr.length, Math.random() + '-' + index + this.list[this.swiperIndex].title);
+		self.$set(arr, arr.length, tem[0]);
+				console.log(arr)
         uni.hideLoading();
       }, 1000);
-      console.log(this.list[this.swiperIndex]);
+      // console.log(this.list[this.swiperIndex]);
     },
     // 下拉事件
     handleRefresh() {
@@ -352,12 +367,19 @@ $swiperListItemHeight: 600rpx;
       font-size: 32rpx;
     }
   }
+ // #ifdef MP-ALIPAY
+    .other-griditem {
+      height: $swiperListItemHeight;
+    }
+	// #endif
 
+  // #ifndef MP-ALIPAY
   &:not(.index-fragment-0) {
     .other-griditem {
       height: $swiperListItemHeight;
     }
   }
+// #endif
 }
 
 .index-fragment-0 {
