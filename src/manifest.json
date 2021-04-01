@@ -71,6 +71,7 @@
     },
     "mp-alipay" : {
         "usingComponents" : true,
+        "enableParallelLoader": true,
 		"component2":  true
     },
     "mp-baidu" : {
