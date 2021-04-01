@@ -249,13 +249,13 @@ export default {
     },
     // 生成列表数据
     getData() {
-	  let self = this	
+	  let self = this
       uni.showLoading({
         title: '加载中'
       });
       setTimeout(() => {
 	    let arr = this.list[this.swiperIndex].content;
-		let tem = []		  
+		let tem = []
         for (let index = 0; index < 10; index++) {
 			tem.push(Math.random() + '-' + index + this.list[this.swiperIndex].title)
           // this.$set(arr, arr.length, Math.random() + '-' + index + this.list[this.swiperIndex].title);
