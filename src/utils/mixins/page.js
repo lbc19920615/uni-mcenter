@@ -24,12 +24,13 @@ export let pageMixin = {
 	},
 	mounted() {
 		let self = this
-		console.log('sdsds', uni)
-		// uni.onThemeChange(function (res) {
-		//   // console.log(res.theme);
-		// 	self.pageSkin = res.theme
-		// 	self._pageSetTheme(res.theme)
-		// });
+		if (uni.onThemeChange) {
+			uni.onThemeChange(function (res) {
+			  // console.log(res.theme);
+				self.pageSkin = res.theme
+				self._pageSetTheme(res.theme)
+			});
+		}
 	},
 	computed: {
 		// ...mapGetters([

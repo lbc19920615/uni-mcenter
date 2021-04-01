@@ -40,12 +40,15 @@ $sel: ".swiper-listview";
   .swiper {
     height: calc(100% - #{$navHeight + $paddingV * 2});
     > swiper {
-      height: 100%;
+      height: 100% !important;
     }
   }
 
-  swiper-item {
-    position: relative;
+  // swiper-item {
+  //   position: relative;
+  // }
+  .index-fragment {
+	  height: 100%;
   }
 }
 </style>
@@ -175,6 +178,10 @@ export default {
     // 点击导航切换swiper
     taggleNav(val) {
       this.swiperIndex = val;
+	  // #ifdef MP-ALIPAY
+	  	  console.log('this.swiperIndex', this.swiperIndex)
+	    this.scrollTabNavDom();
+	  // #endif
     },
     // 滚动tabs以及移动下划线
     scrollTabNavDom() {
