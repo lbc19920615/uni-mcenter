@@ -1,5 +1,5 @@
 <template>
-  <view class="index-header" :style="headerStyle">
+  <view class="index-header">
     <view class="index-header__inner">
       <view class="index-header-input" @click="clickAction('action0')">
         <image class="index-header__icon"
@@ -62,7 +62,7 @@ export default {
 $sel: ".index-header";
 
 #{$sel} {
-  position: fixed; left: 0; top: 0; width: 100%;
+  width: 100%;
   padding: 0 $commonPaddingH;
   box-sizing: border-box;
   &__inner {

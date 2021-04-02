@@ -1,10 +1,10 @@
 <template>
   <app-page page-class="page-index-index">
     <!--       #ifndef APP-NVUE           -->
-<!--    <index-header
+   <index-header
         placeholder="考研政治徐涛"
         @click-action="clickAction"
-    ></index-header> -->
+    ></index-header>
     <scroll-view class="nav-scroll"
                  :enable-flex="true"
                  scroll-with-animation
@@ -321,17 +321,22 @@ export default {
 @import "../../styles/alh";
 
 $headerBarHeight: 80rpx;
+$swiperListItemHeight: 600rpx;
 
 @include def-com-style('.index-header') {
   height: $headerBarHeight;
 }
 
-page, .app-page {
-  height: 100%;
-}
-
 $navHeight: 60rpx;
 $paddingV: 20rpx;
+
+page, .page-index-index {
+  height: 100%;
+}
+.page-index-index {
+	position: absolute;
+	width: 100%;
+}
 
 .nav-item {
   display: inline-block;
@@ -363,13 +368,16 @@ $paddingV: 20rpx;
 }
 
 .swiper {
-  height: calc(100% - #{$navHeight + $paddingV * 2});
+  height: calc(100% - #{$navHeight + $paddingV * 2} - #{$headerBarHeight});
   > swiper {
     height: 100% !important;
   }
 }
+.swiper-scroll {
+  height: 100%;
+}
 
-$swiperListItemHeight: 600rpx;
+// index-fragment
 .index-fragment {
   height: 100%;
 
@@ -382,28 +390,18 @@ $swiperListItemHeight: 600rpx;
 
   // #ifndef APP-NVUE
   &:not(.index-fragment-0) {
+	background-color: #007AFF;
     .other-griditem {
       height: $swiperListItemHeight;
+	  color: #FFFFFF;
     }
   }
   // #endif
 }
 
 .index-fragment-0 {
-  .swiper-item-wrap {
-
-    background-image: linear-gradient(
-            180deg
-        , rgba(245, 245, 250, 0) 350rpx, 750rpx, #F5F5FA);
-  }
-
   .other-griditem {
     margin-top: 30rpx;
   }
 }
-
-.swiper-scroll {
-  height: 100%;
-}
-
 </style>
