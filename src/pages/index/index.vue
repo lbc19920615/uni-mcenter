@@ -1,10 +1,10 @@
 <template>
   <app-page page-class="page-index-index">
-    <!--       #ifndef MP-ALIPAY           -->
-    <index-header
+    <!--       #ifndef APP-NVUE           -->
+<!--    <index-header
         placeholder="考研政治徐涛"
         @click-action="clickAction"
-    ></index-header>
+    ></index-header> -->
     <scroll-view class="nav-scroll"
                  :enable-flex="true"
                  scroll-with-animation
@@ -44,8 +44,7 @@
           >
             <view class="swiper-item-wrap">
               <view class="swiper-item-list"
-                    v-for="(sub_item, sub_item_index) in item.content"
-
+                    v-for="(sub_item, sub_item_index) in contents"
                     :key="sub_item_index">
                 <template v-if="index === 0">
                   <!--      start 首页            -->
@@ -55,7 +54,12 @@
                     <index-swiper></index-swiper>
                   </view>
                   <view class="other-griditem"  v-else-if="sub_item_index === 1" >
+					  <!-- #ifdef MP-WEIXIN || H5 -->
                     <index-routes></index-routes>
+					<!-- #endif -->
+					<!-- #ifdef MP-ALIPAY -->
+					demos
+					<!-- #endif -->
                   </view>
                   <view class="other-griditem" v-else>
                     <app-class-card :item="sub_item"
@@ -77,11 +81,22 @@
     <!--  #endif  -->
 
     <!--       #ifdef MP-ALIPAY           -->
-    <view class="swiper-item-wrap" @touchstart.stop.prevent="touchStartAli"  @touchmove.stop.prevent="touchMoveAli">
-      <view class="swiper-item-list"  v-for="(sub_item, sub_item_index) in contents">
-        <view class="other-griditem" > <text class="text"> {{sub_item_index}}</text> <text class="text">{{sub_item}}</text></view>
-      </view>
-    </view>
+<!-- 	<swiper>
+		<swiper-item>
+			<scroll-view scroll-y="true" class="swiper-item-wrap" >
+		   <view class="swiper-item-list"  v-for="(sub_item, sub_item_index) in contents">
+			 <view class="other-griditem" > <text class="text"> {{sub_item_index}}</text> <text class="text">{{sub_item}}</text></view>
+		   </view>
+		 </scroll-view>
+		</swiper-item>
+		<swiper-item>
+		   <scroll-view scroll-y="true" class="swiper-item-wrap" >
+			  <view class="swiper-item-list"  v-for="(sub_item, sub_item_index) in contents">
+				<view class="other-griditem" > <text class="text"> {{sub_item_index}}</text> <text class="text">{{sub_item}}</text></view>
+			  </view>
+			</scroll-view>
+		</swiper-item>
+	</swiper> -->
     <!--       #endif          -->
   </app-page>
 </template>
@@ -155,13 +170,15 @@ export default {
       }),
       demoList: demoPages,
       refreStatus: false,
-      contents: [],
     };
   },
   computed: {
     style() {
-      return `width:${this.navItemWidth}px; left:${this.navItemLeft}px`;
-    }
+		return `width:${this.navItemWidth}px; left:${this.navItemLeft}px`;
+    },
+	contents() {
+		return this.list[this.swiperIndex].content
+	}
   },
   onLoad() {
     this.$nextTick(() => {
@@ -171,7 +188,7 @@ export default {
       // #endif
       //  #ifdef MP-ALIPAY
       setTimeout(() => {
-        this.getData();
+		this.init();
       }, 0)
       // #endif
     })
@@ -237,7 +254,6 @@ export default {
     },
     swiperScrolltoupper() {
       console.log('swiperScrolltoupper')
-      // this.IsSwiperScrolltoupper = true
     },
     // swiper-ScrollLower触底
     swiperScrollLower() {
@@ -262,12 +278,9 @@ export default {
         for (let index = 0; index < 10; index++) {
           tem.push(Math.random() + '-' + index + self.list[this.swiperIndex].title)
         }
-        // self.$set(self.list[this.swiperIndex], 'content', arr.concat(tem));
-        self.$set(self, 'contents', arr.concat(tem));
-        console.log(self.contents)
+        self.$set(self.list[this.swiperIndex], 'content', arr.concat(tem));
         uni.hideLoading();
       }, 1000);
-      // console.log(this.list[this.swiperIndex]);
     },
     // 下拉事件
     handleRefresh() {
@@ -309,23 +322,12 @@ export default {
 
 $headerBarHeight: 80rpx;
 
-// #ifndef MP-ALIPAY
-.app-page {
-  padding-top: $headerBarHeight;
-}
-// #endif
-
 @include def-com-style('.index-header') {
   height: $headerBarHeight;
 }
 
 page, .app-page {
   height: 100%;
-}
-
-.container {
-  height: 100%;
-  overflow: hidden;
 }
 
 $navHeight: 60rpx;
@@ -378,13 +380,13 @@ $swiperListItemHeight: 600rpx;
     }
   }
 
-  // #ifndef MP-ALIPAY
+  // #ifndef APP-NVUE
   &:not(.index-fragment-0) {
     .other-griditem {
       height: $swiperListItemHeight;
     }
   }
-// #endif
+  // #endif
 }
 
 .index-fragment-0 {
@@ -404,16 +406,4 @@ $swiperListItemHeight: 600rpx;
   height: 100%;
 }
 
-// #ifdef MP-ALIPAY
-.swiper-item-wrap {
-  overflow: hidden;
-  background-color: #2D87D5;
-}
-// #endif
-
-// #ifdef MP-ALIPAY
-.other-griditem {
-  height: $swiperListItemHeight;
-}
-// #endif
 </style>
