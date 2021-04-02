@@ -1,9 +1,10 @@
 <template>
   <app-page page-class="page-index-index">
-        <index-header
-            placeholder="考研政治徐涛"
-            @click-action="clickAction"
-        ></index-header>
+    <!--       #ifndef MP-ALIPAY           -->
+    <index-header
+        placeholder="考研政治徐涛"
+        @click-action="clickAction"
+    ></index-header>
     <scroll-view class="nav-scroll"
                  :enable-flex="true"
                  scroll-with-animation
@@ -40,8 +41,6 @@
               @scroll="swiperScroll"
               @scrolltoupper="swiperScrolltoupper"
               @scrolltolower="swiperScrollLower"
-              catch-touch-start=""
-              catch-touch-move=""
           >
             <view class="swiper-item-wrap">
               <view class="swiper-item-list"
@@ -49,7 +48,6 @@
 
                     :key="sub_item_index">
                 <template v-if="index === 0">
-<!--       #ifndef MP-ALIPAY           -->
                   <!--      start 首页            -->
                   <view class="ui-m-t-20 ui-m-b-20"
                         v-if="sub_item_index === 0"
@@ -66,10 +64,6 @@
                     ></app-class-card>
                   </view>
                   <!--      end 首页            -->
-<!--       #endif          -->
-<!--       #ifdef MP-ALIPAY           -->
-                  <view class="other-griditem" > <text class="text"> {{sub_item_index}}</text> <text class="text">{{sub_item}}</text></view>
-<!--       #endif          -->
                 </template>
                 <template v-else>
                   <view class="other-griditem" > <text class="text"> {{sub_item_index}}</text> <text class="text">{{sub_item}}</text></view>
@@ -80,6 +74,15 @@
         </swiper-item>
       </swiper>
     </view>
+    <!--  #endif  -->
+
+    <!--       #ifdef MP-ALIPAY           -->
+    <view class="swiper-item-wrap" @touchstart.stop.prevent="touchStartAli"  @touchmove.stop.prevent="touchMoveAli">
+      <view class="swiper-item-list"  v-for="(sub_item, sub_item_index) in contents">
+        <view class="other-griditem" > <text class="text"> {{sub_item_index}}</text> <text class="text">{{sub_item}}</text></view>
+      </view>
+    </view>
+    <!--       #endif          -->
   </app-page>
 </template>
 
@@ -151,7 +154,8 @@ export default {
         return v
       }),
       demoList: demoPages,
-      refreStatus: false
+      refreStatus: false,
+      contents: [],
     };
   },
   computed: {
@@ -167,7 +171,6 @@ export default {
       // #endif
       //  #ifdef MP-ALIPAY
       setTimeout(() => {
-        this.init();
         this.getData();
       }, 0)
       // #endif
@@ -249,20 +252,19 @@ export default {
     },
     // 生成列表数据
     getData() {
-	  let self = this
+      let self = this
       uni.showLoading({
         title: '加载中'
       });
       setTimeout(() => {
-	    let arr = this.list[this.swiperIndex].content;
-		let tem = []
+        let arr = JSON.parse(JSON.stringify(self.list[this.swiperIndex].content));
+        let tem = []
         for (let index = 0; index < 10; index++) {
-			tem.push(Math.random() + '-' + index + this.list[this.swiperIndex].title)
-          // this.$set(arr, arr.length, Math.random() + '-' + index + this.list[this.swiperIndex].title);
+          tem.push(Math.random() + '-' + index + self.list[this.swiperIndex].title)
         }
-		// this.$set(arr, arr.length, Math.random() + '-' + index + this.list[this.swiperIndex].title);
-		self.$set(arr, arr.length, tem[0]);
-				console.log(arr)
+        // self.$set(self.list[this.swiperIndex], 'content', arr.concat(tem));
+        self.$set(self, 'contents', arr.concat(tem));
+        console.log(self.contents)
         uni.hideLoading();
       }, 1000);
       // console.log(this.list[this.swiperIndex]);
@@ -291,6 +293,12 @@ export default {
           uni.hideLoading();
         }, 0)
       }
+    },
+    touchStartAli() {
+      console.log('touchStartAli')
+    },
+    touchMoveAli() {
+      console.log('touchMoveAli')
     }
   }
 };
@@ -301,9 +309,11 @@ export default {
 
 $headerBarHeight: 80rpx;
 
+// #ifndef MP-ALIPAY
 .app-page {
   padding-top: $headerBarHeight;
 }
+// #endif
 
 @include def-com-style('.index-header') {
   height: $headerBarHeight;
@@ -367,11 +377,6 @@ $swiperListItemHeight: 600rpx;
       font-size: 32rpx;
     }
   }
- // #ifdef MP-ALIPAY
-    .other-griditem {
-      height: $swiperListItemHeight;
-    }
-	// #endif
 
   // #ifndef MP-ALIPAY
   &:not(.index-fragment-0) {
@@ -399,5 +404,16 @@ $swiperListItemHeight: 600rpx;
   height: 100%;
 }
 
+// #ifdef MP-ALIPAY
+.swiper-item-wrap {
+  overflow: hidden;
+  background-color: #2D87D5;
+}
+// #endif
 
+// #ifdef MP-ALIPAY
+.other-griditem {
+  height: $swiperListItemHeight;
+}
+// #endif
 </style>
