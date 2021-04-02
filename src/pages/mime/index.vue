@@ -11,13 +11,13 @@
   @include def-com-style(".media-card__avatar") {
     background-color: var(--color-gray-200);
   }
-
+  
   font-size: 32rpx;
 }
 </style>
 
 <template>
-	<app-page class="page-mime">
+	<app-page page-class="page-mime">
     <view class="ui-pd-common-h">
       <media-card title="152****2116">
         <view>测试哦</view>
